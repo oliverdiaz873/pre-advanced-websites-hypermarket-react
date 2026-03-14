@@ -1,0 +1,190 @@
+/* src/components/styles/ProductCard.css */
+
+.producto {
+    background-color: white;
+    color: black;
+    padding: 12px;
+    border-radius: 12px;
+    width: 160px;
+    min-height: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.producto:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.producto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.producto:hover::before {
+    transform: scaleX(1);
+}
+
+.producto-img-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.producto-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.producto:hover .producto-img-container img {
+    transform: scale(1.05);
+}
+
+.producto-title {
+    font-size: 15px;
+    font-weight: 600 !important;
+    line-height: 1.25;
+    color: black;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 35px;
+    text-align: left;
+}
+
+.producto-price {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.btn-agregar {
+    width: 100%;
+    max-width: 120px;
+    align-self: center;
+    padding: 8px 0;
+    margin-top: auto;
+    background-color: #ffcc00;
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.btn-agregar:hover {
+    background-color: #ff9900;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Offer Card Specifics (Merged here for convenience in ProductCard) */
+.price-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8px 0;
+    height: 4.5rem;
+    width: 100%;
+}
+
+.price-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+.price-line:first-child::after {
+    content: " →";
+    color: #6b7280;
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+.texto-antes,
+.texto-ahora {
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 8px;
+    min-width: 45px;
+    text-align: right;
+}
+
+.precio-antiguo {
+    font-size: 13px;
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+.precio-nuevo {
+    font-size: 14px;
+    font-weight: 700;
+    color: #dc2626;
+    /* Red for price highlights on white cards */
+}
+
+@media (min-width: 768px) {
+    .producto {
+        width: 220px;
+        min-height: 350px;
+        padding: 20px;
+    }
+
+    .producto-img-container {
+        height: 150px;
+    }
+
+    .producto-title {
+        font-size: 18px;
+    }
+
+    .producto-price,
+    .precio-nuevo,
+    .precio-antiguo {
+        font-size: 16px;
+    }
+
+    .texto-antes,
+    .texto-ahora {
+        font-size: 14px;
+    }
+
+    .btn-agregar {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}

@@ -1,0 +1,99 @@
+/* src/components/styles/Header.css */
+
+.header-utils {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .header-utils {
+        gap: 0.75rem;
+        margin-left: 0;
+    }
+}
+
+.util-btn {
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    width: 33px;
+    height: 33px;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .util-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.util-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    transform: scale(1.1);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -1px;
+    right: -4px;
+    background-color: #dc2626;
+    color: white;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    line-height: 1;
+    font-size: 9px;
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .cart-badge {
+        font-size: 10px;
+    }
+}
+
+/* Search Dropdown Results */
+.search-results-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 10001;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+    .search-results-list {
+        width: 400px;
+    }
+}
+
+.search-results-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s;
+}
+
+.search-results-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

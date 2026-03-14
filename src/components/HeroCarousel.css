@@ -1,0 +1,81 @@
+/* src/components/HeroCarousel.css */
+
+.hero-carousel-section {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .hero-carousel-section {
+        width: 100%;
+    }
+}
+
+.hero-carousel-container {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    aspect-ratio: 3 / 1.1;
+    min-height: 200px;
+}
+
+@media (min-width: 768px) {
+    .hero-carousel-container {
+        aspect-ratio: 3 / 1;
+        min-height: 350px;
+    }
+}
+
+.hero-slides-wrapper {
+    will-change: transform;
+}
+
+.banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Hover effects for buttons */
+.hero-carousel-container:hover .hero-control-prev,
+.hero-carousel-container:hover .hero-control-next {
+    opacity: 1;
+}
+
+/* Smoothness and performance */
+@media (prefers-reduced-motion: reduce) {
+    .hero-slides-wrapper {
+        transition: none;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .hero-carousel-section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-carousel-container {
+        border-radius: 12px;
+        aspect-ratio: 16 / 9;
+    }
+
+    .hero-control-prev,
+    .hero-control-next {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hero-indicators button {
+        width: 8px;
+        height: 8px;
+    }
+
+    .hero-indicators .bg-white.scale-125.w-6 {
+        width: 16px;
+    }
+}

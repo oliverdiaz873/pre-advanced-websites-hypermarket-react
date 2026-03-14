@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+
+body {
+    overflow-x: hidden;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+/* Base link reset if needed */
+a {
+    transition: all 0.3s ease;
+}
