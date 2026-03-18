@@ -8,8 +8,8 @@
 
 body {
     overflow-x: hidden;
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #ffffff; /* Page background is now white */
+    color: #111827; /* Dark text for readability on white background */
 }
 
 /* Base link reset if needed */

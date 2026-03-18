@@ -1,13 +1,64 @@
+<!-- Página principal (index) del sitio web -->
+
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Meta etiquetas -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypermarket React App</title>
+    <meta name="description" content="Hipermercado Superior: tu destino para compras inteligentes con la mejor selección de productos.">
+    <meta name="keywords" content="hipermercado, compras online, supermercado, ofertas, productos frescos, calidad, ahorro">
+    <meta name="author" content="Oliver Antonio Díaz"/>
+    <meta name="robots" content="index, follow">  
+    <meta name="copyright" content="Oliver Antonio Díaz. Todos los derechos reservados.">
+    <meta name="theme-color" content="#ef4444">
+
+    <!-- Enlace Canónico -->
+    <link rel="canonical" href="https://www.hipermercadosuperior.com">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hipermercado Superior - Todo lo que necesitas en un solo lugar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hipermercadosuperior.com">
+    <meta property="og:image" content="/assets/images/logo/logo.png">
+    <meta property="og:description" content="Hipermercado Superior: tu destino para compras inteligentes con la mejor selección de productos.">
+    <meta property="og:site_name" content="Hipermercado Superior">
+    <meta property="og:locale" content="es_ES"> 
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hipermercado Superior - Todo lo que necesitas en un solo lugar">
+    <meta name="twitter:description" content="Tu destino para compras inteligentes con la mejor selección de productos.">
+    <meta name="twitter:image" content="/assets/images/logo/logo.png">
+
+    <!-- Título -->
+    <title>Hipermercado Superior | Compras inteligentes y productos de calidad</title>
+   
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/icons/favicons/icon-16x16.jpg" type="image/jpg" sizes="16x16">
+    <link rel="icon" href="/assets/icons/favicons/icon-32x32.jpg" type="image/jpg" sizes="32x32">
+    <link rel="icon" href="/assets/icons/favicons/icon-48x48.jpg" type="image/jpg" sizes="48x48">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+<!--
+Flujo de renderizado en React con Vite:
+
+1. El navegador carga index.html
+2. index.html contiene un div con id="root" que sirve como contenedor principal
+3. Se ejecuta el archivo main.tsx
+4. En main.tsx, React busca el elemento con id="root"
+5. React renderiza el componente principal <App /> dentro de ese div
+6. El componente App contiene toda la aplicación
+7. Todos los demás componentes (Navbar, Home, Footer, etc.) se renderizan dentro de App
+
+Conclusión:
+React inyecta el componente principal App dentro del div con id="root",
+y todo esto ocurre en el archivo main.tsx
+-->
+  
+    <div id="root"></div> <!-- Este div es donde React va a “inyectar” toda tu aplicación. -->
+    <script type="module" src="/src/main.tsx"></script> <!-- Aquí es donde arranca toda la lógica de React. -->
+
   </body>
 </html>

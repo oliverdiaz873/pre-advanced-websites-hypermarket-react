@@ -12,7 +12,7 @@ function App() {
     return (
         <Router>
             <Icons />
-            <div className="min-h-screen bg-[#1e1e1e] text-white">
+            <div className="min-h-screen">
                 <Header />
 
                 {/* Spacer for fixed header */}

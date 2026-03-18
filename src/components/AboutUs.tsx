@@ -1,9 +1,17 @@
+import { useRef } from 'react'
 import logoWithBg from '../assets/images/logo/logo_with_background.jpeg'
 import './AboutUs.css'
+import { useScrollScale } from '../hooks/useScrollScale'
 
 const AboutUs = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+    const scaleClass = useScrollScale(sectionRef);
+
     return (
-        <section className="about-us-section scale-100 w-[calc(100vw-40px)] max-w-full mx-auto mt-10 mb-6 md:mt-9 md:mb-10 bg-black text-white py-5 rounded-[20px] overflow-hidden">
+        <section 
+            ref={sectionRef}
+            className={`about-us-section ${scaleClass} transition-all duration-700 w-[calc(100vw-40px)] max-w-full mx-auto mt-10 mb-6 md:mt-9 md:mb-10 bg-black text-white py-5 rounded-[20px] overflow-hidden`}
+        >
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-16 px-5 py-4 md:px-8">
                 <img
                     src={logoWithBg}
