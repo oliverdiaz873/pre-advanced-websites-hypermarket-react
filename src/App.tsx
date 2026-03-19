@@ -18,7 +18,7 @@ function App() {
                 {/* Spacer for fixed header */}
                 <div className="h-[60px] xl:h-[85px]"></div>
 
-                <main className="px-4 pt-0 pb-4 md:px-8 md:pt-0 md:pb-8">
+                <main className="pt-0 pb-4 md:pt-0 md:pb-8">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/category/:categoryId" element={<Category />} />

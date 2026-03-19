@@ -18,7 +18,7 @@ const CartPage = () => {
     }
 
     return (
-        <section className="bg-black/80 rounded-[20px] p-8 mx-auto mb-10 max-w-[1000px] text-white">
+        <section className="bg-black/80 rounded-[20px] p-8 mx-auto mb-10 max-w-[1000px] text-white px-4 md:px-8">
             <h2 className="text-2xl font-bold mb-8 text-center bg-black/70 py-2 rounded-xl">Tu Carrito ({totalItems})</h2>
 
             <div className="space-y-4 mb-8">

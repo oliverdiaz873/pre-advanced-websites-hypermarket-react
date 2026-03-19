@@ -1,0 +1,48 @@
+/* 
+   ==========================================================================
+   ProductCarouselSection - Estilos de la Sección Contenedora
+   ==========================================================================
+   Este archivo maneja el diseño del "marco" exterior que envuelve a los carruseles.
+   Incluye el fondo oscuro, el espaciado y el estilo del título.
+*/
+
+/* Contenedor principal de la sección */
+.product-carousel-section {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con 80% de opacidad */
+    padding: 1.25rem; /* 20px de padding base (mobile) */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem; /* 40px de espacio inferior entre secciones */
+    width: 100%;
+}
+
+/* Ajustes para pantallas medianas (Desktops/Tablets) */
+@media (min-width: 768px) {
+    .product-carousel-section {
+        padding-top: 2.5rem; /* 40px de padding superior */
+        padding-bottom: 2.5rem; /* 40px de padding inferior */
+        padding-left: 2rem; /* 32px de padding lateral (md:px-8) */
+        padding-right: 2rem;
+    }
+}
+
+/* Estilo del título de la sección */
+.product-carousel-section__title {
+    font-size: 1.25rem; /* 20px base */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo un poco más claro para contraste */
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    border-radius: 0.75rem; /* rounded-xl (12px) */
+    margin-bottom: 1.25rem; /* mb-5 (20px) */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 700; /* Negrita */
+}
+
+@media (min-width: 768px) {
+    .product-carousel-section__title {
+        font-size: 1.5rem; /* 24px en desktop */
+    }
+}

@@ -1,6 +1,7 @@
-/* src/components/styles/ProductCard.css */
+/* Estilos del componente Tarjeta de Producto (ProductCard) */
 
 .producto {
+    /* Contenedor principal de la tarjeta blanca */
     background-color: white;
     color: black;
     padding: 12px;
@@ -17,11 +18,13 @@
     flex-shrink: 0;
 }
 
+/* Efecto de elevación al pasar el mouse */
 .producto:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
 }
 
+/* Línea decorativa superior que aparece al hacer hover */
 .producto::before {
     content: '';
     position: absolute;
@@ -39,6 +42,7 @@
     transform: scaleX(1);
 }
 
+/* Contenedor de la imagen del producto */
 .producto-img-container {
     height: 120px;
     display: flex;
@@ -48,6 +52,7 @@
     margin-bottom: 12px;
 }
 
+/* Ajuste de la imagen para que quepa proporcionalmente */
 .producto-img-container img {
     max-height: 100%;
     max-width: 100%;
@@ -55,17 +60,20 @@
     transition: transform 0.5s ease;
 }
 
+/* Zoom suave en la imagen al hacer hover */
 .producto:hover .producto-img-container img {
     transform: scale(1.05);
 }
 
+/* Título del producto con límite de 3 líneas y puntos suspensivos */
 .producto-title {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600 !important;
     line-height: 1.25;
     color: black;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    /* Limita a 3 líneas */
     line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -73,13 +81,42 @@
     text-align: left;
 }
 
+/* Estilo para el precio regular (sin oferta) */
 .producto-price {
-    font-size: 14px;
-    margin-top: 8px;
-    color: #1a1a1a;
-    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
 }
 
+/* Bloque contenedor de precios (usado para alinear nuevo y viejo) */
+.price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 4px 0 8px 0;
+    min-height: 24px;
+    width: 100%;
+}
+
+/* Precio actual/nuevo (específicamente negro y sin negrita extra) */
+.precio-nuevo {
+    font-size: 16px;
+    font-weight: 600;
+    /* Peso moderado, no bold extremo */
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Precio antiguo tachado y más pequeño */
+.precio-antiguo {
+    font-size: 13px;
+    text-decoration: line-through;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+/* Botón de agregar al carrito */
 .btn-agregar {
     width: 100%;
     max-width: 120px;
@@ -103,60 +140,13 @@
     z-index: 2;
 }
 
+/* Hover del botón de agregar */
 .btn-agregar:hover {
     background-color: #ff9900;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Offer Card Specifics (Merged here for convenience in ProductCard) */
-.price-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 8px 0;
-    height: 4.5rem;
-    width: 100%;
-}
-
-.price-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: 1.5;
-}
-
-.price-line:first-child::after {
-    content: " →";
-    color: #6b7280;
-    font-weight: bold;
-    margin-left: 6px;
-}
-
-.texto-antes,
-.texto-ahora {
-    font-size: 13px;
-    font-weight: 500;
-    margin-right: 8px;
-    min-width: 45px;
-    text-align: right;
-}
-
-.precio-antiguo {
-    font-size: 13px;
-    text-decoration: line-through;
-    color: #6b7280;
-}
-
-.precio-nuevo {
-    font-size: 14px;
-    font-weight: 700;
-    color: #dc2626;
-    /* Red for price highlights on white cards */
-}
-
+/* Ajustes para pantallas de escritorio (Desktop) */
 @media (min-width: 768px) {
     .producto {
         width: 220px;
@@ -168,18 +158,19 @@
         height: 150px;
     }
 
+    /* Aseguramos que en desktop el título también respete las 3 líneas y herede el tamaño base */
     .producto-title {
-        font-size: 18px;
-    }
-
-    .producto-price,
-    .precio-nuevo,
-    .precio-antiguo {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         font-size: 16px;
     }
 
-    .texto-antes,
-    .texto-ahora {
+    .precio-nuevo,
+    .producto-price {
+        font-size: 18px;
+    }
+
+    .precio-antiguo {
         font-size: 14px;
     }
 

@@ -16,7 +16,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <section className="bg-black/80 rounded-[20px] p-8 mx-auto mb-10 max-w-[1000px] text-white">
+        <section className="bg-black/80 rounded-[20px] p-8 mx-auto mb-10 max-w-[1000px] text-white px-4 md:px-8">
             <div className="flex flex-col md:flex-row gap-10">
                 <div className="md:w-1/2 bg-white rounded-xl p-8 flex items-center justify-center">
                     <img src={getAssetUrl(product.imagen)} alt={product.nombre} className="max-h-[400px] object-contain" />

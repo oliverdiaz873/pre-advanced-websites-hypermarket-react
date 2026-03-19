@@ -1,6 +1,6 @@
 const Contact = () => {
     return (
-        <section className="bg-black/80 rounded-[20px] p-8 mx-auto mb-10 max-w-[800px] text-white">
+        <section className="bg-black/80 rounded-[20px] p-8 mx-auto mb-10 max-w-[800px] text-white px-4 md:px-8">
             <h2 className="text-2xl font-bold mb-8 text-center bg-black/70 py-2 rounded-xl">Contacto</h2>
 
             <div className="grid md:grid-cols-2 gap-10">

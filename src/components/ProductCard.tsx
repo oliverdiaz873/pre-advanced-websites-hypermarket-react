@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Product } from '../data/productos'
 import { useCart } from '../hooks/useCart'
 import { getAssetUrl } from '../utils/assetUtils'
+import OfferBadge from './OfferBadge'
 import './ProductCard.css'
 
 interface ProductCardProps {
@@ -25,8 +26,17 @@ const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
         })
     }
 
+    const cleanPrice = (text: string) => {
+        const cleaned = text.replace('Precio: ', '').trim()
+        const match = cleaned.match(/(\$?\d+(?:,\d+)?(?:\.\d+)?)/)
+        return match ? match[1] : cleaned
+    }
+
     return (
         <article className={`producto product-card ${isOffer ? 'offer-card' : ''} block shrink-0 snap-start`}>
+            {/* Si el producto es una oferta, mostramos el badge de fuego */}
+            {isOffer && <OfferBadge />} 
+            
             <Link
                 to={`/product/${product.id}`}
                 className="product-card__overlay-link"
@@ -37,22 +47,20 @@ const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
                 <img src={getAssetUrl(product.imagen)} alt={product.nombre} loading="lazy" />
             </div>
 
-            <h3 className="producto-title">{product.nombre}</h3>
-
+            {/* Lógica de precio: Si es oferta y tiene precio antiguo, mostramos el bloque de descuento.
+                De lo contrario, mostramos solo el precio normal. */}
             {isOffer && oldPrice ? (
-                <div className="price-block">
-                    <div className="price-line">
-                        <span className="texto-antes">Antes:</span>
-                        <del className="precio-antiguo">{oldPrice}</del>
-                    </div>
-                    <div className="price-line">
-                        <span className="texto-ahora">Ahora:</span>
-                        <ins className="precio-nuevo">{product.precioTexto.replace('Precio: ', '')}</ins>
-                    </div>
+                <div className="price-block offer">
+                    <ins className="precio-nuevo">{cleanPrice(product.precioTexto)}</ins>
+                    <del className="precio-antiguo">{cleanPrice(oldPrice)}</del>
                 </div>
             ) : (
-                <p className="producto-price">{product.precioTexto}</p>
+                <div className="price-block">
+                    <p className="producto-price">{cleanPrice(product.precioTexto)}</p>
+                </div>
             )}
+
+            <h3 className="producto-title">{product.nombre}</h3>
 
             <button
                 onClick={handleAdd}
