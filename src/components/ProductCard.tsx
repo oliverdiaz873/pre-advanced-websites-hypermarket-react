@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Product } from '../data/productos'
-import { useCart } from '../hooks/useCart'
 import { getAssetUrl } from '../utils/assetUtils'
 import OfferBadge from './OfferBadge'
+import AddToCartButton from './AddToCartButton'
 import './ProductCard.css'
 
 interface ProductCardProps {
@@ -12,19 +12,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
-    const { addToCart } = useCart()
-
-    const handleAdd = (e: React.MouseEvent) => {
-        e.preventDefault()
-        e.stopPropagation()
-        addToCart({
-            id: product.id,
-            nombre: product.nombre,
-            precio: product.precio,
-            img: product.imagen,
-            url: product.url,
-        })
-    }
 
     const cleanPrice = (text: string) => {
         const cleaned = text.replace('Precio: ', '').trim()
@@ -49,26 +36,27 @@ const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
 
             {/* Lógica de precio: Si es oferta y tiene precio antiguo, mostramos el bloque de descuento.
                 De lo contrario, mostramos solo el precio normal. */}
-            {isOffer && oldPrice ? (
-                <div className="price-block offer">
-                    <ins className="precio-nuevo">{cleanPrice(product.precioTexto)}</ins>
-                    <del className="precio-antiguo">{cleanPrice(oldPrice)}</del>
-                </div>
-            ) : (
+            <div className="price-block-container">
                 <div className="price-block">
-                    <p className="producto-price">{cleanPrice(product.precioTexto)}</p>
+                    {isOffer && oldPrice ? (
+                        <>
+                            <ins className="precio-nuevo">{cleanPrice(product.precioTexto)}</ins>
+                            <del className="precio-antiguo">{cleanPrice(oldPrice)}</del>
+                        </>
+                    ) : (
+                        <p className="producto-price">{cleanPrice(product.precioTexto)}</p>
+                    )}
                 </div>
-            )}
+                {product.unidad && (
+                    <p className="producto-unit-format">
+                        ${product.precio.toLocaleString()} / {product.unidad}
+                    </p>
+                )}
+            </div>
 
             <h3 className="producto-title">{product.nombre}</h3>
 
-            <button
-                onClick={handleAdd}
-                className="btn-agregar product-card__add-btn"
-                id={product.id}
-            >
-                Agregar
-            </button>
+            <AddToCartButton product={product} />
         </article>
     )
 }
