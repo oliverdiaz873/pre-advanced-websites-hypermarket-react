@@ -1,0 +1,100 @@
+/* MAIN */
+.politica-container {
+    max-width: 900px;
+    margin: 20px auto 60px auto;
+    /* Evita que se tape con el header */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.politica-container h1,
+.politica-container .main-title {
+    font-size: 32px;
+    margin-top: 0;
+    padding-top: 10px;
+    /* Margen negativo para desktop */
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fbbf24;
+    /* amber-400 color to match project */
+    font-weight: 600;
+}
+
+/* Eliminar margin negativo y dar espacio en móviles */
+@media (max-width: 767.98px) {
+
+    .politica-container h1,
+    .politica-container .main-title {
+        margin-top: 10px;
+        /* Espacio extra en móviles */
+    }
+}
+
+.politica-container h2 {
+    margin-top: 25px;
+    color: #fbbf24;
+    /* amber-400 color to match project */
+    text-align: left;
+    font-weight: 500;
+}
+
+.politica-container ul {
+    margin: 10px 0 20px 20px;
+    line-height: 1.7;
+}
+
+.politica-container p:first-of-type {
+    font-weight: 600;
+    font-size: 18px;
+    color: #f3f4f6;
+    /* lighter gray for better readability */
+}
+
+.politica-container p {
+    font-size: 18px;
+    text-align: left;
+    line-height: 1.7;
+    /* mejor legibilidad */
+    color: #e5e7eb;
+    /* consistent gray text */
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .politica-container {
+        padding: 20px;
+        margin: 140px auto 40px auto;
+        width: 95%;
+        border-radius: 15px;
+    }
+
+    .politica-container h1,
+    .politica-container .main-title {
+        font-size: 24px;
+        color: #fbbf24;
+    }
+
+    .politica-container h2 {
+        font-size: 20px;
+        color: #fbbf24;
+    }
+
+    .politica-container p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #e5e7eb;
+    }
+
+    .politica-container p:first-of-type {
+        font-size: 16px;
+        color: #f3f4f6;
+    }
+
+    .politica-container ul {
+        margin: 10px 0 20px 15px;
+        font-size: 16px;
+    }
+}

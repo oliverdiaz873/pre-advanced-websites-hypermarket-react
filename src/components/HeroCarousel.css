@@ -7,7 +7,8 @@
 */
 .hero-carousel-section {
     width: 100%;
-    padding: 1rem; /* Margen lateral en móviles */
+    padding: 1rem;
+    /* Margen lateral en móviles */
     margin-bottom: 2rem;
 }
 
@@ -15,10 +16,15 @@
 @media (min-width: 768px) {
     .hero-carousel-section {
         width: 100%;
-        padding: 2rem; /* Mayor margen lateral en pantallas grandes */
-        max-width: 1400px; /* Ancho máximo para que no se estire demasiado en monitores anchos */
-        margin-left: auto; /* Centra el contenedor */
-        margin-right: auto; /* Centra el contenedor */
+        /* Menor margen superior, se mantiene el margen lateral e inferior */
+        padding: 0.5rem 2rem 2rem 2rem;
+        /* Ancho máximo para que no se estire demasiado en monitores anchos */
+        max-width: 1400px;
+        /* Centra el contenedor */
+        margin-left: auto;
+        /* Centra el contenedor */
+        margin-right: auto;
+
     }
 }
 
@@ -27,16 +33,21 @@
    Aplica bordes redondeados (desde Tailwind), sombras y una proporción fija (aspect-ratio).
 */
 .hero-carousel-container {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra difuminada para darle profundidad */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil transparente */
-    aspect-ratio: 3 / 1.1; /* Proporción ancho/alto para móviles (un poco más cuadrado) */
-    min-height: 200px; /* Altura mínima garantizada */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Sombra difuminada para darle profundidad */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Borde sutil transparente */
+    aspect-ratio: 3 / 1.1;
+    /* Proporción ancho/alto para móviles (un poco más cuadrado) */
+    min-height: 200px;
+    /* Altura mínima garantizada */
 }
 
 /* Ajustes del contenedor del carrusel para Desktop */
 @media (min-width: 768px) {
     .hero-carousel-container {
-        aspect-ratio: 3 / 1; /* Formato más panorámico en escritorio horizontales */
+        aspect-ratio: 3 / 1;
+        /* Formato más panorámico en escritorio horizontales */
         min-height: 350px;
     }
 }
@@ -54,16 +65,21 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cubre todo el cuadro sin deformar la imagen, recortando si es necesario */
-    object-position: center; /* Centra la imagen */
-    user-select: none; /* Evita que el usuario seleccione la imagen accidentalmente */
-    -webkit-user-drag: none; /* Evita que el usuario arrastre la imagen (ghost image) en Chrome/Safari */
+    object-fit: cover;
+    /* Cubre todo el cuadro sin deformar la imagen, recortando si es necesario */
+    object-position: center;
+    /* Centra la imagen */
+    user-select: none;
+    /* Evita que el usuario seleccione la imagen accidentalmente */
+    -webkit-user-drag: none;
+    /* Evita que el usuario arrastre la imagen (ghost image) en Chrome/Safari */
 }
 
 /* Muestra los botones de "Anterior" y "Siguiente" solo cuando el mouse está sobre el carrusel */
 .hero-carousel-container:hover .hero-control-prev,
 .hero-carousel-container:hover .hero-control-next {
-    opacity: 1; /* Los hace visibles (estaban en 0 en Tailwind) */
+    opacity: 1;
+    /* Los hace visibles (estaban en 0 en Tailwind) */
 }
 
 /* 
@@ -88,8 +104,10 @@
     }
 
     .hero-carousel-container {
-        border-radius: 12px; /* Redondeo menos pronunciado en móviles */
-        aspect-ratio: 16 / 9; /* Proporción estándar de video para la imagen */
+        border-radius: 12px;
+        /* Redondeo menos pronunciado en móviles */
+        aspect-ratio: 16 / 9;
+        /* Proporción estándar de video para la imagen */
     }
 
     /* Hace las flechas de siguiente/anterior más pequeñas */

@@ -7,8 +7,9 @@
     z-index: 10;
 
     /* Gradiente vibrante de fuego */
-    background: linear-gradient(135deg, #ff6b35 0%, hsl(33, 100%, 55%) 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, hsl(33, 100%, 50%) 100%);
     color: white;
+
 
     display: flex;
     align-items: center;
@@ -40,7 +41,7 @@
     border-radius: 50%;
 
     /* Silueta exterior intensa */
-    fill: #ff0000;
+    fill: #ff0000f8;
     /* Solo el resplandor rojo exterior */
     filter:
         drop-shadow(0 0 1.5px #ff0000);

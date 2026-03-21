@@ -31,7 +31,7 @@ const HeroCarousel = () => {
     return (
         <section className="hero-carousel-section">
             <div className="hero-carousel-container relative overflow-hidden rounded-[20px] bg-neutral-900 w-full mx-auto mt-0">
-                {/* Banners Wrapper con las siguientes dimensiones 1920x768 */}
+                {/* Banners Wrapper con las siguientes dimensiones 1920x750 */}
                 <div
                     className="hero-slides-wrapper flex transition-transform duration-700 ease-in-out h-full"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}

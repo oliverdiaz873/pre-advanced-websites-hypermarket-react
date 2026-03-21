@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './styles/index.css'
+import './styles/fonts.css'
 import App from './App.tsx'
 
 // la inyeccion de react en el div con id="root" se hace en el archivo index.html

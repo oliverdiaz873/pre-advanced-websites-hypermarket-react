@@ -1,16 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Home from './pages/Home'
 import Category from './pages/Category'
 import ProductDetails from './pages/ProductDetails'
 import CartPage from './pages/CartPage'
 import Contact from './pages/Contact'
+import Privacy from './pages/legal/Privacy'
+import Terms from './pages/legal/Terms'
 import Footer from './components/Footer'
 import Icons from './components/Icons'
 
 function App() {
     return (
         <Router>
+            <ScrollToTop />
             <Icons />
             <div className="min-h-screen">
                 <Header />
@@ -25,6 +29,8 @@ function App() {
                         <Route path="/product/:productId" element={<ProductDetails />} />
                         <Route path="/cart" element={<CartPage />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/legal/privacy" element={<Privacy />} />
+                        <Route path="/legal/terms" element={<Terms />} />
                     </Routes>
                 </main>
 

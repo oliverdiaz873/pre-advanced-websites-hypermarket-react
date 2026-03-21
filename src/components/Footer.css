@@ -76,6 +76,10 @@
         gap: 1.25rem;
     }
 
+    .footer-content small {
+        font-size: 14px;
+    }
+
     .social-icons {
         gap: 1.75rem;
     }

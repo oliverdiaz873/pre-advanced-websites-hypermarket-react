@@ -5,10 +5,10 @@ const navLinkClass =
     'text-white no-underline text-base px-2.5 py-2 block text-left transition-colors duration-300 rounded-[10px] hover:bg-white/15'
 
 const dropdownLinkClass =
-    'text-white no-underline text-base px-4 py-3 block text-left transition-colors duration-300 hover:bg-white/15 flex justify-between items-center'
+    'text-white no-underline text-base px-4 py-2 block text-left transition-colors duration-300 hover:bg-white/15 flex justify-between items-center'
 
 const subLinkClass =
-    'text-white no-underline text-base px-4 py-2 block hover:bg-white/15'
+    'text-white no-underline text-base px-4 py-1.5 block hover:bg-white/15'
 
 const DesktopNav = () => {
     return (
@@ -37,7 +37,7 @@ const DesktopNav = () => {
                     </button>
 
                     {/* Dropdown principal */}
-                    <ul className="absolute top-full left-0 bg-black/90 rounded-lg min-w-[220px] hidden group-hover:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl overflow-hidden">
+                    <ul className="absolute top-full left-0 bg-black/90 rounded-lg min-w-[220px] hidden group-hover:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl">
                         {categories.map((category) => (
                             <li key={category.id} className="relative group/sub">
                                 <Link to={category.href} className={dropdownLinkClass}>
@@ -45,7 +45,7 @@ const DesktopNav = () => {
                                 </Link>
 
                                 {/* Submenu */}
-                                <ul className="absolute top-0 left-full bg-black/90 rounded-lg min-w-[220px] hidden group-hover/sub:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl overflow-hidden">
+                                <ul className="absolute top-0 left-full bg-black/90 rounded-lg min-w-[220px] hidden group-hover/sub:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl">
                                     {category.subcategories.map((sub) => (
                                         <li key={sub.name}>
                                             <Link to={sub.href} className={subLinkClass}>

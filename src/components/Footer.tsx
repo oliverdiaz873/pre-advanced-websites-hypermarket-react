@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
@@ -48,13 +49,13 @@ const Footer = () => {
 
                 {/* Enlaces legales */}
                 <div className="footer-links">
-                    <a href="/legal/privacy.html" title="Política de Privacidad">
+                    <Link to="/legal/privacy" title="Política de Privacidad">
                         Política de Privacidad
-                    </a>
+                    </Link>
                     <span className="separator">|</span>
-                    <a href="/legal/terms.html" title="Términos de Uso">
+                    <Link to="/legal/terms" title="Términos de Uso">
                         Términos de Uso
-                    </a>
+                    </Link>
                 </div>
             </div>
         </footer>

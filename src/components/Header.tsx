@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import DesktopNav from './DesktopNav'
 import MobileNav from './MobileNav'
 import logoImg from '../assets/images/logo/logo.png'
@@ -17,6 +17,11 @@ const Header = () => {
     const [searchResults, setSearchResults] = useState<typeof productos>([])
     const { totalItems } = useCart()
     const navigate = useNavigate()
+    
+    // Lógica para SEO: detectar si estamos en la página de inicio (/) para usar un <h1>,
+    // en páginas internas se usará un <span> para el logo, dejando el <h1> para el título principal.
+    const location = useLocation()
+    const isHomePage = location.pathname === '/'
 
     const searchInputRef = useRef<HTMLInputElement>(null)
     const resultsRef = useRef<HTMLUListElement>(null)
@@ -81,9 +86,15 @@ const Header = () => {
                 {/* Logo */}
                 <Link to="/" className={`brand flex items-center gap-1 text-white no-underline mr-4 ${isSearchActive ? 'hidden sm:flex' : 'flex'}`}>
                     <img src={logoImg} alt="Logo" className="w-8" />
-                    <h1 className="text-sm md:text-base font-bold whitespace-nowrap hidden sm:block">
-                        Hipermercado Superior
-                    </h1>
+                    {isHomePage ? (
+                        <h1 className="text-sm md:text-base font-bold whitespace-nowrap hidden sm:block">
+                            Hipermercado Superior
+                        </h1>
+                    ) : (
+                        <span className="text-sm md:text-base font-bold whitespace-nowrap hidden sm:block">
+                            Hipermercado Superior
+                        </span>
+                    )}
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -139,11 +150,12 @@ const Header = () => {
                     {/* Cart Button */}
                     <Link to="/cart" className={`util-btn group relative ${isSearchActive ? 'hidden sm:flex' : 'flex'}`} aria-label="Ver carrito">
                         {/* Icono de Carrito */}
-                        <svg className="util-icon w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                        <svg className="util-icon w-6 h-6 md:w-[27px] md:h-[27px]" fill="currentColor" viewBox="0 0 16 16">
                             <use href="#icon-cart" />
                         </svg>
+                        {/* Badge con la cantidad de productos en el carrito */}
                         {totalItems > 0 && (
-                            <span className="cart-badge absolute -top-1 -right-1 bg-red-600 text-[9px] font-bold px-1.5 py-0.5 rounded-full ring-2 ring-black">
+                            <span className="cart-badge absolute -top-1 -right-1 bg-red-600 text-[9px] font-bold px-1.5 py-0.5 rounded-full">
                                 {totalItems}
                             </span>
                         )}
