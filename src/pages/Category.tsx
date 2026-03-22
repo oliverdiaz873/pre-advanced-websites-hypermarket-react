@@ -1,36 +1,95 @@
-import { useParams } from 'react-router-dom'
+import { useEffect, useMemo } from 'react'
+import { useParams, useLocation, Navigate } from 'react-router-dom'
+import { categories } from '../data/categories'
 import { productos } from '../data/productos'
-import ProductCard from '../features/products/components/ProductCard'
+import {
+    sectionSlugToProductCategoria,
+    subcategorySlugFromHref,
+} from '../data/categorySectionMap'
+import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
+import Breadcrumb from '../shared/components/Breadcrumb'
 
 const Category = () => {
     const { categoryId } = useParams()
+    const location = useLocation()
 
-    const categoryProducts = productos.filter(
-        (p) => p.categoria.toLowerCase() === categoryId?.toLowerCase()
+    const category = useMemo(
+        () => categories.find((c) => c.id === categoryId),
+        [categoryId]
     )
 
-    const categoryName = categoryId
-        ? categoryId.charAt(0).toUpperCase() + categoryId.slice(1).replace('_', ' ')
-        : 'Categoría'
+    const hashSlug = location.hash.replace(/^#/, '')
+
+    const breadcrumbItems = useMemo(() => {
+        if (!category) return []
+        const base = [
+            { label: 'Inicio', to: '/' },
+            { label: 'Categorías' },
+            { label: category.name },
+        ]
+        if (!hashSlug) return base
+
+        const sub = category.subcategories.find(
+            (s) => subcategorySlugFromHref(s.href) === hashSlug
+        )
+        if (!sub) return base
+
+        return [
+            { label: 'Inicio', to: '/' },
+            { label: 'Categorías' },
+            { label: category.name, to: category.href },
+            { label: sub.name },
+        ]
+    }, [category, hashSlug])
+
+    const sectionsToRender = useMemo(() => {
+        if (!category) return []
+        return category.subcategories
+            .map((sub) => {
+                const slug = subcategorySlugFromHref(sub.href)
+                const productCategoria = sectionSlugToProductCategoria(slug)
+                const sectionProducts = productos.filter(
+                    (p) => p.categoria === productCategoria
+                )
+                return { sub, slug, sectionProducts }
+            })
+            .filter((row) => row.sectionProducts.length > 0)
+    }, [category])
+
+    useEffect(() => {
+        if (!hashSlug) return
+        const t = window.setTimeout(() => {
+            const el = document.getElementById(hashSlug)
+            el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 100)
+        return () => window.clearTimeout(t)
+    }, [categoryId, hashSlug, location.key])
+
+    if (!categoryId || !category) {
+        return <Navigate to="/" replace />
+    }
 
     return (
-        <section className="bg-black/80 rounded-[20px] p-5 md:py-7.5 md:px-[56px] mx-auto mb-10 max-w-[1280px] min-h-[500px] px-4 md:px-8">
-            <div className="container mx-auto">
-                <h2 className="text-xl md:text-2xl text-white bg-black/70 px-4 py-2 rounded-xl mb-8 w-fit mx-auto text-center font-bold">
-                    {categoryName}
-                </h2>
+        <>
+            <Breadcrumb variant="category" items={breadcrumbItems} />
 
-                <div className="flex flex-wrap justify-center gap-6">
-                    {categoryProducts.length > 0 ? (
-                        categoryProducts.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))
-                    ) : (
-                        <p className="text-white text-center py-20">No se encontraron productos en esta categoría.</p>
-                    )}
-                </div>
+            <div className="category-page-content w-full pb-6 pt-[5rem] md:pt-[5.25rem] xl:pt-[5.25rem]">
+                {sectionsToRender.map(({ sub, slug, sectionProducts }, index) => (
+                    <ProductCarouselSection
+                        key={slug}
+                        title={sub.name}
+                        products={sectionProducts}
+                        id={slug}
+                        idPrefix={slug.replace(/[^a-z0-9]+/gi, '_')}
+                        className={
+                            index === 0
+                                ? 'category-page-first-carousel'
+                                : ''
+                        }
+                    />
+                ))}
             </div>
-        </section>
+        </>
     )
 }
 

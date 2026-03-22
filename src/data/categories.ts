@@ -86,7 +86,7 @@ export const categories: Category[] = [
         href: '/category/ferreteria',
         subcategories: [
             { name: 'Herramientas Manuales', href: '/category/ferreteria#herramientas_manuales' },
-            { name: 'Pinturas', href: '/category/ferreteria#pinturas' },
+            { name: 'Pinturas', href: '/category/ferreteria#pinturas_y_acabados' },
             { name: 'Electricidad', href: '/category/ferreteria#electricidad' },
             { name: 'Plomería', href: '/category/ferreteria#plomeria' },
         ],

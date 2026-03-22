@@ -11,6 +11,21 @@ interface ProductCardProps {
     oldPrice?: string
 }
 
+/** Texto después de "/" en precioTexto, o cantidad+unidad si no hay barra; fallback "unidad". */
+function unitLabel(product: Product): string {
+    const explicit = product.unidad?.trim()
+    if (explicit) return explicit
+    const raw = product.precioTexto
+    const parts = raw.split('/')
+    if (parts.length > 1) {
+        const last = parts[parts.length - 1].trim().replace(/\.$/, '')
+        if (last) return last
+    }
+    const afterPrecio = raw.replace(/^Precio:\s*/i, '').replace(/^\$[\d.,]+\s*/i, '').trim()
+    if (afterPrecio) return afterPrecio
+    return 'unidad'
+}
+
 const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
 
     const cleanPrice = (text: string) => {
@@ -47,11 +62,9 @@ const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
                         <p className="producto-price">{cleanPrice(product.precioTexto)}</p>
                     )}
                 </div>
-                {product.unidad && (
-                    <p className="producto-unit-format">
-                        ${product.precio.toLocaleString()} / {product.unidad}
-                    </p>
-                )}
+                <p className="producto-unit-format">
+                    ${product.precio.toLocaleString()} / {unitLabel(product)}
+                </p>
             </div>
 
             <h3 className="producto-title">{product.nombre}</h3>
