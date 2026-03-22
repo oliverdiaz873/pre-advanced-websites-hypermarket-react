@@ -17,20 +17,27 @@ ol.breadcrumb {
     color: #ffffff !important;
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     list-style: none !important;
     margin-left: auto !important;
     margin-right: auto !important;
     white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    text-overflow: clip !important;
     position: fixed;
     top: var(--breadcrumb-top-base);
     left: 50% !important;
     transform: translateX(-50%) !important;
     z-index: 100;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+ol.breadcrumb::-webkit-scrollbar {
+    display: none;
 }
 
 ol.breadcrumb li {
@@ -69,9 +76,32 @@ ol.breadcrumb li[aria-current="page"] {
 }
 
 @media (max-width: 767px) {
-    ol.breadcrumb.breadcrumb-product li:nth-child(2),
-    ol.breadcrumb.breadcrumb-product li:nth-child(3) {
-        display: none !important;
+    ol.breadcrumb {
+        max-width: calc(100vw - 20px) !important;
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+        justify-content: flex-start !important;
+    }
+
+    ol.breadcrumb li {
+        flex-shrink: 0 !important;
+        max-width: 100px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    ol.breadcrumb li:first-child {
+        max-width: 60px !important;
+    }
+
+    ol.breadcrumb li[aria-current="page"] {
+        max-width: 120px !important;
+        flex-shrink: 1 !important;
+    }
+
+    ol.breadcrumb li:not(:first-child):not(:last-child):not([aria-current="page"]) {
+        max-width: 80px !important;
     }
 
     ol.breadcrumb.breadcrumb-category li {
@@ -80,17 +110,6 @@ ol.breadcrumb li[aria-current="page"] {
 
     ol.breadcrumb.breadcrumb-category li:nth-child(3)::after {
         content: none !important;
-    }
-
-    ol.breadcrumb li {
-        max-width: 90px !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-    }
-
-    ol.breadcrumb li[aria-current="page"] {
-        max-width: 140px !important;
     }
 }
 

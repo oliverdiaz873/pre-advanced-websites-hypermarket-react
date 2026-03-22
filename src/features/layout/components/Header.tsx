@@ -82,11 +82,11 @@ const Header = () => {
                 <Link to="/" className={`brand flex items-center gap-1 text-white no-underline mr-4 ${isSearchActive ? 'hidden sm:flex' : 'flex'}`}>
                     <img src={logoImg} alt="Logo" className="w-8" />
                     {isHomePage ? (
-                        <h1 className="text-sm md:text-base font-bold whitespace-nowrap hidden sm:block">
+                        <h1 className="text-sm md:text-base font-bold whitespace-nowrap">
                             Hipermercado Superior
                         </h1>
                     ) : (
-                        <span className="text-sm md:text-base font-bold whitespace-nowrap hidden sm:block">
+                        <span className="text-sm md:text-base font-bold whitespace-nowrap">
                             Hipermercado Superior
                         </span>
                     )}
