@@ -1,4 +1,4 @@
-import LegalLayout from '../../components/LegalLayout'
+import LegalLayout from '../../features/layout/components/LegalLayout'
 
 const Terms = () => {
     return (

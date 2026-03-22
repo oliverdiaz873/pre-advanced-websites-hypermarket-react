@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { categories } from '../data/categories'
+import { categories } from '../../../data/categories'
 
 interface MobileNavProps {
     isOpen: boolean
@@ -35,14 +35,12 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
             aria-label="Menú móvil"
         >
             <ul className="list-none p-0 m-0">
-                {/* Inicio */}
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <Link to="/" className="block" onClick={handleLinkClick}>
                         Inicio
                     </Link>
                 </li>
 
-                {/* Categorías acordeón */}
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <button
                         onClick={() => toggleCategory('categorias')}
@@ -95,14 +93,12 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                     )}
                 </li>
 
-                {/* Ofertas */}
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <Link to="/#ofertas" className="block" onClick={handleLinkClick}>
                         Ofertas
                     </Link>
                 </li>
 
-                {/* Contacto */}
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <Link to="/contact" className="block" onClick={handleLinkClick}>
                         Contacto

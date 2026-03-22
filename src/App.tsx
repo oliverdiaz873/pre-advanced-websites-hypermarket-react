@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import ScrollToTop from './components/ScrollToTop'
-import Header from './components/Header'
+import ScrollToTop from './shared/utils/ScrollToTop'
+import Header from './features/layout/components/Header'
 import Home from './pages/Home'
 import Category from './pages/Category'
 import ProductDetails from './pages/ProductDetails'
@@ -8,8 +8,8 @@ import CartPage from './pages/CartPage'
 import Contact from './pages/Contact'
 import Privacy from './pages/legal/Privacy'
 import Terms from './pages/legal/Terms'
-import Footer from './components/Footer'
-import Icons from './components/Icons'
+import Footer from './features/layout/components/Footer'
+import Icons from './shared/components/Icons'
 
 function App() {
     return (

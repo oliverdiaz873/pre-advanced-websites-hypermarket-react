@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { productos } from '../data/productos'
-import ProductCard from '../components/ProductCard'
+import ProductCard from '../features/products/components/ProductCard'
 
 const Category = () => {
     const { categoryId } = useParams()

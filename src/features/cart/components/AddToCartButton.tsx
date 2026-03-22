@@ -1,6 +1,6 @@
 import React from 'react';
-import { useCart } from '../hooks/useCart';
-import { Product } from '../data/productos';
+import { useCart } from '../../../hooks/useCart';
+import { Product } from '../../../data/productos';
 import './AddToCartButton.css';
 
 interface AddToCartButtonProps {

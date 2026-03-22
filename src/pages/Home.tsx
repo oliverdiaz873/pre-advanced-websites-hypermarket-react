@@ -1,6 +1,6 @@
-import HeroCarousel from '../components/HeroCarousel'
-import ProductCarouselSection from '../components/ProductCarouselSection'
-import AboutUs from '../components/AboutUs'
+import HeroCarousel from '../features/home/components/HeroCarousel'
+import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
+import AboutUs from '../features/home/components/AboutUs'
 import { productos } from '../data/productos'
 
 const featuredIds = [

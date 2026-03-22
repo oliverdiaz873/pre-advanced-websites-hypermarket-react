@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Product } from '../data/productos'
-import { getAssetUrl } from '../utils/assetUtils'
+import { Product } from '../../../data/productos'
+import { getAssetUrl } from '../../../utils/assetUtils'
 import OfferBadge from './OfferBadge'
-import AddToCartButton from './AddToCartButton'
+import AddToCartButton from '../../cart/components/AddToCartButton'
 import './ProductCard.css'
 
 interface ProductCardProps {

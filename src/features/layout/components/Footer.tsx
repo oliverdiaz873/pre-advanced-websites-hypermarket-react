@@ -5,12 +5,10 @@ const Footer = () => {
     return (
         <footer className="footer-global">
             <div className="footer-content">
-                {/* Derechos reservados */}
                 <small>
                     &copy; 2026 Hipermercado Superior. Todos los derechos reservados.
                 </small>
 
-                {/* Redes Sociales */}
                 <div className="social-icons">
                     <a
                         href="https://facebook.com/tuweb"
@@ -47,7 +45,6 @@ const Footer = () => {
                     </a>
                 </div>
 
-                {/* Enlaces legales */}
                 <div className="footer-links">
                     <Link to="/legal/privacy" title="Política de Privacidad">
                         Política de Privacidad

@@ -11,8 +11,7 @@ const LegalLayout: React.FC<LegalLayoutProps> = ({ title, date, children }) => {
     return (
         <main className="politica-container reveal">
             <h1 className="main-title">{title}</h1>
-            
-            {/* Buena práctica web: mantener actualizada la fecha de las políticas */}
+
             <p><small>Última actualización: {date}</small></p>
 
             {children}

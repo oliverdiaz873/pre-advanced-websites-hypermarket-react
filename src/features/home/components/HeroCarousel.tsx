@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getAssetUrl } from '../utils/assetUtils'
+import { getAssetUrl } from '../../../utils/assetUtils'
 import './HeroCarousel.css'
 
 const banners = [

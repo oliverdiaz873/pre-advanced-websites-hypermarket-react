@@ -1,7 +1,7 @@
 import { useRef } from 'react'
-import logoWithBg from '../assets/images/logo/logo_with_background.jpeg'
+import logoWithBg from '../../../assets/images/logo/logo_with_background.jpeg'
 import './AboutUs.css'
-import { useScrollScale } from '../hooks/useScrollScale'
+import { useScrollScale } from '../../../hooks/useScrollScale'
 
 const AboutUs = () => {
     const sectionRef = useRef<HTMLElement>(null);
