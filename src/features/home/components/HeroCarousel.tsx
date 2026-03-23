@@ -100,13 +100,13 @@ const HeroCarousel = () => {
                     </svg>
                 </button>
 
-                {/* Indicators (Dots) - Hidden on mobile, visible on tablet and desktop */}
-                <div className="hero-indicators absolute bottom-4 left-1/2 -translate-x-1/2 gap-2 z-10 hidden md:flex">
+                {/* Indicators (Dots) - Visible on all screen sizes */}
+                <div className="hero-indicators absolute bottom-4 left-1/2 -translate-x-1/2 gap-2 z-10 flex">
                     {banners.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => goToSlide(index)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-white scale-125 w-6' : 'bg-white/50 hover:bg-white/80'
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-white scale-125 w-4' : 'bg-white/50 hover:bg-white/80'
                                 }`}
                             aria-label={`Ir a imagen ${index + 1}`}
                         />

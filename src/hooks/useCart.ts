@@ -1,3 +1,5 @@
+
+// por convención y por funcionamiento interno de React, los hooks deben empezar con use en su nombre.
 import { useState, useEffect, useCallback } from 'react'
 
 export interface CartItem {
