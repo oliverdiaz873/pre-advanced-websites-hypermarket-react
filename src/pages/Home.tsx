@@ -36,18 +36,18 @@ const Home = () => {
             <HeroCarousel />
             
             <ProductCarouselSection 
-                title="Productos Destacados"
-                products={featuredProducts}
-                id="productos-destacados"
-                idPrefix="featured"
-            />
-
-            <ProductCarouselSection 
                 title="Ofertas de la Semana"
                 products={offerProducts}
                 id="ofertas"
                 idPrefix="offers"
                 isOffer={true}
+            />
+
+            <ProductCarouselSection 
+                title="Productos Destacados"
+                products={featuredProducts}
+                id="productos-destacados"
+                idPrefix="featured"
                 className="mt-12 md:mt-20"
             />
 

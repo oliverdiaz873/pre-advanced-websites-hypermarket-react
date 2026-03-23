@@ -3,16 +3,44 @@ import { getAssetUrl } from '../../../utils/assetUtils'
 import './HeroCarousel.css'
 
 const banners = [
-    { id: 1, image: 'assets/images/banners/offers/fruits_and_vegetables.png', alt: 'Ofertas en frutas y verduras' },
-    { id: 2, image: 'assets/images/banners/offers/iphone.png', alt: 'Promociones en tecnología e iPhone' },
-    { id: 3, image: 'assets/images/banners/offers/wine.png', alt: 'Selección premium de vinos' },
+    { 
+        id: 1, 
+        desktopImage: 'assets/images/banners/offers/fruits_and_vegetables.png',
+        mobileImage: 'assets/images/banners/offers/fruits_and_vegetables_mobile.png',
+        alt: 'Ofertas en frutas y verduras' 
+    },
+    { 
+        id: 2, 
+        desktopImage: 'assets/images/banners/offers/iphone.png',
+        mobileImage: 'assets/images/banners/offers/iphone_mobile.png',
+        alt: 'Promociones en tecnología e iPhone' 
+    },
+    { 
+        id: 3, 
+        desktopImage: 'assets/images/banners/offers/wine.png',
+        mobileImage: 'assets/images/banners/offers/wine_mobile.png',
+        alt: 'Selección premium de vinos' 
+    },
 ]
 
 const HeroCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [touchStart, setTouchStart] = useState(0)
     const [touchEnd, setTouchEnd] = useState(0)
+    const [isMobile, setIsMobile] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
+
+    // Detectar si es mobile
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 640)
+        }
+        
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
 
     const nextSlide = useCallback(() => {
         setCurrentIndex((prev) => (prev === banners.length - 1 ? 0 : prev + 1))
@@ -71,10 +99,10 @@ const HeroCarousel = () => {
                     {banners.map((banner) => (
                         <div key={banner.id} className="banner w-full h-full flex-shrink-0">
                             <img
-                                src={getAssetUrl(banner.image)}
+                                src={getAssetUrl(isMobile ? banner.mobileImage : banner.desktopImage)}
                                 alt={banner.alt}
                                 className="w-full h-full object-cover"
-                                onError={(e) => console.error('Error loading banner:', banner.image, e)}
+                                onError={(e) => console.error('Error loading banner:', isMobile ? banner.mobileImage : banner.desktopImage, e)}
                             />
                         </div>
                     ))}

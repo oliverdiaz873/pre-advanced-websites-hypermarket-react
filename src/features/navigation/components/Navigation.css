@@ -16,14 +16,125 @@
     line-height: 1;
 }
 
+/* Tablet Menu Styles (768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .nav-links ul {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links ul.tablet-active {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateY(0);
+        display: flex !important;
+    }
+    
+    .nav-links > ul > li > ul.tablet-active {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        min-width: 220px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    
+    .nav-links > ul > li > ul > li > ul.tablet-active {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        min-width: 220px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    
+    .ver-todos-btn a:hover {
+        background: rgba(255, 204, 0, 0.2) !important;
+    }
+}
+
 /* Desktop Dropdowns */
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
+    .nav-links.desktop-nav {
+        display: flex;
+    }
+    
+    .nav-links.tablet-nav {
+        display: none;
+    }
+    
     .nav-links li:hover>ul {
         display: flex;
     }
 
     .group\/sub:hover>ul {
         display: flex !important;
+    }
+}
+
+/* Tablet Navigation */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .nav-links.desktop-nav {
+        display: none;
+    }
+    
+    .nav-links.tablet-nav {
+        display: flex !important;
+        justify-content: center !important;
+        padding: 15px !important;
+        width: 100% !important;
+        min-height: auto !important;
+    }
+    
+    .nav-links.tablet-nav > ul {
+        display: flex !important;
+        gap: 15px !important;
+        align-items: center !important;
+    }
+    
+    .nav-links.tablet-nav a,
+    .nav-links.tablet-nav button {
+        color: white !important;
+        font-size: 14px !important;
+        padding: 8px 12px !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 6px !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Ocultar TODOS los submenús por defecto */
+    .nav-links.tablet-nav ul ul {
+        display: none !important;
+    }
+    
+    /* Mostrar submenús solo con clic */
+    .nav-links.tablet-nav ul.tablet-active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.95) !important;
+        border-radius: 8px;
+        min-width: 220px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        border: 2px solid #ffcc00 !important;
+    }
+    
+    .nav-links.tablet-nav > ul > li > ul > li > ul.tablet-active {
+        top: 0;
+        left: 100%;
+    }
+    
+    .ver-todos-btn a:hover {
+        background: rgba(255, 204, 0, 0.2) !important;
     }
 }
 

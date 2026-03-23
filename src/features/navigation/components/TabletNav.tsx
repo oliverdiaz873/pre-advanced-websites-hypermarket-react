@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { categories } from '../../../data/categories'
+import { useTabletMenu } from '../../../hooks/useTabletMenu'
+import './Navigation.css'
 
 const navLinkClass =
     'text-white no-underline text-base px-2.5 py-2 block text-left transition-colors duration-300 rounded-[10px] hover:bg-white/15'
@@ -10,10 +12,13 @@ const dropdownLinkClass =
 const subLinkClass =
     'text-white no-underline text-base px-4 py-1.5 block hover:bg-white/15'
 
-const DesktopNav = () => {
+const TabletNav = () => {
+    const navRef = useTabletMenu()
+
     return (
         <nav
-            className="hidden md:flex justify-center nav-links desktop-nav"
+            ref={navRef}
+            className="hidden md:flex justify-center nav-links tablet-nav"
             role="navigation"
             aria-label="Menú principal"
         >
@@ -71,4 +76,4 @@ const DesktopNav = () => {
     )
 }
 
-export default DesktopNav
+export default TabletNav

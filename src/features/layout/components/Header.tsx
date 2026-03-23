@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import DesktopNav from '../../navigation/components/DesktopNav'
+import TabletNav from '../../navigation/components/TabletNav'
 import MobileNav from '../../navigation/components/MobileNav'
 import logoImg from '../../../assets/images/logo/logo.png'
 import { productos } from '../../../data/productos'
@@ -92,7 +93,8 @@ const Header = () => {
                     )}
                 </Link>
 
-                {!isSearchActive && <DesktopNav />}
+                <DesktopNav />
+                <TabletNav />
 
                 <div className={`header-utils flex items-center gap-2 md:ml-4 ${isSearchActive ? 'flex-1 md:flex-1' : 'flex-1 md:flex-initial'} justify-end`}>
                     <div className={`relative ${isSearchActive ? 'flex-1 md:flex-1' : 'flex-1 md:flex-initial'} flex items-center justify-end`}>
