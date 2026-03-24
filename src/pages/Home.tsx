@@ -48,7 +48,7 @@ const Home = () => {
                 products={featuredProducts}
                 id="productos-destacados"
                 idPrefix="featured"
-                className="mt-12 md:mt-20"
+                className="mt-6 md:mt-8"
             />
 
             <AboutUs />

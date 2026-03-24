@@ -8,15 +8,16 @@
 
 /* Contenedor principal de la sección — ancho completo del main/viewport */
 .product-carousel-section {
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con 80% de opacidad */
-    padding: 0.75rem 1rem; /* 12px de padding vertical y 16px horizontal base (mobile) */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 0.5rem 1rem; /* 8px de padding vertical y 16px horizontal base (mobile) - reducido */
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 2.5rem; /* 40px de espacio inferior entre secciones */
+    margin-bottom: 1.5rem; /* 24px de espacio inferior entre secciones (reducido) */
     width: 100%;
     max-width: none;
     border-radius: 0;
     box-sizing: border-box;
+    border-top: 1px solid #e5e5e5; /* Border gris claro muy fino como separador */
 }
 
 /* Ajustes para pantallas medianas (Desktops/Tablets) */
@@ -32,15 +33,15 @@
 /* Estilo del título de la sección */
 .product-carousel-section__title {
     font-size: 1.25rem; /* 20px base */
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo un poco más claro para contraste */
+    color: #000000; /* Texto negro para contraste con fondo blanco */
+    background-color: #f8f9fa; /* Fondo gris muy claro */
     padding: 0.5rem 1rem; /* px-4 py-2 */
     border-radius: 0.75rem; /* rounded-xl (12px) */
-    margin-bottom: 1.25rem; /* mb-5 (20px) */
+    margin-bottom: 1rem; /* mb-4 (16px) - reducido para acercar al border */
     width: fit-content;
-    margin-left: auto;
+    margin-left: 0; /* Alineado a la izquierda */
     margin-right: auto;
-    text-align: center;
+    text-align: left; /* Alineado a la izquierda */
     font-weight: 700; /* Negrita */
 }
 
