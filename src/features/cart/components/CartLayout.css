@@ -1,0 +1,45 @@
+/* 
+   ==========================================================================
+   CartLayout - Estilos del Layout del Carrito
+   ==========================================================================
+   Este archivo maneja el estilo del contenedor principal del carrito,
+   incluyendo fondo, bordes, espaciado y diseño responsive.
+*/
+
+/* Contenedor principal del layout del carrito */
+.cart-layout {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    margin: 0 auto 2.5rem;
+    max-width: 1200px;
+    color: #ffffff;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+}
+
+/* Efecto de sombra sutil */
+.cart-layout {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive para tabletas y desktop */
+@media (min-width: 768px) {
+    .cart-layout {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-top: 0;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 640px) {
+    .cart-layout {
+        padding: 1.5rem;
+        margin: 1rem 1rem 2rem;
+        border-radius: 1rem;
+    }
+}

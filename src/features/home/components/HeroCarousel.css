@@ -35,8 +35,6 @@
 .hero-carousel-container {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     /* Sombra difuminada para darle profundidad */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Borde sutil transparente */
     aspect-ratio: 3 / 1.1;
     /* Proporción ancho/alto para móviles (un poco más cuadrado) */
     min-height: 200px;
