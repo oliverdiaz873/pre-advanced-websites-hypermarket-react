@@ -103,7 +103,7 @@ export const productos: Product[] = [
         unidad: "lb"
     },
     {
-        id: "camarones_pre_cocidos",
+        id: "camarones_precocidos",
         nombre: "Camarones Pre-cocidos",
         url: "/pages/product/alimentos/carnes_pescados_mariscos/camarones_precocidos.html",
         categoria: "carnes_pescados_mariscos",
@@ -164,7 +164,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/alimentos/despensa/aceites/aceite_crisol.avif"
     },
     {
-        id: "aceite_de_oliva_extra_virgen",
+        id: "aceite_oliva_extra_virgen",
         nombre: "Aceite de Oliva Extra Virgen",
         url: "/pages/product/alimentos/despensa/aceite_oliva_extra_virgen.html",
         categoria: "despensa",
@@ -182,7 +182,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/alimentos/despensa/aderezos_y_salsas/mayonesa_baldom.avif"
     },
     {
-        id: "sal_marina_refisal",
+        id: "sal_refisal",
         nombre: "Sal Marina Refisal",
         url: "/pages/product/alimentos/despensa/sal_refisal.html",
         categoria: "despensa",
@@ -200,7 +200,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/alimentos/despensa/condimentos/sazon_completo_maggi.avif"
     },
     {
-        id: "sopita_doña_gallina",
+        id: "sopita_dona_gallina",
         nombre: "Sopita Doña Gallina",
         url: "/pages/product/alimentos/despensa/sopita_dona_gallina.html",
         categoria: "despensa",
@@ -443,7 +443,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/alimentos/lacteos_y_huevos/queso/queso_gouda.avif"
     },
     {
-        id: "yogurt_de_fresa_yoka",
+        id: "yogurt_fresa_yoka",
         nombre: "Yogurt de Fresa Yoka",
         url: "/pages/product/alimentos/lacteos_y_huevos/yogurt_fresa_yoka.html",
         categoria: "lacteos_y_huevos",
@@ -579,7 +579,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "nevera_lg_grande_moderna",
+        id: "nevera_lg",
         nombre: "Nevera LG Grande Moderna",
         url: "/pages/product/electrodomesticos/cocina/nevera_lg.html",
         categoria: "cocina",
@@ -654,7 +654,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "flanax_analgesico",
+        id: "flanax",
         nombre: "Flanax Analgésico",
         url: "/pages/product/farmacia/analgesicos/flanax.html",
         categoria: "analgesicos",
@@ -664,7 +664,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "thera_gesic_analgesico",
+        id: "thera_gesic",
         nombre: "Thera-Gesic Analgésico",
         url: "/pages/product/farmacia/analgesicos/thera_gesic.html",
         categoria: "analgesicos",
@@ -674,7 +674,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "tylenol_analgesico",
+        id: "tylenol",
         nombre: "Tylenol Analgésico",
         url: "/pages/product/farmacia/analgesicos/tylenol.html",
         categoria: "analgesicos",
@@ -684,7 +684,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "vaporizing_analgesico",
+        id: "vaporizing",
         nombre: "Vaporizing Analgésico",
         url: "/pages/product/farmacia/analgesicos/vaporizing.html",
         categoria: "analgesicos",
@@ -743,7 +743,7 @@ export const productos: Product[] = [
 
     //Dermocosmética
     {
-        id: "cerave_acido_hialuronico",
+        id: "acido_hialuronico",
         nombre: "Cerave Ácido Hialurónico",
         url: "/pages/product/farmacia/dermocosmetica/acido_hialuronico.html",
         categoria: "dermocosmetica",
@@ -770,7 +770,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/farmacia/dermocosmetica/hidratante_eucerin.avif"
     },
     {
-        id: "hidratante_cerave_grande",
+        id: "hidratante_grande",
         nombre: "Hidratante Cerave Grande",
         url: "/pages/product/farmacia/dermocosmetica/hidratante_grande.html",
         categoria: "dermocosmetica",
@@ -788,7 +788,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/farmacia/dermocosmetica/retinol.avif"
     },
     {
-        id: "serum_vitamina_c",
+        id: "serum_vitaminac",
         nombre: "Serum Vitamina C",
         url: "/pages/product/farmacia/dermocosmetica/serum_vitaminac.html",
         categoria: "dermocosmetica",
@@ -808,9 +808,9 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/farmacia/vitaminas_y_minerales/flintstones.avif"
     },
     {
-        id: "Multivitaminico",
+        id: "multivitaminico",
         nombre: "Multivitamínico",
-        url: "/pages/product/farmacia/vitaminas_y_minerales/Multivitaminico.html",
+        url: "/pages/product/farmacia/vitaminas_y_minerales/multivitaminico.html",
         categoria: "vitaminas_y_minerales",
         precio: 3000, // número para carrito
         precioTexto: "Precio: $3,000", // texto para mostrar en resultados
@@ -826,7 +826,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/farmacia/vitaminas_y_minerales/omega3.avif"
     },
     {
-        id: "Vitafusion",
+        id: "vitafusion",
         nombre: "Vitafusion",
         url: "/pages/product/farmacia/vitaminas_y_minerales/vitafusion.html",
         categoria: "vitaminas_y_minerales",
@@ -835,7 +835,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/farmacia/vitaminas_y_minerales/vitafusion.avif"
     },
     {
-        id: "vitamina_c",
+        id: "vitaminac",
         nombre: "Vitamina C",
         url: "/pages/product/farmacia/vitaminas_y_minerales/vitaminac.html",
         categoria: "vitaminas_y_minerales",
@@ -866,7 +866,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/ferreteria/electricidad/bombillas.avif"
     },
     {
-        id: "extension_electrica",
+        id: "extension",
         nombre: "Extensión Eléctrica",
         url: "/pages/product/ferreteria/electricidad/extension.html",
         categoria: "electricidad",
@@ -1025,7 +1025,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/ferreteria/plomeria/manguera.avif"
     },
     {
-        id: "tubo_de_drenaje",
+        id: "tubo",
         nombre: "Tubo de Drenaje",
         url: "/pages/product/ferreteria/plomeria/tubo.html",
         categoria: "plomeria",
@@ -1191,7 +1191,7 @@ export const productos: Product[] = [
 
     //Mesas
     {
-        id: "Mesa_de_Madera",
+        id: "mesa_de_madera",
         nombre: "Mesa de Madera",
         url: "/pages/product/muebles_y_decoracion/mesas/mesa_de_madera.html",
         categoria: "mesas",
@@ -1301,7 +1301,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "Sofa_gris",
+        id: "sofa_gris",
         nombre: "Sofá Gris",
         url: "/pages/product/muebles_y_decoracion/sofas/sofa_gris.html",
         categoria: "sofas",
@@ -1311,7 +1311,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "Sofa_media_luna",
+        id: "sofa_media_luna",
         nombre: "Sofá Media Luna",
         url: "/pages/product/muebles_y_decoracion/sofas/sofa_media_luna.html",
         categoria: "sofas",
@@ -1321,7 +1321,7 @@ export const productos: Product[] = [
         unidad: "unidad"
     },
     {
-        id: "Sofa_negro",
+        id: "sofa_negro",
         nombre: "Sofá Negro",
         url: "/pages/product/muebles_y_decoracion/sofas/sofa_negro.html",
         categoria: "sofas",
@@ -1330,7 +1330,7 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/muebles_y_decoracion/sofa/sofa_negro.avif"
     },
     {
-        id: "Sofa_verde",
+        id: "sofa_verde",
         nombre: "Sofá Verde",
         url: "/pages/product/muebles_y_decoracion/sofas/sofa_verde.html",
         categoria: "sofas",
@@ -1819,5 +1819,195 @@ export const productos: Product[] = [
         imagen: "/assets/images/productos/tecnologia/televisores/tv_samsung.png"
     },
 
+
+    //--Muebles y Decoración--//
+
+    // Sofás
+    {
+        id: "sofa_verde",
+        nombre: "Sofá Verde",
+        url: "/pages/product/muebles_y_decoracion/sofas/sofa_verde.html",
+        categoria: "sofas",
+        precio: 14000,
+        precioTexto: "Precio: $14,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sofa/sofa_verde.avif"
+    },
+    {
+        id: "sofa_gris",
+        nombre: "Sofá Gris",
+        url: "/pages/product/muebles_y_decoracion/sofas/sofa_gris.html",
+        categoria: "sofas",
+        precio: 8000,
+        precioTexto: "Precio: $8,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sofa/sofa_gris.avif"
+    },
+    {
+        id: "sofa_media_luna",
+        nombre: "Sofá Media Luna",
+        url: "/pages/product/muebles_y_decoracion/sofas/sofa_media_luna.html",
+        categoria: "sofas",
+        precio: 3000,
+        precioTexto: "Precio: $3,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sofa/sofa_media_luna.avif"
+    },
+    {
+        id: "sofa_negro",
+        nombre: "Sofá Negro",
+        url: "/pages/product/muebles_y_decoracion/sofas/sofa_negro.html",
+        categoria: "sofas",
+        precio: 5000,
+        precioTexto: "Precio: $5,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sofa/sofa_negro.avif"
+    },
+    {
+        id: "sofa_cama_blanco",
+        nombre: "Sofá Cama Blanco",
+        url: "/pages/product/muebles_y_decoracion/sofas/sofa_cama_blanco.html",
+        categoria: "sofas",
+        precio: 9000,
+        precioTexto: "Precio: $9,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sofa/sofa_cama_blanco.png"
+    },
+
+    // Sillones
+    {
+        id: "sillon_amarillo",
+        nombre: "Sillón Amarillo",
+        url: "/pages/product/muebles_y_decoracion/sillones/sillon_amarillo.html",
+        categoria: "sillones",
+        precio: 4500,
+        precioTexto: "Precio: $4,500",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sillon/sillon_amarillo.avif"
+    },
+    {
+        id: "sillon_azul",
+        nombre: "Sillón Azul",
+        url: "/pages/product/muebles_y_decoracion/sillones/sillon_azul.html",
+        categoria: "sillones",
+        precio: 5500,
+        precioTexto: "Precio: $5,500",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sillon/sillon_azul.avif"
+    },
+    {
+        id: "sillon_blanco",
+        nombre: "Sillón Blanco",
+        url: "/pages/product/muebles_y_decoracion/sillones/sillon_blanco.html",
+        categoria: "sillones",
+        precio: 4000,
+        precioTexto: "Precio: $4,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sillon/sillon_blanco.avif"
+    },
+    {
+        id: "sillon_gris",
+        nombre: "Sillón Gris",
+        url: "/pages/product/muebles_y_decoracion/sillones/sillon_gris.html",
+        categoria: "sillones",
+        precio: 5000,
+        precioTexto: "Precio: $5,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sillon/sillon_gris.avif"
+    },
+    {
+        id: "sillon_verde",
+        nombre: "Sillón Verde",
+        url: "/pages/product/muebles_y_decoracion/sillones/sillon_verde.html",
+        categoria: "sillones",
+        precio: 7000,
+        precioTexto: "Precio: $7,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/sillon/sillon_verde.avif"
+    },
+
+    // Mesas
+    {
+        id: "mesa_de_noche",
+        nombre: "Mesa de Noche",
+        url: "/pages/product/muebles_y_decoracion/mesas/mesa_de_noche.html",
+        categoria: "mesas",
+        precio: 3000,
+        precioTexto: "Precio: $3,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/mesas/mesa_de_noche.avif"
+    },
+    {
+        id: "mesa_de_madera",
+        nombre: "Mesa de Madera",
+        url: "/pages/product/muebles_y_decoracion/mesas/mesa_de_madera.html",
+        categoria: "mesas",
+        precio: 4000,
+        precioTexto: "Precio: $4,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/mesas/mesa_madera.avif"
+    },
+    {
+        id: "mesa_moderna",
+        nombre: "Mesa Moderna",
+        url: "/pages/product/muebles_y_decoracion/mesas/mesa_moderna.html",
+        categoria: "mesas",
+        precio: 6300,
+        precioTexto: "Precio: $6,300",
+        imagen: "/assets/images/productos/muebles_y_decoracion/mesas/mesa_moderna.avif"
+    },
+    {
+        id: "mesa_oscura",
+        nombre: "Mesa Oscura",
+        url: "/pages/product/muebles_y_decoracion/mesas/mesa_oscura.html",
+        categoria: "mesas",
+        precio: 8000,
+        precioTexto: "Precio: $8,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/mesas/mesa_oscura.avif"
+    },
+    {
+        id: "mesa_pequena",
+        nombre: "Mesa Pequeña",
+        url: "/pages/product/muebles_y_decoracion/mesas/mesa_pequena.html",
+        categoria: "mesas",
+        precio: 12500,
+        precioTexto: "Precio: $12,500",
+        imagen: "/assets/images/productos/muebles_y_decoracion/mesas/mesa_pequena.avif"
+    },
+
+    // Floreros
+    {
+        id: "florero_de_plantas",
+        nombre: "Florero de Plantas",
+        url: "/pages/product/muebles_y_decoracion/floreros/florero_de_plantas.html",
+        categoria: "floreros",
+        precio: 2000,
+        precioTexto: "Precio: $2,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/floreros/florero_de_plantas.avif"
+    },
+    {
+        id: "florero_de_vidrio",
+        nombre: "Florero de Vidrio",
+        url: "/pages/product/muebles_y_decoracion/floreros/florero_de_vidrio.html",
+        categoria: "floreros",
+        precio: 4000,
+        precioTexto: "Precio: $4,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/floreros/florero_de_vidrio.avif"
+    },
+    {
+        id: "jarron",
+        nombre: "Jarrón",
+        url: "/pages/product/muebles_y_decoracion/floreros/jarron.html",
+        categoria: "floreros",
+        precio: 3000,
+        precioTexto: "Precio: $3,000",
+        imagen: "/assets/images/productos/muebles_y_decoracion/floreros/jarron.avif"
+    },
+    {
+        id: "jarrones",
+        nombre: "Jarrones",
+        url: "/pages/product/muebles_y_decoracion/floreros/jarrones.html",
+        categoria: "floreros",
+        precio: 3500,
+        precioTexto: "Precio: $3,500",
+        imagen: "/assets/images/productos/muebles_y_decoracion/floreros/jarrones.avif"
+    },
+    {
+        id: "tulipanes",
+        nombre: "Tulipanes",
+        url: "/pages/product/muebles_y_decoracion/floreros/tulipanes.html",
+        categoria: "floreros",
+        precio: 4200,
+        precioTexto: "Precio: $4,200",
+        imagen: "/assets/images/productos/muebles_y_decoracion/floreros/tulipanes.avif"
+    },
 ];
 

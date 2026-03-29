@@ -158,3 +158,10 @@
     }
 
 }
+/* Overlay Link para navegar al producto al hacer clic en cualquier parte de la card */
+.product-card__overlay-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* Por encima de la imagen y texto, pero por debajo de AddToCartButton (z-index: 2) */
+    cursor: pointer;
+}
