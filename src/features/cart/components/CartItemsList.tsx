@@ -1,5 +1,6 @@
 import './CartItemsList.css'
 import CartItem from './CartItem'
+import { offersData } from '../../../pages/Home'
 
 /**
  * CartItemsList - Componente de Lista de Items del Carrito
@@ -25,18 +26,23 @@ interface CartItemsListProps {
 const CartItemsList = ({ cart, updateQuantity, removeFromCart }: CartItemsListProps) => {
     return (
         <div className="cart-items-list">
-            {cart.map((item) => (
-                <CartItem
-                    key={item.id}
-                    id={item.id}
-                    nombre={item.nombre}
-                    precio={item.precio}
-                    cantidad={item.cantidad}
-                    img={item.img}
-                    updateQuantity={updateQuantity}
-                    removeFromCart={removeFromCart}
-                />
-            ))}
+            {cart.map((item) => {
+                const offer = offersData.find((o) => o.id === item.id)
+                return (
+                    <CartItem
+                        key={item.id}
+                        id={item.id}
+                        nombre={item.nombre}
+                        precio={item.precio}
+                        cantidad={item.cantidad}
+                        img={item.img}
+                        isOffer={!!offer}
+                        oldPrice={offer?.oldPrice}
+                        updateQuantity={updateQuantity}
+                        removeFromCart={removeFromCart}
+                    />
+                )
+            })}
         </div>
     )
 }

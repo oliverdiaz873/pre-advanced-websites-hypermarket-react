@@ -15,14 +15,14 @@
  * definido en ProductDetailSection.tsx.
  *
  * Migración por fases:
- *  ✅ Fase 1 – Alimentos
- *  ✅ Fase 2 – Electrodomésticos
- *  ✅ Fase 3 – Tecnología
- *  ✅ Fase 4 – Farmacia
- *  ✅ Fase 5 – Ferretería
- *  ✅ Fase 6 – Juguetes
- *  ✅ Fase 7 – Muebles y Decoración
- *  ✅ Fase 8 – Ropa
+ *   Fase 1 – Alimentos
+ *   Fase 2 – Electrodomésticos
+ *   Fase 3 – Tecnología
+ *   Fase 4 – Farmacia
+ *   Fase 5 – Ferretería
+ *   Fase 6 – Juguetes
+ *   Fase 7 – Muebles y Decoración
+ *   Fase 8 – Ropa
  */
 
 export interface ProductPageData {
@@ -1471,576 +1471,576 @@ export const productPageData: Record<string, ProductPageData> = {
         ],
     },
 
-  // ─── JUGUETES ─────────────────────────────────────────────────────────────
+    // ─── JUGUETES ─────────────────────────────────────────────────────────────
 
-  muñeca_barbie: {
-    descripcion: "Muñeca Barbie clásica con un vestido elegante y accesorios modernos. Diseñada para inspirar la imaginación y recordar que tú puedes ser lo que quieras.",
-    detalles: [
-      "Modelo: Barbie Fashionistas",
-      "Incluye: Vestido, zapatos y bolso",
-      "Material: Plástico de alta calidad",
-      "Edad: 3+ años",
-      "Marca: Mattel"
-    ]
-  },
-  muñeca_baby_doll: {
-    descripcion: "Adorable muñeca Baby Doll con accesorios de cuidado. Fomenta la empatía y el juego imaginativo mientras los más pequeños aprenden a cuidar.",
-    detalles: [
-      "Tipo: Muñeca de Cuidado",
-      "Incluye: Biberón y sonajero",
-      "Material: Vinilo suave",
-      "Edad: 2+ años",
-      "Marca: Little Hearts"
-    ]
-  },
-  juguetes_de_peluqueria: {
-    descripcion: "Set completo de peluquería de juguete. Incluye un secador que emite aire suave, peines, clips coloridos y un espejo para crear estilos fantásticos y divertidos.",
-    detalles: [
-      "Contenido: Secador, 2 peines, 4 clips",
-      "Funcionalidad: Secador a pilas (no incl.)",
-      "Material: Plástico libre de BPA",
-      "Edad: 5+ años",
-      "Marca: Style Stars"
-    ]
-  },
-  kit_de_maquillaje: {
-    descripcion: "Kit de maquillaje artístico para niñas, totalmente lavable y seguro. Incluye sombras, rubores y aplicadores, ideal para fiestas, cumpleaños y juegos de disfraces.",
-    detalles: [
-      "Tipo: Maquillaje Lavable",
-      "Seguridad: No tóxico, dermatológicamente probado",
-      "Incluye: Sombras, rubor, 2 aplicadores",
-      "Edad: 6+ años",
-      "Marca: Glamour Kids"
-    ]
-  },
-  pinta_uñas: {
-    descripcion: "Set de esmaltes de uñas de colores vibrantes y stickers decorativos. No tóxico, base agua y fácil de remover, perfecto para una tarde de spa y creatividad.",
-    detalles: [
-      "Contenido: 3 esmaltes, 1 hoja de stickers",
-      "Seguridad: No tóxico, lavable",
-      "Colores: Rosa, Morado, Azul",
-      "Edad: 4+ años",
-      "Marca: Little Diva"
-    ]
-  },
-  legos_de_minecraft: {
-    descripcion: "Set LEGO Minecraft: La Cabaña-Abeja. Una aventura de construcción llena de posibilidades, con miel, abejas zumbadoras y figuras de personajes para recrear el juego en la vida real.",
-    detalles: [
-      "Set: La Cabaña-Abeja",
-      "Piezas: 251 bloques",
-      "Incluye: Apicultor, Osito Zombi, 3 Abejas",
-      "Edad: 8+ años",
-      "Marca: LEGO / Minecraft"
-    ]
-  },
-  auto_azul: {
-    descripcion: "Auto deportivo de color azul brillante, con ruedas de fricción y detalles realistas para horas de diversión a toda velocidad.",
-    detalles: [
-      "Color: Azul Brillante",
-      "Material: Plástico resistente",
-      "Sistema: Ruedas de Fricción",
-      "Edad: 3+ años",
-      "Marca: Speed Master"
-    ]
-  },
-  avion_de_juguete: {
-    descripcion: "Avión de juguete con luces y sonidos reales de despegue. Perfecto para pequeños pilotos que aman la aventura en las alturas.",
-    detalles: [
-      "Tipo: Avión con Efectos",
-      "Funciones: Luces LED y Sonido",
-      "Material: ABS de alta resistencia",
-      "Edad: 4+ años",
-      "Marca: Fly High"
-    ]
-  },
-  autos_hot_wheels: {
-    descripcion: "Colección de 5 autos Hot Wheels clásicos. Diseños veloces, colores vibrantes y acabados metálicos de alta calidad para coleccionistas y niños por igual.",
-    detalles: [
-      "Contenido: Pack de 5 autos",
-      "Escala: 1:64",
-      "Material: Metal y Plástico",
-      "Edad: 3+ años",
-      "Marca: Hot Wheels / Mattel"
-    ]
-  },
-  legos_de_creeper: {
-    descripcion: "Los Legos de Creeper son ideales para los niños amantes de la construcción y de Minecraft. Permiten desarrollar la creatividad, motricidad fina y habilidades de resolución de problemas mientras construyen uno de los personajes más icónicos del juego.",
-    detalles: [
-      "Serie: Minecraft",
-      "Tema: Creeper BigFigure",
-      "Edad recomendada: 7+ años",
-      "Material: Plástico ABS de alta calidad",
-      "Marca: LEGO"
-    ]
-  },
-  
-  // ─── MUEBLES Y DECORACIÓN ────────────────────────────────────────────────
+    muñeca_barbie: {
+        descripcion: "Muñeca Barbie clásica con un vestido elegante y accesorios modernos. Diseñada para inspirar la imaginación y recordar que tú puedes ser lo que quieras.",
+        detalles: [
+            "Modelo: Barbie Fashionistas",
+            "Incluye: Vestido, zapatos y bolso",
+            "Material: Plástico de alta calidad",
+            "Edad: 3+ años",
+            "Marca: Mattel"
+        ]
+    },
+    muñeca_baby_doll: {
+        descripcion: "Adorable muñeca Baby Doll con accesorios de cuidado. Fomenta la empatía y el juego imaginativo mientras los más pequeños aprenden a cuidar.",
+        detalles: [
+            "Tipo: Muñeca de Cuidado",
+            "Incluye: Biberón y sonajero",
+            "Material: Vinilo suave",
+            "Edad: 2+ años",
+            "Marca: Little Hearts"
+        ]
+    },
+    juguetes_de_peluqueria: {
+        descripcion: "Set completo de peluquería de juguete. Incluye un secador que emite aire suave, peines, clips coloridos y un espejo para crear estilos fantásticos y divertidos.",
+        detalles: [
+            "Contenido: Secador, 2 peines, 4 clips",
+            "Funcionalidad: Secador a pilas (no incl.)",
+            "Material: Plástico libre de BPA",
+            "Edad: 5+ años",
+            "Marca: Style Stars"
+        ]
+    },
+    kit_de_maquillaje: {
+        descripcion: "Kit de maquillaje artístico para niñas, totalmente lavable y seguro. Incluye sombras, rubores y aplicadores, ideal para fiestas, cumpleaños y juegos de disfraces.",
+        detalles: [
+            "Tipo: Maquillaje Lavable",
+            "Seguridad: No tóxico, dermatológicamente probado",
+            "Incluye: Sombras, rubor, 2 aplicadores",
+            "Edad: 6+ años",
+            "Marca: Glamour Kids"
+        ]
+    },
+    pinta_uñas: {
+        descripcion: "Set de esmaltes de uñas de colores vibrantes y stickers decorativos. No tóxico, base agua y fácil de remover, perfecto para una tarde de spa y creatividad.",
+        detalles: [
+            "Contenido: 3 esmaltes, 1 hoja de stickers",
+            "Seguridad: No tóxico, lavable",
+            "Colores: Rosa, Morado, Azul",
+            "Edad: 4+ años",
+            "Marca: Little Diva"
+        ]
+    },
+    legos_de_minecraft: {
+        descripcion: "Set LEGO Minecraft: La Cabaña-Abeja. Una aventura de construcción llena de posibilidades, con miel, abejas zumbadoras y figuras de personajes para recrear el juego en la vida real.",
+        detalles: [
+            "Set: La Cabaña-Abeja",
+            "Piezas: 251 bloques",
+            "Incluye: Apicultor, Osito Zombi, 3 Abejas",
+            "Edad: 8+ años",
+            "Marca: LEGO / Minecraft"
+        ]
+    },
+    auto_azul: {
+        descripcion: "Auto deportivo de color azul brillante, con ruedas de fricción y detalles realistas para horas de diversión a toda velocidad.",
+        detalles: [
+            "Color: Azul Brillante",
+            "Material: Plástico resistente",
+            "Sistema: Ruedas de Fricción",
+            "Edad: 3+ años",
+            "Marca: Speed Master"
+        ]
+    },
+    avion_de_juguete: {
+        descripcion: "Avión de juguete con luces y sonidos reales de despegue. Perfecto para pequeños pilotos que aman la aventura en las alturas.",
+        detalles: [
+            "Tipo: Avión con Efectos",
+            "Funciones: Luces LED y Sonido",
+            "Material: ABS de alta resistencia",
+            "Edad: 4+ años",
+            "Marca: Fly High"
+        ]
+    },
+    autos_hot_wheels: {
+        descripcion: "Colección de 5 autos Hot Wheels clásicos. Diseños veloces, colores vibrantes y acabados metálicos de alta calidad para coleccionistas y niños por igual.",
+        detalles: [
+            "Contenido: Pack de 5 autos",
+            "Escala: 1:64",
+            "Material: Metal y Plástico",
+            "Edad: 3+ años",
+            "Marca: Hot Wheels / Mattel"
+        ]
+    },
+    legos_de_creeper: {
+        descripcion: "Los Legos de Creeper son ideales para los niños amantes de la construcción y de Minecraft. Permiten desarrollar la creatividad, motricidad fina y habilidades de resolución de problemas mientras construyen uno de los personajes más icónicos del juego.",
+        detalles: [
+            "Serie: Minecraft",
+            "Tema: Creeper BigFigure",
+            "Edad recomendada: 7+ años",
+            "Material: Plástico ABS de alta calidad",
+            "Marca: LEGO"
+        ]
+    },
 
-  // Sofás
-  sofa_verde: {
-    descripcion: "Sofá espacioso en color verde esmeralda. Un mueble imponente que destaca por su color vibrante y su capacidad para acoger a toda la familia con estilo.",
-    detalles: [
-      "Material: Terciopelo verde esmeralda and madera noble",
-      "Capacidad: 4-5 personas",
-      "Estilo: Glamour Moderno",
-      "Garantía: 3 años",
-      "Marca: LuxuryComfort"
-    ]
-  },
-  sofa_gris: {
-    descripcion: "Sofá contemporáneo en color gris. Con una estructura robusta y cojines extra suaves, es la elección perfecta para maratones de series y relax familiar.",
-    detalles: [
-      "Material: Estructura reforzada y tela resistente",
-      "Plazas: 3",
-      "Confort: Premium",
-      "Garantía: 2 años",
-      "Marca: UrbanLiving"
-    ]
-  },
-  sofa_media_luna: {
-    descripcion: "Sofá con un diseño innovador en media luna. Ideal para crear espacios de conversación acogedores y dinámicos en salas de estar amplias.",
-    detalles: [
-      "Material: Espuma de alta densidad y tela premium",
-      "Forma: Circular / Media Luna",
-      "Uso: Salas de estar / Espera",
-      "Garantía: 1 año",
-      "Marca: UniqueDesign"
-    ]
-  },
-  sofa_negro: {
-    descripcion: "Sofá elegante en color negro profundo. Su acabado premium y líneas sofisticadas aportan un toque de lujo industrial a cualquier oficina o sala de estar moderna.",
-    detalles: [
-      "Material: Cuero sintético premium y metal",
-      "Estilo: Industrial Moderno",
-      "Acabado: Negro Mate",
-      "Garantía: 5 años (estructura)",
-      "Marca: EliteFurniture"
-    ]
-  },
-  sofa_cama_blanco: {
-    descripcion: "Sofá cama en color blanco puro. Funcionalidad y diseño se unen en esta pieza versátil que se transforma fácilmente para recibir a tus invitados con el máximo confort.",
-    detalles: [
-      "Material: Estructura de madera y tela suave",
-      "Tipo: Sofá Cama",
-      "Capacidad: 3 plazas (sofá) / 2 plazas (cama)",
-      "Garantía: 2 años",
-      "Marca: RelaxHome"
-    ]
-  },
+    // ─── MUEBLES Y DECORACIÓN ────────────────────────────────────────────────
 
-  // Sillones
-  sillon_amarillo: {
-    descripcion: "Sillón individual en color amarillo vibrante. Su diseño ergonómico y acolchado de alta densidad garantizan un confort excepcional mientras añades una pieza de acento audaz a tu sala.",
-    detalles: [
-      "Material: Tela premium y madera",
-      "Estilo: Contemporáneo",
-      "Ergonomía: Alta",
-      "Garantía: 1 año",
-      "Marca: ComfortPlus"
-    ]
-  },
-  sillon_azul: {
-    descripcion: "Sillón de terciopelo azul profundo. Elegancia clásica combinada con una estructura moderna de patas metálicas, ideal para un rincón de lectura sofisticado.",
-    detalles: [
-      "Material: Terciopelo y metal",
-      "Estilo: Clásico moderno",
-      "Uso: Interior",
-      "Garantía: 2 años",
-      "Marca: EliteFurniture"
-    ]
-  },
-  sillon_blanco: {
-    descripcion: "Sillón minimalista en color blanco puro. Su diseño de líneas limpias y tejido resistente a manchas lo hace perfecto para ambientes luminosos y modernos.",
-    detalles: [
-      "Material: Microfibra y madera",
-      "Estilo: Loft Minimalista",
-      "Tratamiento: Anti-manchas",
-      "Garantía: 1 año",
-      "Marca: UrbanDesign"
-    ]
-  },
-  sillon_gris: {
-    descripcion: "Sillón contemporáneo en gris jaspeado. Versátil y atemporal, este sillón se adapta a cualquier estilo de decoración ofreciendo una durabilidad superior para el uso diario.",
-    detalles: [
-      "Material: Lino sintético y madera",
-      "Color: Gris jaspeado",
-      "Uso: Familiar",
-      "Garantía: 2 años",
-      "Marca: HomeStyle"
-    ]
-  },
-  sillon_verde: {
-    descripcion: "Sillón estilo nórdico en verde olivo. Fabricado con materiales sostenibles, aporta un toque de naturaleza y frescura a tu hogar sin comprometer el estilo.",
-    detalles: [
-      "Material: Algodón orgánico y roble",
-      "Sostenibilidad: Alta",
-      "Estilo: Escandinavo",
-      "Garantía: 3 años",
-      "Marca: EcoLiving"
-    ]
-  },
+    // Sofás
+    sofa_verde: {
+        descripcion: "Sofá espacioso en color verde esmeralda. Un mueble imponente que destaca por su color vibrante y su capacidad para acoger a toda la familia con estilo.",
+        detalles: [
+            "Material: Terciopelo verde esmeralda and madera noble",
+            "Capacidad: 4-5 personas",
+            "Estilo: Glamour Moderno",
+            "Garantía: 3 años",
+            "Marca: LuxuryComfort"
+        ]
+    },
+    sofa_gris: {
+        descripcion: "Sofá contemporáneo en color gris. Con una estructura robusta y cojines extra suaves, es la elección perfecta para maratones de series y relax familiar.",
+        detalles: [
+            "Material: Estructura reforzada y tela resistente",
+            "Plazas: 3",
+            "Confort: Premium",
+            "Garantía: 2 años",
+            "Marca: UrbanLiving"
+        ]
+    },
+    sofa_media_luna: {
+        descripcion: "Sofá con un diseño innovador en media luna. Ideal para crear espacios de conversación acogedores y dinámicos en salas de estar amplias.",
+        detalles: [
+            "Material: Espuma de alta densidad y tela premium",
+            "Forma: Circular / Media Luna",
+            "Uso: Salas de estar / Espera",
+            "Garantía: 1 año",
+            "Marca: UniqueDesign"
+        ]
+    },
+    sofa_negro: {
+        descripcion: "Sofá elegante en color negro profundo. Su acabado premium y líneas sofisticadas aportan un toque de lujo industrial a cualquier oficina o sala de estar moderna.",
+        detalles: [
+            "Material: Cuero sintético premium y metal",
+            "Estilo: Industrial Moderno",
+            "Acabado: Negro Mate",
+            "Garantía: 5 años (estructura)",
+            "Marca: EliteFurniture"
+        ]
+    },
+    sofa_cama_blanco: {
+        descripcion: "Sofá cama en color blanco puro. Funcionalidad y diseño se unen en esta pieza versátil que se transforma fácilmente para recibir a tus invitados con el máximo confort.",
+        detalles: [
+            "Material: Estructura de madera y tela suave",
+            "Tipo: Sofá Cama",
+            "Capacidad: 3 plazas (sofá) / 2 plazas (cama)",
+            "Garantía: 2 años",
+            "Marca: RelaxHome"
+        ]
+    },
 
-  // Mesas
-  mesa_de_madera: {
-    descripcion: "Mesa de comedor fabricada en madera sólida de roble de alta calidad. Su acabado natural resalta la belleza de la veta, aportando calidez y robustez a tu hogar.",
-    detalles: [
-      "Material: Roble sólido seleccionado",
-      "Acabado: Barniz natural mate",
-      "Capacidad: 6-8 comensales",
-      "Dimensiones: 180cm x 90cm x 75cm",
-      "Marca: WoodMaster"
-    ]
-  },
-  mesa_de_noche: {
-    descripcion: "Elegante mesa de noche con un diseño moderno y funcional. Incluye un cajón de suave apertura para mantener tus objetos personales organizados.",
-    detalles: [
-      "Material: Madera MDF con acabado premium",
-      "Cajones: 1 con guías metálicas",
-      "Estilo: Minimalista Urbano",
-      "Dimensiones: 45cm x 40cm x 55cm",
-      "Marca: SleepWell"
-    ]
-  },
-  mesa_moderna: {
-    descripcion: "Mesa de centro con diseño vanguardista. Combina superficies de cristal templado con una estructura metálica minimalista para un estilo contemporáneo.",
-    detalles: [
-      "Material: Cristal templado y acero inoxidable",
-      "Estilo: Loft Moderno",
-      "Uso: Mesa de centro decorativa",
-      "Garantía: 2 años",
-      "Marca: UrbanDesign"
-    ]
-  },
-  mesa_oscura: {
-    descripcion: "Mesa de comedor imponente en tono ébano profundo. Su diseño sólido y majestuoso está pensado para ser la pieza central de comedores amplios.",
-    detalles: [
-      "Color: Ébano profundo",
-      "Capacidad: 8-10 personas",
-      "Resistencia: Alta durabilidad",
-      "Estilo: Clásico contemporáneo",
-      "Marca: EliteFurniture"
-    ]
-  },
-  mesa_pequena: {
-    descripcion: "Mesa auxiliar de diseño exclusivo en mármol. Esta pieza destaca por el uso de materiales de lujo y una artesanía excepcional.",
-    detalles: [
-      "Material: Mármol de Caoba y latón",
-      "Tipo: Edición limitada",
-      "Uso: Auxiliar de lujo",
-      "Acabado: Pulido a mano",
-      "Marca: LuxHome"
-    ]
-  },
+    // Sillones
+    sillon_amarillo: {
+        descripcion: "Sillón individual en color amarillo vibrante. Su diseño ergonómico y acolchado de alta densidad garantizan un confort excepcional mientras añades una pieza de acento audaz a tu sala.",
+        detalles: [
+            "Material: Tela premium y madera",
+            "Estilo: Contemporáneo",
+            "Ergonomía: Alta",
+            "Garantía: 1 año",
+            "Marca: ComfortPlus"
+        ]
+    },
+    sillon_azul: {
+        descripcion: "Sillón de terciopelo azul profundo. Elegancia clásica combinada con una estructura moderna de patas metálicas, ideal para un rincón de lectura sofisticado.",
+        detalles: [
+            "Material: Terciopelo y metal",
+            "Estilo: Clásico moderno",
+            "Uso: Interior",
+            "Garantía: 2 años",
+            "Marca: EliteFurniture"
+        ]
+    },
+    sillon_blanco: {
+        descripcion: "Sillón minimalista en color blanco puro. Su diseño de líneas limpias y tejido resistente a manchas lo hace perfecto para ambientes luminosos y modernos.",
+        detalles: [
+            "Material: Microfibra y madera",
+            "Estilo: Loft Minimalista",
+            "Tratamiento: Anti-manchas",
+            "Garantía: 1 año",
+            "Marca: UrbanDesign"
+        ]
+    },
+    sillon_gris: {
+        descripcion: "Sillón contemporáneo en gris jaspeado. Versátil y atemporal, este sillón se adapta a cualquier estilo de decoración ofreciendo una durabilidad superior para el uso diario.",
+        detalles: [
+            "Material: Lino sintético y madera",
+            "Color: Gris jaspeado",
+            "Uso: Familiar",
+            "Garantía: 2 años",
+            "Marca: HomeStyle"
+        ]
+    },
+    sillon_verde: {
+        descripcion: "Sillón estilo nórdico en verde olivo. Fabricado con materiales sostenibles, aporta un toque de naturaleza y frescura a tu hogar sin comprometer el estilo.",
+        detalles: [
+            "Material: Algodón orgánico y roble",
+            "Sostenibilidad: Alta",
+            "Estilo: Escandinavo",
+            "Garantía: 3 años",
+            "Marca: EcoLiving"
+        ]
+    },
 
-  // Floreros
-  florero_de_plantas: {
-    descripcion: "Florero de cerámica ideal para plantas de interior. Su diseño minimalista y acabado mate aporta frescura, orden y elegancia a cualquier espacio.",
-    detalles: [
-      "Material: Cerámica de alta calidad",
-      "Estilo: Minimalista Contemporáneo",
-      "Dimensiones: 25cm x 12cm",
-      "Uso: Interior exclusivamente",
-      "Marca: DecorHome"
-    ]
-  },
-  florero_de_vidrio: {
-    descripcion: "Florero de vidrio soplado artesanalmente. Su transparencia cristalina resalta la belleza de tus flores naturales, creando un ambiente de arte y sofisticación.",
-    detalles: [
-      "Material: Vidrio soplado artesanal",
-      "Estilo: Clásico Atemporal",
-      "Dimensiones: 30cm x 15cm",
-      "Características: Alta transparencia, base pesada",
-      "Marca: CrystalDesign"
-    ]
-  },
-  jarron: {
-    descripcion: "Jarrón decorativo de terracota. Con su acabado natural y textura única, este jarrón aporta un toque rústico y sofisticado a cualquier rincón.",
-    detalles: [
-      "Material: Terracota artesanal",
-      "Estilo: Rústico Moderno",
-      "Color: Tonos tierra naturales",
-      "Uso: Decorativo interior",
-      "Marca: RusticHome"
-    ]
-  },
-  jarrones: {
-    descripcion: "Set de jarrones decorativos en diferentes tamaños coordinados. Perfectos para crear atractivas composiciones visuales en estanterías o centros de mesa.",
-    detalles: [
-      "Contenido: Set de 3 piezas",
-      "Material: Cerámica esmaltada",
-      "Estilo: Contemporáneo versátil",
-      "Características: Tamaños escalonados, acabado liso",
-      "Marca: DecorHome"
-    ]
-  },
-  tulipanes: {
-    descripcion: "Arreglo decorativo de tulipanes artificiales de tacto real. Disfruta de la belleza y delicadeza de los tulipanes durante todo el año sin necesidad de cuidados.",
-    detalles: [
-      "Tipo: Flores artificiales de tacto real",
-      "Cantidad: Ramo de 10 unidades",
-      "Material: Polímero suave de alta calidad",
-      "Ventajas: Belleza duradera, fácil limpieza",
-      "Marca: NatureFake"
-    ]
-  },
+    // Mesas
+    mesa_de_madera: {
+        descripcion: "Mesa de comedor fabricada en madera sólida de roble de alta calidad. Su acabado natural resalta la belleza de la veta, aportando calidez y robustez a tu hogar.",
+        detalles: [
+            "Material: Roble sólido seleccionado",
+            "Acabado: Barniz natural mate",
+            "Capacidad: 6-8 comensales",
+            "Dimensiones: 180cm x 90cm x 75cm",
+            "Marca: WoodMaster"
+        ]
+    },
+    mesa_de_noche: {
+        descripcion: "Elegante mesa de noche con un diseño moderno y funcional. Incluye un cajón de suave apertura para mantener tus objetos personales organizados.",
+        detalles: [
+            "Material: Madera MDF con acabado premium",
+            "Cajones: 1 con guías metálicas",
+            "Estilo: Minimalista Urbano",
+            "Dimensiones: 45cm x 40cm x 55cm",
+            "Marca: SleepWell"
+        ]
+    },
+    mesa_moderna: {
+        descripcion: "Mesa de centro con diseño vanguardista. Combina superficies de cristal templado con una estructura metálica minimalista para un estilo contemporáneo.",
+        detalles: [
+            "Material: Cristal templado y acero inoxidable",
+            "Estilo: Loft Moderno",
+            "Uso: Mesa de centro decorativa",
+            "Garantía: 2 años",
+            "Marca: UrbanDesign"
+        ]
+    },
+    mesa_oscura: {
+        descripcion: "Mesa de comedor imponente en tono ébano profundo. Su diseño sólido y majestuoso está pensado para ser la pieza central de comedores amplios.",
+        detalles: [
+            "Color: Ébano profundo",
+            "Capacidad: 8-10 personas",
+            "Resistencia: Alta durabilidad",
+            "Estilo: Clásico contemporáneo",
+            "Marca: EliteFurniture"
+        ]
+    },
+    mesa_pequena: {
+        descripcion: "Mesa auxiliar de diseño exclusivo en mármol. Esta pieza destaca por el uso de materiales de lujo y una artesanía excepcional.",
+        detalles: [
+            "Material: Mármol de Caoba y latón",
+            "Tipo: Edición limitada",
+            "Uso: Auxiliar de lujo",
+            "Acabado: Pulido a mano",
+            "Marca: LuxHome"
+        ]
+    },
 
-  // ─── ROPA / PANTALONES PARA HOMBRES ─────────────────────────────────────────
-  pantalon_negro: {
-    descripcion: "El Pantalón Negro combina elegancia y comodidad. Su diseño moderno y su tela de alta calidad lo hacen ideal para ocasiones formales y el uso diario.",
-    detalles: [
-      "Diseño elegante y moderno",
-      "Tela suave y duradera",
-      "Corte ajustado y cómodo",
-      "Ideal para eventos y oficina",
-      "Disponible en varias tallas"
-    ]
-  },
-  pantalones_de_golf: {
-    descripcion: "Los Pantalones de Golf están diseñados para ofrecerte el máximo rendimiento y comodidad en el campo. Su tela transpirable y flexible permite una total libertad de movimiento.",
-    detalles: [
-      "Tela transpirable y ligera",
-      "Flexibilidad para mayor movimiento",
-      "Diseño moderno y deportivo",
-      "Resistente a las arrugas",
-      "Ideal para el campo de golf"
-    ]
-  },
-  pantalones_deportivos_joggers: {
-    descripcion: "Los Pantalones Deportivos Joggers combinan estilo urbano y comodidad deportiva. Perfectos para tus entrenamientos o para un look relajado en tu día a día.",
-    detalles: [
-      "Diseño jogger moderno",
-      "Material suave y elástico",
-      "Cintura ajustable con cordón",
-      "Bolsillos prácticos",
-      "Ideal para deporte o casual"
-    ]
-  },
-  pantalones_jeans: {
-    descripcion: "Los Pantalones Jeans son un clásico que nunca pasa de moda. Con su diseño resistente y versátil, son la prenda ideal para cualquier ocasión informal.",
-    detalles: [
-      "Diseño clásico de mezclilla",
-      "Tela resistente y duradera",
-      "Ajuste cómodo y versátil",
-      "Fácil de combinar",
-      "Disponible en varios lavados"
-    ]
-  },
-  pantalones_joggers: {
-    descripcion: "Los Pantalones Joggers ofrecen la mezcla perfecta entre comodidad y estilo. Con su ajuste relajado y su tela suave, son ideales para descansar o para un look casual.",
-    detalles: [
-      "Ajuste relajado y cómodo",
-      "Tela suave al tacto",
-      "Puños elásticos en los tobillos",
-      "Ideal para el uso diario",
-      "Disponible en varios colores"
-    ]
-  },
+    // Floreros
+    florero_de_plantas: {
+        descripcion: "Florero de cerámica ideal para plantas de interior. Su diseño minimalista y acabado mate aporta frescura, orden y elegancia a cualquier espacio.",
+        detalles: [
+            "Material: Cerámica de alta calidad",
+            "Estilo: Minimalista Contemporáneo",
+            "Dimensiones: 25cm x 12cm",
+            "Uso: Interior exclusivamente",
+            "Marca: DecorHome"
+        ]
+    },
+    florero_de_vidrio: {
+        descripcion: "Florero de vidrio soplado artesanalmente. Su transparencia cristalina resalta la belleza de tus flores naturales, creando un ambiente de arte y sofisticación.",
+        detalles: [
+            "Material: Vidrio soplado artesanal",
+            "Estilo: Clásico Atemporal",
+            "Dimensiones: 30cm x 15cm",
+            "Características: Alta transparencia, base pesada",
+            "Marca: CrystalDesign"
+        ]
+    },
+    jarron: {
+        descripcion: "Jarrón decorativo de terracota. Con su acabado natural y textura única, este jarrón aporta un toque rústico y sofisticado a cualquier rincón.",
+        detalles: [
+            "Material: Terracota artesanal",
+            "Estilo: Rústico Moderno",
+            "Color: Tonos tierra naturales",
+            "Uso: Decorativo interior",
+            "Marca: RusticHome"
+        ]
+    },
+    jarrones: {
+        descripcion: "Set de jarrones decorativos en diferentes tamaños coordinados. Perfectos para crear atractivas composiciones visuales en estanterías o centros de mesa.",
+        detalles: [
+            "Contenido: Set de 3 piezas",
+            "Material: Cerámica esmaltada",
+            "Estilo: Contemporáneo versátil",
+            "Características: Tamaños escalonados, acabado liso",
+            "Marca: DecorHome"
+        ]
+    },
+    tulipanes: {
+        descripcion: "Arreglo decorativo de tulipanes artificiales de tacto real. Disfruta de la belleza y delicadeza de los tulipanes durante todo el año sin necesidad de cuidados.",
+        detalles: [
+            "Tipo: Flores artificiales de tacto real",
+            "Cantidad: Ramo de 10 unidades",
+            "Material: Polímero suave de alta calidad",
+            "Ventajas: Belleza duradera, fácil limpieza",
+            "Marca: NatureFake"
+        ]
+    },
 
-  // ─── ROPA / PANTALONES PARA MUJERES ─────────────────────────────────────────
-  leggings_de_licra: {
-    descripcion: "Los Leggings de Licra son flexibles, cómodos y perfectos para ejercicio, yoga o uso diario. Su tela suave permite libertad total de movimiento.",
-    detalles: [
-      "Tela de licra ultra flexible",
-      "Diseño cómodo y ajustado",
-      "Suaves y ligeros",
-      "Perfectos para deporte o uso diario",
-      "Disponibles en varias tallas"
-    ]
-  },
-  pantalon_acampanado: {
-    descripcion: "El Pantalón Acampanado combina estilo y comodidad. Su diseño moderno y su caída elegante lo hacen ideal para ocasiones casuales o formales.",
-    detalles: [
-      "Diseño acampanado moderno",
-      "Tela suave y cómoda",
-      "Ajuste perfecto a la cintura",
-      "Ideal para uso diario o eventos",
-      "Disponible en varias tallas"
-    ]
-  },
-  pantalon_casual: {
-    descripcion: "El Pantalón Casual está diseñado para acompañarte en tu día a día. Su estilo moderno y su comodidad lo convierten en una prenda esencial para cualquier guardarropa.",
-    detalles: [
-      "Diseño casual y moderno",
-      "Tela suave y ligera",
-      "Ajuste cómodo en la cintura",
-      "Ideal para uso diario",
-      "Disponible en varias tallas"
-    ]
-  },
-  pantalon_jean: {
-    descripcion: "El Pantalón Jean ofrece durabilidad, estilo y comodidad. Perfecto para combinar con cualquier outfit y usar en cualquier ocasión.",
-    detalles: [
-      "Diseño clásico y moderno",
-      "Tela resistente y de alta calidad",
-      "Ajuste cómodo y flexible",
-      "Ideal para uso diario",
-      "Disponible en varias tallas"
-    ]
-  },
-  pantalon_liso_mujer: {
-    descripcion: "El Pantalón Liso para Mujer combina elegancia y comodidad, ideal para el uso diario o para ocasiones semi-formales. Su diseño minimalista permite combinarlo fácilmente con diferentes estilos.",
-    detalles: [
-      "Diseño liso y elegante",
-      "Material suave y cómodo",
-      "Ideal para combinar con blusas o camisetas",
-      "Perfecto para uso casual o de oficina",
-      "Disponible en varias tallas y colores"
-    ]
-  },
+    // ─── ROPA / PANTALONES PARA HOMBRES ─────────────────────────────────────────
+    pantalon_negro: {
+        descripcion: "El Pantalón Negro combina elegancia y comodidad. Su diseño moderno y su tela de alta calidad lo hacen ideal para ocasiones formales y el uso diario.",
+        detalles: [
+            "Diseño elegante y moderno",
+            "Tela suave y duradera",
+            "Corte ajustado y cómodo",
+            "Ideal para eventos y oficina",
+            "Disponible en varias tallas"
+        ]
+    },
+    pantalones_de_golf: {
+        descripcion: "Los Pantalones de Golf están diseñados para ofrecerte el máximo rendimiento y comodidad en el campo. Su tela transpirable y flexible permite una total libertad de movimiento.",
+        detalles: [
+            "Tela transpirable y ligera",
+            "Flexibilidad para mayor movimiento",
+            "Diseño moderno y deportivo",
+            "Resistente a las arrugas",
+            "Ideal para el campo de golf"
+        ]
+    },
+    pantalones_deportivos_joggers: {
+        descripcion: "Los Pantalones Deportivos Joggers combinan estilo urbano y comodidad deportiva. Perfectos para tus entrenamientos o para un look relajado en tu día a día.",
+        detalles: [
+            "Diseño jogger moderno",
+            "Material suave y elástico",
+            "Cintura ajustable con cordón",
+            "Bolsillos prácticos",
+            "Ideal para deporte o casual"
+        ]
+    },
+    pantalones_jeans: {
+        descripcion: "Los Pantalones Jeans son un clásico que nunca pasa de moda. Con su diseño resistente y versátil, son la prenda ideal para cualquier ocasión informal.",
+        detalles: [
+            "Diseño clásico de mezclilla",
+            "Tela resistente y duradera",
+            "Ajuste cómodo y versátil",
+            "Fácil de combinar",
+            "Disponible en varios lavados"
+        ]
+    },
+    pantalones_joggers: {
+        descripcion: "Los Pantalones Joggers ofrecen la mezcla perfecta entre comodidad y estilo. Con su ajuste relajado y su tela suave, son ideales para descansar o para un look casual.",
+        detalles: [
+            "Ajuste relajado y cómodo",
+            "Tela suave al tacto",
+            "Puños elásticos en los tobillos",
+            "Ideal para el uso diario",
+            "Disponible en varios colores"
+        ]
+    },
 
-  // ─── ROPA / PANTALONES PARA NIÑOS ───────────────────────────────────────────
-  jean_para_niños: {
-    descripcion: "El Jean para Niños combina el estilo clásico de la mezclilla con la resistencia necesaria para el juego. Un pantalón que dura y se ve bien.",
-    detalles: [
-      "Mezclilla reforzada en puntos clave",
-      "Cintura ajustable interna",
-      "Estilo clásico de 5 bolsillos",
-      "Efecto de lavado moderno",
-      "Alta durabilidad"
-    ]
-  },
-  licra_para_niños: {
-    descripcion: "La Licra para Niños ofrece total libertad de movimiento para los más pequeños. Ideal para actividades deportivas o juegos activos con máxima comodidad.",
-    detalles: [
-      "Material ultra elástico",
-      "Costuras planas anti-rozaduras",
-      "Secado rápido",
-      "Protección contra el desgaste",
-      "Ideal para deportes infantiles"
-    ]
-  },
-  pantalon_deportivo: {
-    descripcion: "El Pantalón Deportivo para niños es perfecto para la educación física y el juego diario. Su material resistente aguanta el ritmo de los niños más activos.",
-    detalles: [
-      "Tela resistente y duradera",
-      "Cintura elástica con cordón",
-      "Bolsillos de seguridad",
-      "Fácil de lavar y secar",
-      "Diseño dinámico y cómodo"
-    ]
-  },
-  pantalon_liso: {
-    descripcion: "El Pantalón Liso para niños es una prenda básica y versátil. Su diseño sencillo permite combinarlo fácilmente para cualquier ocasión cotidiana.",
-    detalles: [
-      "Color sólido y elegante",
-      "Tela suave para piel sensible",
-      "Ajuste cómodo para el juego",
-      "Resistencia a las manchas",
-      "Básico indispensable"
-    ]
-  },
-  pantalones_lisos_para_niños: {
-    descripcion: "Los Pantalones Lisos para Niños ofrecen comodidad y durabilidad para el día a día. Diseñados pensando en el movimiento constante de los niños.",
-    detalles: [
-      "Color sólido y elegante",
-      "Tela suave para piel sensible",
-      "Ajuste cómodo para el juego",
-      "Resistencia a las manchas",
-      "Básico indispensable"
-    ]
-  },
+    // ─── ROPA / PANTALONES PARA MUJERES ─────────────────────────────────────────
+    leggings_de_licra: {
+        descripcion: "Los Leggings de Licra son flexibles, cómodos y perfectos para ejercicio, yoga o uso diario. Su tela suave permite libertad total de movimiento.",
+        detalles: [
+            "Tela de licra ultra flexible",
+            "Diseño cómodo y ajustado",
+            "Suaves y ligeros",
+            "Perfectos para deporte o uso diario",
+            "Disponibles en varias tallas"
+        ]
+    },
+    pantalon_acampanado: {
+        descripcion: "El Pantalón Acampanado combina estilo y comodidad. Su diseño moderno y su caída elegante lo hacen ideal para ocasiones casuales o formales.",
+        detalles: [
+            "Diseño acampanado moderno",
+            "Tela suave y cómoda",
+            "Ajuste perfecto a la cintura",
+            "Ideal para uso diario o eventos",
+            "Disponible en varias tallas"
+        ]
+    },
+    pantalon_casual: {
+        descripcion: "El Pantalón Casual está diseñado para acompañarte en tu día a día. Su estilo moderno y su comodidad lo convierten en una prenda esencial para cualquier guardarropa.",
+        detalles: [
+            "Diseño casual y moderno",
+            "Tela suave y ligera",
+            "Ajuste cómodo en la cintura",
+            "Ideal para uso diario",
+            "Disponible en varias tallas"
+        ]
+    },
+    pantalon_jean: {
+        descripcion: "El Pantalón Jean ofrece durabilidad, estilo y comodidad. Perfecto para combinar con cualquier outfit y usar en cualquier ocasión.",
+        detalles: [
+            "Diseño clásico y moderno",
+            "Tela resistente y de alta calidad",
+            "Ajuste cómodo y flexible",
+            "Ideal para uso diario",
+            "Disponible en varias tallas"
+        ]
+    },
+    pantalon_liso_mujer: {
+        descripcion: "El Pantalón Liso para Mujer combina elegancia y comodidad, ideal para el uso diario o para ocasiones semi-formales. Su diseño minimalista permite combinarlo fácilmente con diferentes estilos.",
+        detalles: [
+            "Diseño liso y elegante",
+            "Material suave y cómodo",
+            "Ideal para combinar con blusas o camisetas",
+            "Perfecto para uso casual o de oficina",
+            "Disponible en varias tallas y colores"
+        ]
+    },
 
-  // ─── ROPA / TRAJES PARA HOMBRES ─────────────────────────────────────────────
-  traje_2_piezas: {
-    descripcion: "El Traje 2 Piezas combina elegancia y comodidad. Incluye chaqueta y pantalón confeccionados con materiales de alta calidad, perfectos para eventos formales y ocasiones especiales.",
-    detalles: [
-      "Corte Slim Fit moderno",
-      "Tela suave y de alta calidad",
-      "Forro interior sedoso",
-      "Perfecto para oficina o eventos",
-      "Incluye saco y pantalón combinados"
-    ]
-  },
-  traje_azul: {
-    descripcion: "El Traje Azul combina elegancia y comodidad. Incluye chaqueta y pantalón confeccionados con materiales de alta calidad, perfectos para eventos formales y ocasiones especiales.",
-    detalles: [
-      "Corte Slim Fit moderno",
-      "Tela suave y de alta calidad",
-      "Forro interior sedoso",
-      "Perfecto para oficina o eventos",
-      "Tono azul profundo sofisticado"
-    ]
-  },
-  traje_completo: {
-    descripcion: "El Traje Completo combina elegancia y comodidad. Incluye saco, pantalón y chaleco confeccionados con materiales de alta calidad, ideales para eventos de gala.",
-    detalles: [
-      "Incluye saco, pantalón y chaleco",
-      "Diseño clásico y atemporal",
-      "Ideal para bodas y galas",
-      "Tela de alta durabilidad",
-      "Ajuste preciso"
-    ]
-  },
-  traje_elegante: {
-    descripcion: "El Traje Elegante destaca por su acabado premium. Ideal para quienes buscan distinción y exclusividad en cada detalle para sus momentos más importantes.",
-    detalles: [
-      "Diseño premium para ocasiones especiales",
-      "Tela con acabado sutil y sofisticado",
-      "Ajuste perfecto a la medida",
-      "Materiales importados de alta calidad",
-      "Máxima elegancia"
-    ]
-  },
-  traje_negro: {
-    descripcion: "El Traje Negro es la definición de la sobriedad y el estilo. Una pieza indispensable para eventos nocturnos y rigurosa etiqueta formal.",
-    detalles: [
-      "De color negro sólido y elegante",
-      "Tela resistente a las arrugas",
-      "Ideal para cualquier evento formal",
-      "Corte clásico que nunca pasa de moda",
-      "Acabado impecable"
-    ]
-  },
+    // ─── ROPA / PANTALONES PARA NIÑOS ───────────────────────────────────────────
+    jean_para_niños: {
+        descripcion: "El Jean para Niños combina el estilo clásico de la mezclilla con la resistencia necesaria para el juego. Un pantalón que dura y se ve bien.",
+        detalles: [
+            "Mezclilla reforzada en puntos clave",
+            "Cintura ajustable interna",
+            "Estilo clásico de 5 bolsillos",
+            "Efecto de lavado moderno",
+            "Alta durabilidad"
+        ]
+    },
+    licra_para_niños: {
+        descripcion: "La Licra para Niños ofrece total libertad de movimiento para los más pequeños. Ideal para actividades deportivas o juegos activos con máxima comodidad.",
+        detalles: [
+            "Material ultra elástico",
+            "Costuras planas anti-rozaduras",
+            "Secado rápido",
+            "Protección contra el desgaste",
+            "Ideal para deportes infantiles"
+        ]
+    },
+    pantalon_deportivo: {
+        descripcion: "El Pantalón Deportivo para niños es perfecto para la educación física y el juego diario. Su material resistente aguanta el ritmo de los niños más activos.",
+        detalles: [
+            "Tela resistente y duradera",
+            "Cintura elástica con cordón",
+            "Bolsillos de seguridad",
+            "Fácil de lavar y secar",
+            "Diseño dinámico y cómodo"
+        ]
+    },
+    pantalon_liso: {
+        descripcion: "El Pantalón Liso para niños es una prenda básica y versátil. Su diseño sencillo permite combinarlo fácilmente para cualquier ocasión cotidiana.",
+        detalles: [
+            "Color sólido y elegante",
+            "Tela suave para piel sensible",
+            "Ajuste cómodo para el juego",
+            "Resistencia a las manchas",
+            "Básico indispensable"
+        ]
+    },
+    pantalones_lisos_para_niños: {
+        descripcion: "Los Pantalones Lisos para Niños ofrecen comodidad y durabilidad para el día a día. Diseñados pensando en el movimiento constante de los niños.",
+        detalles: [
+            "Color sólido y elegante",
+            "Tela suave para piel sensible",
+            "Ajuste cómodo para el juego",
+            "Resistencia a las manchas",
+            "Básico indispensable"
+        ]
+    },
 
-  // ─── ROPA / VESTIDOS ───────────────────────────────────────────────────────
-  vestido_ajustado: {
-    descripcion: "El Vestido Ajustado realza la figura con sofisticación. Su diseño moderno y material elástico aseguran un ajuste impecable para noches inolvidables.",
-    detalles: [
-      "Corte ajustado que realza la silueta",
-      "Material elástico y cómodo",
-      "Ideal para cenas y eventos nocturnos",
-      "Diseño vanguardista",
-      "Tela de alta calidad"
-    ]
-  },
-  vestido_cuello_cuadrado: {
-    descripcion: "El Vestido de Cuello Cuadrado combina una estética clásica con un toque moderno. Su diseño favorecedor es ideal para eventos sociales y salidas especiales.",
-    detalles: [
-      "Elegante diseño de cuello cuadrado",
-      "Material suave y con caída",
-      "Corte femenino y fluido",
-      "Ideal para fiestas de día o noche",
-      "Acabado delicado"
-    ]
-  },
-  vestido_de_invierno: {
-    descripcion: "El Vestido de Invierno está diseñado para ofrecer calidez sin sacrificar la elegancia. Perfecto para mantener el estilo durante las temporadas más frías.",
-    detalles: [
-      "Tejido térmico ligero",
-      "Diseño sofisticado para frío",
-      "Corte cómodo y protector",
-      "Ideal para eventos invernales",
-      "Material de alta densidad"
-    ]
-  },
-  vestido_elegante: {
-    descripcion: "El Vestido Elegante es la máxima expresión de estilo. Confeccionado con atención al detalle, es la prenda perfecta para brillar en galas y recepciones.",
-    detalles: [
-      "Diseño de alta costura",
-      "Telas exclusivas y delicadas",
-      "Corte que garantiza distinción",
-      "Detalles artesanales",
-      "Alta gama"
-    ]
-  },
-  vestido_negro: {
-    descripcion: "El Clásico Vestido Negro es versátil y atemporal. Un 'must-have' que ofrece elegancia instantánea tanto para eventos de cóctel como para cenas formales.",
-    detalles: [
-      "Estilo negro clásico y versátil",
-      "Tela fresca con cuerpo",
-      "Diseño minimalista y moderno",
-      "Indispensable en todo guardarropa",
-      "Fácil de accesorizar"
-    ],
-  },
+    // ─── ROPA / TRAJES PARA HOMBRES ─────────────────────────────────────────────
+    traje_2_piezas: {
+        descripcion: "El Traje 2 Piezas combina elegancia y comodidad. Incluye chaqueta y pantalón confeccionados con materiales de alta calidad, perfectos para eventos formales y ocasiones especiales.",
+        detalles: [
+            "Corte Slim Fit moderno",
+            "Tela suave y de alta calidad",
+            "Forro interior sedoso",
+            "Perfecto para oficina o eventos",
+            "Incluye saco y pantalón combinados"
+        ]
+    },
+    traje_azul: {
+        descripcion: "El Traje Azul combina elegancia y comodidad. Incluye chaqueta y pantalón confeccionados con materiales de alta calidad, perfectos para eventos formales y ocasiones especiales.",
+        detalles: [
+            "Corte Slim Fit moderno",
+            "Tela suave y de alta calidad",
+            "Forro interior sedoso",
+            "Perfecto para oficina o eventos",
+            "Tono azul profundo sofisticado"
+        ]
+    },
+    traje_completo: {
+        descripcion: "El Traje Completo combina elegancia y comodidad. Incluye saco, pantalón y chaleco confeccionados con materiales de alta calidad, ideales para eventos de gala.",
+        detalles: [
+            "Incluye saco, pantalón y chaleco",
+            "Diseño clásico y atemporal",
+            "Ideal para bodas y galas",
+            "Tela de alta durabilidad",
+            "Ajuste preciso"
+        ]
+    },
+    traje_elegante: {
+        descripcion: "El Traje Elegante destaca por su acabado premium. Ideal para quienes buscan distinción y exclusividad en cada detalle para sus momentos más importantes.",
+        detalles: [
+            "Diseño premium para ocasiones especiales",
+            "Tela con acabado sutil y sofisticado",
+            "Ajuste perfecto a la medida",
+            "Materiales importados de alta calidad",
+            "Máxima elegancia"
+        ]
+    },
+    traje_negro: {
+        descripcion: "El Traje Negro es la definición de la sobriedad y el estilo. Una pieza indispensable para eventos nocturnos y rigurosa etiqueta formal.",
+        detalles: [
+            "De color negro sólido y elegante",
+            "Tela resistente a las arrugas",
+            "Ideal para cualquier evento formal",
+            "Corte clásico que nunca pasa de moda",
+            "Acabado impecable"
+        ]
+    },
+
+    // ─── ROPA / VESTIDOS ───────────────────────────────────────────────────────
+    vestido_ajustado: {
+        descripcion: "El Vestido Ajustado realza la figura con sofisticación. Su diseño moderno y material elástico aseguran un ajuste impecable para noches inolvidables.",
+        detalles: [
+            "Corte ajustado que realza la silueta",
+            "Material elástico y cómodo",
+            "Ideal para cenas y eventos nocturnos",
+            "Diseño vanguardista",
+            "Tela de alta calidad"
+        ]
+    },
+    vestido_cuello_cuadrado: {
+        descripcion: "El Vestido de Cuello Cuadrado combina una estética clásica con un toque moderno. Su diseño favorecedor es ideal para eventos sociales y salidas especiales.",
+        detalles: [
+            "Elegante diseño de cuello cuadrado",
+            "Material suave y con caída",
+            "Corte femenino y fluido",
+            "Ideal para fiestas de día o noche",
+            "Acabado delicado"
+        ]
+    },
+    vestido_de_invierno: {
+        descripcion: "El Vestido de Invierno está diseñado para ofrecer calidez sin sacrificar la elegancia. Perfecto para mantener el estilo durante las temporadas más frías.",
+        detalles: [
+            "Tejido térmico ligero",
+            "Diseño sofisticado para frío",
+            "Corte cómodo y protector",
+            "Ideal para eventos invernales",
+            "Material de alta densidad"
+        ]
+    },
+    vestido_elegante: {
+        descripcion: "El Vestido Elegante es la máxima expresión de estilo. Confeccionado con atención al detalle, es la prenda perfecta para brillar en galas y recepciones.",
+        detalles: [
+            "Diseño de alta costura",
+            "Telas exclusivas y delicadas",
+            "Corte que garantiza distinción",
+            "Detalles artesanales",
+            "Alta gama"
+        ]
+    },
+    vestido_negro: {
+        descripcion: "El Clásico Vestido Negro es versátil y atemporal. Un 'must-have' que ofrece elegancia instantánea tanto para eventos de cóctel como para cenas formales.",
+        detalles: [
+            "Estilo negro clásico y versátil",
+            "Tela fresca con cuerpo",
+            "Diseño minimalista y moderno",
+            "Indispensable en todo guardarropa",
+            "Fácil de accesorizar"
+        ],
+    },
 };

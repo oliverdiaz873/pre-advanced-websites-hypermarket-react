@@ -29,20 +29,19 @@ interface CartItemProps {
     removeFromCart: (id: string) => void
 }
 
-const CartItem = ({ 
-    id, 
-    nombre, 
-    precio, 
+const CartItem = ({
+    id,
+    nombre,
+    precio,
     precioTexto,
-    cantidad, 
-    img, 
+    cantidad,
+    img,
     unidad,
     isOffer = false,
     oldPrice,
-    updateQuantity, 
-    removeFromCart 
+    updateQuantity,
+    removeFromCart
 }: CartItemProps) => {
-    const subtotal = precio * cantidad
 
     const cleanPrice = (text: string) => {
         const cleaned = text.replace('Precio: ', '').trim()
@@ -64,55 +63,60 @@ const CartItem = ({
 
     return (
         <div className="cart-item">
-            {/* Badge de oferta */}
-            {isOffer && <OfferBadge />}
-            
-            <img 
-                src={getAssetUrl(img)} 
-                alt={nombre} 
-                className="cart-item__image"
-            />
-
-            <div className="cart-item__info">
-                <h3 className="cart-item__name">{nombre}</h3>
-                
-                {/* Bloque de precios */}
-                <div className="cart-item__price-block">
-                    {isOffer && oldPrice ? (
-                        <>
-                            <ins className="cart-item__new-price">${precio.toLocaleString()}</ins>
-                            <del className="cart-item__old-price">${cleanPrice(oldPrice)}</del>
-                        </>
-                    ) : (
-                        <p className="cart-item__price">${precio.toLocaleString()}</p>
-                    )}
-                </div>
-                
-                {/* Unidad de medida */}
-                <p className="cart-item__unit">
-                    ${precio.toLocaleString()} / {unitLabel()}
-                </p>
-
-                <QuantityControls
-                    quantity={cantidad}
-                    onDecrease={() => updateQuantity(id, -1)}
-                    onIncrease={() => updateQuantity(id, 1)}
-                    ariaLabels={{
-                        decrease: "Disminuir cantidad",
-                        increase: "Aumentar cantidad"
-                    }}
+            <div className="cart-item__image-container">
+                {isOffer && (
+                    <div className="cart-item__badge-wrapper">
+                        <OfferBadge />
+                    </div>
+                )}
+                <img
+                    src={getAssetUrl(img)}
+                    alt={nombre}
+                    className="cart-item__image"
                 />
             </div>
 
-            <div className="cart-item__actions">
-                <p className="cart-item__subtotal">${subtotal.toLocaleString()}</p>
-                <button
-                    onClick={() => removeFromCart(id)}
-                    className="cart-item__remove-btn"
-                    aria-label={`Eliminar ${nombre} del carrito`}
-                >
-                    Eliminar
-                </button>
+            <div className="cart-item__content">
+                <div className="cart-item__header">
+                    <h3 className="cart-item__name">{nombre}</h3>
+                    <button
+                        onClick={() => removeFromCart(id)}
+                        className="cart-item__remove-icon"
+                        aria-label={`Eliminar ${nombre} del carrito`}
+                        title="Eliminar"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <use href="#icon-trash" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div className="cart-item__variant">
+                    <span className="cart-item__unit">${precio.toLocaleString()} / {unitLabel()}</span>
+                </div>
+
+                <div className="cart-item__footer">
+                    <div className="cart-item__price-block">
+                        {isOffer && oldPrice ? (
+                            <>
+                                <ins className="cart-item__new-price">${precio.toLocaleString()}</ins>
+                                <del className="cart-item__old-price">${cleanPrice(oldPrice)}</del>
+                            </>
+                        ) : (
+                            <p className="cart-item__price">${precio.toLocaleString()}</p>
+                        )}
+                    </div>
+
+                    <QuantityControls
+                        quantity={cantidad}
+                        onDecrease={() => updateQuantity(id, -1)}
+                        onIncrease={() => updateQuantity(id, 1)}
+                        ariaLabels={{
+                            decrease: "Disminuir cantidad",
+                            increase: "Aumentar cantidad"
+                        }}
+                    />
+                </div>
             </div>
         </div>
     )

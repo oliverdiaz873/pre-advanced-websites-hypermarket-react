@@ -13,7 +13,7 @@ const featuredIds = [
     'atun_dimar',
 ]
 
-const offersData = [
+export const offersData = [
     { id: 'manzanas_verdes', oldPrice: 'RD$ 56.25' },
     { id: 'huevos_don_pancho', oldPrice: 'RD$ 222.22' },
     { id: 'freezer_7_pies', oldPrice: 'RD$ 19,411' },
