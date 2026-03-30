@@ -8,11 +8,16 @@
  */
 import ProductCard from './ProductCard'
 import ProductCarousel from './ProductCarousel'
+import { Product } from '../../../data/productos'
 import './ProductCarouselSection.css'
+
+type CarouselProduct = Product & {
+    oldPrice?: string
+}
 
 interface ProductCarouselSectionProps {
     title: string
-    products: any[]
+    products: CarouselProduct[]
     id: string
     idPrefix: string
     isOffer?: boolean

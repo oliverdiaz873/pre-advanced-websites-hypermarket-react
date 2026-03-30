@@ -14,21 +14,40 @@ interface BreadcrumbProps {
 
 const Breadcrumb = ({ variant = 'default', items }: BreadcrumbProps) => {
     const categoryClass = variant === 'category' ? 'breadcrumb-category' : ''
+    const totalItems = items.length
 
     return (
         <nav aria-label="Breadcrumb">
             <ol className={`breadcrumb ${categoryClass}`.trim()}>
                 {items.map((item, index) => {
                     const isLast = index === items.length - 1
+                    const isFirst = index === 0
+                    const isPenultimate = index === totalItems - 2
+                    const isMiddle = !isFirst && !isPenultimate && !isLast
+                    const itemClassName = [
+                        'breadcrumb-item',
+                        isFirst ? 'breadcrumb-item--first' : '',
+                        isPenultimate ? 'breadcrumb-item--parent' : '',
+                        isMiddle ? 'breadcrumb-item--middle' : '',
+                        isLast ? 'breadcrumb-item--current' : '',
+                        totalItems > 3 && isPenultimate ? 'breadcrumb-item--mobile-resume' : '',
+                    ]
+                        .filter(Boolean)
+                        .join(' ')
+
                     if (isLast) {
                         return (
-                            <li key={`${item.label}-${index}`} aria-current="page">
+                            <li
+                                key={`${item.label}-${index}`}
+                                className={itemClassName}
+                                aria-current="page"
+                            >
                                 {item.label}
                             </li>
                         )
                     }
                     return (
-                        <li key={`${item.label}-${index}`}>
+                        <li key={`${item.label}-${index}`} className={itemClassName}>
                             {item.to ? (
                                 <Link to={item.to}>{item.label}</Link>
                             ) : (

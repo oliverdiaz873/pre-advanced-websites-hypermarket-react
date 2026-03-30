@@ -1,7 +1,12 @@
 import HeroCarousel from '../features/home/components/HeroCarousel'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
 import AboutUs from '../features/home/components/AboutUs'
-import { productos } from '../data/productos'
+import { Product, productos } from '../data/productos'
+import { offersData } from '../data/offers'
+
+type OfferProduct = Product & {
+    oldPrice: string
+}
 
 const featuredIds = [
     'tv_samsung_75',
@@ -13,23 +18,15 @@ const featuredIds = [
     'atun_dimar',
 ]
 
-export const offersData = [
-    { id: 'manzanas_verdes', oldPrice: 'RD$ 56.25' },
-    { id: 'huevos_don_pancho', oldPrice: 'RD$ 222.22' },
-    { id: 'freezer_7_pies', oldPrice: 'RD$ 19,411' },
-    { id: 'celular_samsung_a26', oldPrice: 'RD$ 44,444' },
-    { id: 'cilindro_de_gas_duragas', oldPrice: 'RD$ 6,117' },
-    { id: 'coca_cola_zero', oldPrice: 'RD$ 84.21' },
-    { id: 'limones_persa', oldPrice: 'RD$ 250.00' },
-]
-
 const Home = () => {
     const featuredProducts = productos.filter((p) => featuredIds.includes(p.id))
 
-    const offerProducts = offersData.map((off) => {
-        const product = productos.find((p) => p.id === off.id)
-        return product ? { ...product, oldPrice: off.oldPrice } : null
-    }).filter(p => p !== null) as any[]
+    const offerProducts: OfferProduct[] = offersData
+        .map((off) => {
+            const product = productos.find((p) => p.id === off.id)
+            return product ? { ...product, oldPrice: off.oldPrice } : null
+        })
+        .filter((product): product is OfferProduct => product !== null)
 
     return (
         <>

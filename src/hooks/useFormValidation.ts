@@ -39,7 +39,7 @@ const validateField = (name: string, value: string): string => {
             break
         case 'telefono':
             if (trimmedValue) {
-                const cleanPhone = trimmedValue.replace(/[\s\-\(\)]/g, '')
+                const cleanPhone = trimmedValue.replace(/[\s-()]/g, '')
                 if (!/^[0-9]{8,15}$/.test(cleanPhone)) return 'El formato del teléfono no es válido. Use 8-15 dígitos (ej: 8095555555 o (809) 555-5555).'
             }
             break

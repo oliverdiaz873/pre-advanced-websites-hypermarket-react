@@ -81,35 +81,48 @@ ol.breadcrumb li[aria-current="page"] {
         padding: 6px 12px !important;
         font-size: 13px !important;
         justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        row-gap: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
     }
 
     ol.breadcrumb li {
-        flex-shrink: 0 !important;
-        max-width: 100px !important;
+        flex: 0 0 auto !important;
+        max-width: none !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
     }
 
-    ol.breadcrumb li:first-child {
-        max-width: 60px !important;
+    ol.breadcrumb li.breadcrumb-item--middle {
+        display: none !important;
     }
 
-    ol.breadcrumb li[aria-current="page"] {
-        max-width: 120px !important;
-        flex-shrink: 1 !important;
+    ol.breadcrumb li.breadcrumb-item--mobile-resume::before {
+        content: "... ";
+        color: #ffffff;
     }
 
-    ol.breadcrumb li:not(:first-child):not(:last-child):not([aria-current="page"]) {
-        max-width: 80px !important;
+    ol.breadcrumb li.breadcrumb-item--current {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 
-    ol.breadcrumb.breadcrumb-category li {
-        display: flex !important;
+    ol.breadcrumb li.breadcrumb-item--current::before {
+        content: "";
     }
 
-    ol.breadcrumb.breadcrumb-category li:nth-child(3)::after {
-        content: none !important;
+    ol.breadcrumb li.breadcrumb-item--current,
+    ol.breadcrumb li.breadcrumb-item--current a,
+    ol.breadcrumb li.breadcrumb-item--current span {
+        display: block;
+        overflow: hidden !important;
+        white-space: nowrap !important;
+        text-overflow: ellipsis !important;
     }
 }
 

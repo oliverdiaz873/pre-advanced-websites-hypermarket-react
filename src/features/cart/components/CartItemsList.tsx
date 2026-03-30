@@ -1,6 +1,6 @@
 import './CartItemsList.css'
 import CartItem from './CartItem'
-import { offersData } from '../../../pages/Home'
+import { offersData } from '../../../data/offers'
 
 /**
  * CartItemsList - Componente de Lista de Items del Carrito
