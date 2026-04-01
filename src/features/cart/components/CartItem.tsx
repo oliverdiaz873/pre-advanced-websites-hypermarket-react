@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getAssetUrl } from '../../../utils/assetUtils'
 import QuantityControls from './QuantityControls'
 import OfferBadge from '../../products/components/OfferBadge'
@@ -63,22 +64,34 @@ const CartItem = ({
 
     return (
         <div className="cart-item">
-            <div className="cart-item__image-container">
-                {isOffer && (
-                    <div className="cart-item__badge-wrapper">
-                        <OfferBadge />
-                    </div>
-                )}
-                <img
-                    src={getAssetUrl(img)}
-                    alt={nombre}
-                    className="cart-item__image"
-                />
-            </div>
+            <Link
+                to={`/product/${id}`}
+                className="cart-item__image-link"
+                aria-label={`Ver detalles de ${nombre}`}
+            >
+                <div className="cart-item__image-container">
+                    {isOffer && (
+                        <div className="cart-item__badge-wrapper">
+                            <OfferBadge />
+                        </div>
+                    )}
+                    <img
+                        src={getAssetUrl(img)}
+                        alt={nombre}
+                        className="cart-item__image"
+                    />
+                </div>
+            </Link>
 
             <div className="cart-item__content">
                 <div className="cart-item__header">
-                    <h3 className="cart-item__name">{nombre}</h3>
+                    <Link
+                        to={`/product/${id}`}
+                        className="cart-item__name-link"
+                        aria-label={`Ver detalles de ${nombre}`}
+                    >
+                        <h3 className="cart-item__name">{nombre}</h3>
+                    </Link>
                     <button
                         onClick={() => removeFromCart(id)}
                         className="cart-item__remove-icon"

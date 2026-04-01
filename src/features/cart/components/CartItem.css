@@ -42,6 +42,12 @@
     display: flex;
 }
 
+/* Link wrapper para la imagen */
+.cart-item__image-link {
+    text-decoration: none;
+    display: flex;
+}
+
 /* badge de oferta */
 .cart-item__badge-wrapper {
     position: absolute;
@@ -61,6 +67,12 @@
     border-radius: 0.5rem;
     background-color: #fff;
     padding: 2px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.cart-item__image-link:hover .cart-item__image {
+    transform: scale(1.05);
 }
 
 .cart-item__content {
@@ -72,10 +84,12 @@
 }
 
 .cart-item__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.5rem;
+/* Link wrapper para el nombre */
+.cart-item__name-link {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    min-width: 0;
 }
 
 .cart-item__name {
@@ -83,6 +97,17 @@
     font-size: 0.95rem;
     font-weight: 400;
     color: #e5e7eb;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.cart-item__name-link:hover .cart-item__name {
+    color: #ff9900
     line-height: 1.3;
     display: -webkit-box;
     -webkit-line-clamp: 2;
