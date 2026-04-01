@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { categories } from '../../../data/categories'
 import { useTabletMenu } from '../../../hooks/useTabletMenu'
-import './Navigation.css'
+import './TabletNav.css'
 
 const navLinkClass =
     'text-white no-underline text-base px-2.5 py-2 block text-left transition-colors duration-300 rounded-[10px] hover:bg-white/15'
@@ -12,6 +12,8 @@ const dropdownLinkClass =
 const subLinkClass =
     'text-white no-underline text-base px-4 py-1.5 block hover:bg-white/15'
 
+// Component: navegacion dedicada a tablets. Renderiza el menu principal
+// y delega la apertura/cierre de submenus al hook de interaccion por clic.
 const TabletNav = () => {
     const navRef = useTabletMenu()
 
@@ -20,7 +22,7 @@ const TabletNav = () => {
             ref={navRef}
             className="hidden md:flex justify-center nav-links tablet-nav"
             role="navigation"
-            aria-label="Menú principal"
+            aria-label="Menu principal"
         >
             <ul className="flex gap-5 items-center list-none p-0 m-0">
                 <li>
@@ -31,18 +33,22 @@ const TabletNav = () => {
 
                 <li className="relative group">
                     <button
+                        data-tablet-trigger="level-1"
                         className={`${navLinkClass} bg-transparent border-none cursor-pointer w-full`}
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        Categorías{' '}
-                        <span className="text-[0.7em] ml-0.5 opacity-80">▼</span>
+                        Categorias <span className="text-[0.7em] ml-0.5 opacity-80">▼</span>
                     </button>
 
                     <ul className="absolute top-full left-0 bg-black/90 rounded-lg min-w-[220px] hidden group-hover:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl">
                         {categories.map((category) => (
                             <li key={category.id} className="relative group/sub">
-                                <Link to={category.href} className={dropdownLinkClass}>
+                                <Link
+                                    to={category.href}
+                                    className={dropdownLinkClass}
+                                    data-tablet-trigger="level-2"
+                                >
                                     {category.name} <span>▸</span>
                                 </Link>
 

@@ -1,0 +1,78 @@
+@media (min-width: 768px) and (max-width: 1199px) {
+    .nav-links.tablet-nav {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 12px !important;
+    }
+
+    .nav-links.tablet-nav > ul {
+        display: flex !important;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .nav-links.tablet-nav > ul > li {
+        position: relative;
+    }
+
+    .nav-links.tablet-nav a,
+    .nav-links.tablet-nav button {
+        color: white !important;
+        font-size: 16px !important;
+        padding: 8px 10px !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 10px !important;
+    }
+
+    .nav-links.tablet-nav ul ul {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        display: none !important;
+    }
+
+    .nav-links.tablet-nav ul.tablet-active {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateY(0);
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.9) !important;
+        border-radius: 8px;
+        min-width: 220px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .nav-links.tablet-nav > ul > li > ul.tablet-active {
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    .nav-links.tablet-nav > ul > li > ul > li > ul.tablet-active {
+        top: 0;
+        left: 100%;
+    }
+
+    .nav-links.desktop-nav {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .nav-links.tablet-nav > ul {
+        justify-content: center;
+        gap: 24px !important;
+    }
+}

@@ -1,159 +1,143 @@
-import { useState, useRef, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import DesktopNav from '../../navigation/components/DesktopNav'
 import TabletNav from '../../navigation/components/TabletNav'
 import MobileNav from '../../navigation/components/MobileNav'
+import DesktopSearch from './DesktopSearch'
+import TabletSearch from './TabletSearch'
+import MobileSearch from './MobileSearch'
 import logoImg from '../../../assets/images/logo/logo.png'
-import { productos } from '../../../data/productos'
 import { useCart } from '../../../hooks/useCart'
-import { normalizarTexto } from '../../../utils/searchUtils'
-import { getAssetUrl } from '../../../utils/assetUtils'
+import { useHeaderSearch } from '../hooks/useHeaderSearch'
 import './Header.css'
 import '../../navigation/components/Navigation.css'
 
+type ViewportMode = 'mobile' | 'tablet' | 'desktop'
+
+const getViewportMode = (): ViewportMode => {
+    const width = window.innerWidth
+
+    if (width < 768) return 'mobile'
+    if (width < 1200) return 'tablet'
+    return 'desktop'
+}
+
+// Component: orquesta el header principal y decide, segun el viewport,
+// que navegacion y que variante del buscador deben renderizarse para
+// mantener separada la experiencia de desktop, tablet y mobile.
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const [isSearchActive, setIsSearchActive] = useState(false)
-    const [searchTerm, setSearchTerm] = useState('')
-    const [searchResults, setSearchResults] = useState<typeof productos>([])
+    const [viewportMode, setViewportMode] = useState<ViewportMode>(() => getViewportMode())
     const { totalItems } = useCart()
     const navigate = useNavigate()
-
     const location = useLocation()
     const isHomePage = location.pathname === '/'
 
-    const searchInputRef = useRef<HTMLInputElement>(null)
-    const resultsRef = useRef<HTMLUListElement>(null)
+    const {
+        isSearchActive,
+        searchInputRef,
+        resultsRef,
+        searchResults,
+        searchTerm,
+        setSearchTerm,
+        handleResultClick,
+        handleSearchToggle,
+    } = useHeaderSearch((id) => navigate(`/product/${id}`))
 
     useEffect(() => {
-        if (searchTerm.trim() === '') {
-            setSearchResults([])
-            return
+        const handleResize = () => {
+            setViewportMode(getViewportMode())
         }
 
-        const term = normalizarTexto(searchTerm)
-        const filtered = productos.filter((p) =>
-            normalizarTexto(p.nombre).includes(term) ||
-            normalizarTexto(p.categoria).includes(term)
-        ).slice(0, 8)
-
-        setSearchResults(filtered)
-    }, [searchTerm])
-
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (resultsRef.current && !resultsRef.current.contains(event.target as Node)) {
-                setSearchResults([])
-            }
-        }
-        document.addEventListener('mousedown', handleClickOutside)
-        return () => document.removeEventListener('mousedown', handleClickOutside)
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    const handleSearchToggle = () => {
-        setIsSearchActive(!isSearchActive)
-        if (!isSearchActive) {
-            setTimeout(() => searchInputRef.current?.focus(), 100)
-        } else {
-            setSearchTerm('')
-        }
-    }
-
-    const handleResultClick = (id: string) => {
-        setSearchTerm('')
-        setSearchResults([])
-        setIsSearchActive(false)
-        navigate(`/product/${id}`)
-    }
+    const showBrand = viewportMode !== 'mobile' || !isSearchActive
+    const showNavigation = !isSearchActive && viewportMode !== 'mobile'
 
     return (
         <header className="fixed top-0 left-0 w-full rounded-none xl:top-[10px] xl:left-1/2 xl:-translate-x-1/2 xl:rounded-[15px] xl:w-max xl:max-w-[calc(100vw-40px)] bg-black/80 px-2.5 py-1.5 z-[1000] flex justify-center text-white border border-white/10 shadow-lg">
-            <div className={`header-container flex items-center gap-2.5 justify-between md:justify-center w-full px-0 md:px-3.5 ${isSearchActive ? 'menu-busqueda-activa' : ''}`}>
-
-                <button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="menu-btn text-[22px] bg-transparent border-none text-white cursor-pointer transition-colors duration-300 rounded hover:bg-white/15 p-1 md:hidden"
-                    aria-label="Abrir menú"
-                >
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
-                        <use href="#icon-menu" />
-                    </svg>
-                </button>
-
-                <Link to="/" className={`brand flex items-center gap-1 text-white no-underline mr-4 ${isSearchActive ? 'hidden sm:flex' : 'flex'}`}>
-                    <img src={logoImg} alt="Logo" className="w-8" />
-                    {isHomePage ? (
-                        <h1 className="text-sm md:text-base font-bold whitespace-nowrap">
-                            Hipermercado Superior
-                        </h1>
-                    ) : (
-                        <span className="text-sm md:text-base font-bold whitespace-nowrap">
-                            Hipermercado Superior
-                        </span>
-                    )}
-                </Link>
-
-                <DesktopNav />
-                <TabletNav />
-
-                <div className={`header-utils flex items-center gap-2 md:ml-4 ${isSearchActive ? 'flex-1 md:flex-1' : 'flex-1 md:flex-initial'} justify-end`}>
-                    <div className={`relative ${isSearchActive ? 'flex-1 md:flex-1' : 'flex-1 md:flex-initial'} flex items-center justify-end`}>
-                        <input
-                            ref={searchInputRef}
-                            type="text"
-                            placeholder="Buscar productos..."
-                            className={`search-input-modern ${isSearchActive ? 'block w-full' : 'hidden md:hidden'} bg-white text-black px-3 py-1.5 rounded-lg outline-none`}
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-
-                        {searchResults.length > 0 && (
-                            <ul ref={resultsRef} className="search-results-list absolute top-full right-0 mt-2 w-full md:w-[400px] bg-black/95 rounded-lg shadow-2xl border border-white/10 overflow-hidden z-[1100]">
-                                {searchResults.map((p) => (
-                                    <li
-                                        key={p.id}
-                                        onClick={() => handleResultClick(p.id)}
-                                        className="p-3 hover:bg-white/10 cursor-pointer border-b border-white/5 flex items-center gap-3"
-                                    >
-                                        <img src={getAssetUrl(p.imagen)} alt="" className="w-8 h-8 object-contain bg-white rounded" />
-                                        <span className="text-sm truncate">{p.nombre}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-
+            <div className="header-container flex items-center gap-2.5 justify-between md:justify-center w-full px-0 md:px-3.5">
+                {viewportMode === 'mobile' && (
                     <button
-                        onClick={handleSearchToggle}
-                        className="util-btn group relative"
-                        aria-label={isSearchActive ? "Cerrar búsqueda" : "Buscar productos"}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="menu-btn text-[22px] bg-transparent border-none text-white cursor-pointer transition-colors duration-300 rounded hover:bg-white/15 p-1"
+                        aria-label="Abrir menu"
                     >
-                        <svg className={`util-icon w-6 h-6 transition-all duration-300 ${isSearchActive ? 'text-red-500 scale-[2]' : ''}`} fill="currentColor" viewBox="0 0 16 16">
-                            {isSearchActive ? (
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                            ) : (
-                                <use href="#icon-search" />
-                            )}
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                            <use href="#icon-menu" />
                         </svg>
                     </button>
+                )}
 
-                    <Link to="/cart" className={`util-btn group relative ${isSearchActive ? 'hidden sm:flex' : 'flex'}`} aria-label="Ver carrito">
-                        <svg className="util-icon w-6 h-6 md:w-[27px] md:h-[27px]" fill="currentColor" viewBox="0 0 16 16">
-                            <use href="#icon-cart" />
-                        </svg>
-                        {totalItems > 0 && (
-                            <span className="cart-badge absolute -top-1 -right-1 bg-red-600 text-[9px] font-bold px-1.5 py-0.5 rounded-full">
-                                {totalItems}
+                {showBrand && (
+                    <Link to="/" className="brand flex items-center gap-1 text-white no-underline mr-4">
+                        <img src={logoImg} alt="Logo" className="w-8" />
+                        {isHomePage ? (
+                            <h1 className="text-sm md:text-base font-bold whitespace-nowrap">
+                                Hipermercado Superior
+                            </h1>
+                        ) : (
+                            <span className="text-sm md:text-base font-bold whitespace-nowrap">
+                                Hipermercado Superior
                             </span>
                         )}
                     </Link>
-                </div>
+                )}
+
+                {showNavigation && viewportMode === 'desktop' && <DesktopNav />}
+                {showNavigation && viewportMode === 'tablet' && <TabletNav />}
+
+                {viewportMode === 'desktop' && (
+                    <DesktopSearch
+                        isActive={isSearchActive}
+                        resultsRef={resultsRef}
+                        searchInputRef={searchInputRef}
+                        searchResults={searchResults}
+                        searchTerm={searchTerm}
+                        totalItems={totalItems}
+                        onResultClick={handleResultClick}
+                        onSearchChange={setSearchTerm}
+                        onSearchToggle={handleSearchToggle}
+                    />
+                )}
+
+                {viewportMode === 'tablet' && (
+                    <TabletSearch
+                        isActive={isSearchActive}
+                        resultsRef={resultsRef}
+                        searchInputRef={searchInputRef}
+                        searchResults={searchResults}
+                        searchTerm={searchTerm}
+                        totalItems={totalItems}
+                        onResultClick={handleResultClick}
+                        onSearchChange={setSearchTerm}
+                        onSearchToggle={handleSearchToggle}
+                    />
+                )}
+
+                {viewportMode === 'mobile' && (
+                    <MobileSearch
+                        isActive={isSearchActive}
+                        resultsRef={resultsRef}
+                        searchInputRef={searchInputRef}
+                        searchResults={searchResults}
+                        searchTerm={searchTerm}
+                        totalItems={totalItems}
+                        onResultClick={handleResultClick}
+                        onSearchChange={setSearchTerm}
+                        onSearchToggle={handleSearchToggle}
+                    />
+                )}
             </div>
 
-            <MobileNav
-                isOpen={isMobileMenuOpen}
-                onClose={() => setIsMobileMenuOpen(false)}
-            />
+            {viewportMode === 'mobile' && (
+                <MobileNav
+                    isOpen={isMobileMenuOpen}
+                    onClose={() => setIsMobileMenuOpen(false)}
+                />
+            )}
         </header>
     )
 }
