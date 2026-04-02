@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { Product } from '../../../data/productos'
 import { getAssetUrl } from '../../../utils/assetUtils'
 import { cleanPrice, unitLabel } from '../../../utils/priceUtils'
-import OfferBadge from './OfferBadge'
+import { OfferBadge } from '../../offers/components'
 import AddToCartButton from '../../cart/components/AddToCartButton'
 import './ProductCard.css'
 
@@ -11,14 +11,15 @@ interface ProductCardProps {
     product: Product
     isOffer?: boolean
     oldPrice?: string
+    discountPercentage?: number
 }
 
-const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
+const ProductCard = ({ product, isOffer, oldPrice, discountPercentage }: ProductCardProps) => {
 
     return (
         <article className={`producto product-card ${isOffer ? 'offer-card' : ''} block shrink-0 snap-start`}>
             {/* Si el producto es una oferta, mostramos el badge de fuego */}
-            {isOffer && <OfferBadge />} 
+            {isOffer && <OfferBadge discountPercentage={discountPercentage} />} 
             
             <Link
                 to={`/product/${product.id}`}

@@ -1,6 +1,6 @@
 // Data exports
 export { categories, type Category } from './categories'
 export { productos, type Product } from './productos'
-export { offers } from './offers'
-export { categoryMap } from './categorySectionMap'
+export { offersData, type OfferData } from './offers'
+export { sectionSlugToProductCategoria, subcategorySlugFromHref } from './categorySectionMap'
 export { productPageData } from './productPageData'

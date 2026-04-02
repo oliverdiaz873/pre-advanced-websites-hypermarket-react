@@ -56,7 +56,7 @@ const DesktopNav = () => {
                 </li>
 
                 <li>
-                    <Link to="/#ofertas" className={navLinkClass}>
+                    <Link to="/offers" className={navLinkClass}>
                         Ofertas
                     </Link>
                 </li>

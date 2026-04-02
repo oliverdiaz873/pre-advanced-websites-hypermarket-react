@@ -2,10 +2,11 @@ import HeroCarousel from '../features/home/components/HeroCarousel'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
 import AboutUs from '../features/home/components/AboutUs'
 import { Product, productos } from '../data/productos'
-import { offersData } from '../data/offers'
+import { calculateDiscountPercentage, offersData } from '../data/offers'
 
 type OfferProduct = Product & {
     oldPrice: string
+    discountPercentage: number
 }
 
 const featuredIds = [
@@ -24,7 +25,13 @@ const Home = () => {
     const offerProducts: OfferProduct[] = offersData
         .map((off) => {
             const product = productos.find((p) => p.id === off.id)
-            return product ? { ...product, oldPrice: off.oldPrice } : null
+            return product
+                ? {
+                    ...product,
+                    oldPrice: off.oldPrice,
+                    discountPercentage: calculateDiscountPercentage(product.precio, off.oldPrice),
+                }
+                : null
         })
         .filter((product): product is OfferProduct => product !== null)
 

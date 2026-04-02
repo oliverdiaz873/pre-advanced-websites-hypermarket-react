@@ -8,6 +8,7 @@ import Icons from './shared/components/Icons'
 
 // Lazy load pages para mejor performance
 const Home = lazy(() => import('./pages/Home'))
+const Offers = lazy(() => import('./pages/Offers'))
 const Category = lazy(() => import('./pages/Category'))
 const ProductDetails = lazy(() => import('./pages/ProductDetails'))
 const CartPage = lazy(() => import('./pages/CartPage'))
@@ -40,6 +41,7 @@ function App() {
                         <Suspense fallback={<LoadingFallback />}>
                             <Routes>
                                 <Route path="/" element={<Home />} />
+                                <Route path="/offers" element={<Offers />} />
                                 <Route path="/category/:categoryId" element={<Category />} />
                                 <Route path="/product/:productId" element={<ProductDetails />} />
                                 <Route path="/cart" element={<CartPage />} />

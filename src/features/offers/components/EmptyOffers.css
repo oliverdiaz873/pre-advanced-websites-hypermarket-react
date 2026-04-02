@@ -1,0 +1,92 @@
+/* 
+   ==========================================================================
+   EmptyOffers - Estilos del Estado de Ofertas Vacías
+   ==========================================================================
+   Este archivo maneja el estilo cuando no hay ofertas en la categoría.
+*/
+
+/* Contenedor principal de ofertas vacías */
+.empty-offers {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    margin: 0 auto 2.5rem;
+    max-width: 800px;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Contenedor de contenido */
+.empty-offers__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Icono información */
+.empty-offers__icon {
+    width: 4rem;
+    height: 4rem;
+    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+}
+
+/* Título principal */
+.empty-offers__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* Mensaje secundario */
+.empty-offers__message {
+    font-size: 1rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .empty-offers {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .empty-offers__title {
+        font-size: 1.25rem;
+    }
+
+    .empty-offers__message {
+        font-size: 0.95rem;
+    }
+
+    .empty-offers__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .empty-offers {
+        padding: 1rem;
+        border-radius: 0.75rem;
+    }
+
+    .empty-offers__title {
+        font-size: 1.1rem;
+    }
+
+    .empty-offers__message {
+        font-size: 0.875rem;
+    }
+
+    .empty-offers__icon {
+        width: 3rem;
+        height: 3rem;
+    }
+}

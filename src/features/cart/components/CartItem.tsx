@@ -4,7 +4,7 @@ import { Product } from '../../../data/productos'
 import { getAssetUrl } from '../../../utils/assetUtils'
 import { cleanPrice, unitLabel } from '../../../utils/priceUtils'
 import QuantityControls from './QuantityControls'
-import OfferBadge from '../../products/components/OfferBadge'
+import { OfferBadge } from '../../offers/components'
 import './CartItem.css'
 
 /**

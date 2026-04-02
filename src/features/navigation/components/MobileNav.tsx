@@ -94,7 +94,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                 </li>
 
                 <li className="px-5 py-2.5 border-b border-white/10">
-                    <Link to="/#ofertas" className="block" onClick={handleLinkClick}>
+                    <Link to="/offers" className="block" onClick={handleLinkClick}>
                         Ofertas
                     </Link>
                 </li>

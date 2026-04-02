@@ -13,6 +13,7 @@ import './ProductCarouselSection.css'
 
 type CarouselProduct = Product & {
     oldPrice?: string
+    discountPercentage?: number
 }
 
 interface ProductCarouselSectionProps {
@@ -49,6 +50,7 @@ const ProductCarouselSection = ({
                             product={p}
                             isOffer={isOffer}
                             oldPrice={p.oldPrice}
+                            discountPercentage={p.discountPercentage}
                         />
                     ))}
                 </ProductCarousel>

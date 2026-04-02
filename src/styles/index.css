@@ -16,3 +16,9 @@ body {
 a {
     transition: all 0.3s ease;
 }
+
+.icon-fire {
+    fill: #ff0000f8;
+    background: radial-gradient(circle at 50% 65%, #ffff00 34%, transparent 36%);
+    border-radius: 50%;
+}

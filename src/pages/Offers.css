@@ -1,0 +1,175 @@
+/* Estilos para la página de Ofertas */
+
+.offers-page {
+    min-height: calc(100vh - 200px);
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.offers-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.offers-header h1 {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.offers-header__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    /* Usa la clase genérica .icon-fire definida en styles/index.css */
+}
+
+.offers-header p {
+    font-size: 1.025rem;
+    font-weight: 500;
+}
+
+/* Layout principal: Grid con aside izquierda */
+.offers-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Contenido principal */
+.offers-main {
+    width: 100%;
+}
+
+/* Grid de ofertas */
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Responsividad: Tablet */
+@media (max-width: 1024px) {
+    .offers-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .offers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
+    .offers-page {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .offers-header h1 {
+        font-size: 2rem;
+    }
+
+    .offers-header__icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+/* Responsividad: Mobile */
+@media (max-width: 768px) {
+    .offers-page {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .offers-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .offers-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .offers-header__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .offers-header p {
+        font-size: 0.95rem;
+    }
+
+    .offers-layout {
+        gap: 1rem;
+    }
+
+    .offers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .offers-page {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .offers-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .offers-header__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .offers-header p {
+        font-size: 0.875rem;
+    }
+
+    .offers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1440px) {
+    .offers-layout {
+        grid-template-columns: 300px 1fr;
+        gap: 2.5rem;
+    }
+
+    .offers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 2rem;
+    }
+
+    .offers-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .offers-header h1 {
+        font-size: 3rem;
+    }
+
+    .offers-header__icon {
+        width: 3rem;
+        height: 3rem;
+    }
+}

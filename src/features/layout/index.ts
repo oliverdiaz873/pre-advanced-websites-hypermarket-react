@@ -1,9 +1,6 @@
 // Layout feature exports
 export { default as Header } from './components/Header'
 export { default as Footer } from './components/Footer'
-export { default as DesktopNav } from './components/DesktopNav'
-export { default as TabletNav } from './components/TabletNav'
-export { default as MobileNav } from './components/MobileNav'
 export { default as DesktopSearch } from './components/DesktopSearch'
 export { default as TabletSearch } from './components/TabletSearch'
 export { default as MobileSearch } from './components/MobileSearch'

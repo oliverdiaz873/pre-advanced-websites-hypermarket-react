@@ -1,5 +1,8 @@
 /* Estilos para el Badge de Oferta con estética de fuego */
 
+/* ==========================================================================
+   OFFER BADGE - Badge visual para resaltar productos en oferta
+   ========================================================================== */
 .offer-badge {
     position: absolute;
     top: 10px;
@@ -35,17 +38,7 @@
     left: -8px;
     top: -6px;
     z-index: 15;
-
-    /* Área amarilla más grande para asegurar que rellena todo el hueco del fuego */
-    background: radial-gradient(circle at 50% 65%, #ffff00 34%, transparent 36%);
-    border-radius: 50%;
-
-    /* Silueta exterior intensa */
-    fill: #ff0000f8;
-    /* Solo el resplandor rojo exterior */
-    filter:
-        drop-shadow(0 0 1.5px #ff0000);
-
+    /* Usar clase genérica .icon-fire para el estilo del fuego incluyendo el efecto amarillo y rojo */
 }
 
 .offer-badge__text {
