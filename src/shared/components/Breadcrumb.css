@@ -75,6 +75,7 @@ ol.breadcrumb li[aria-current="page"] {
     font-weight: 600;
 }
 
+/* Estilos específicos para dispositivos móviles */
 @media (max-width: 767px) {
     ol.breadcrumb {
         max-width: calc(100vw - 20px) !important;
@@ -126,21 +127,23 @@ ol.breadcrumb li[aria-current="page"] {
     }
 }
 
+/* Estilos para tabletas y escritorios */
 @media (min-width: 768px) {
     ol.breadcrumb {
         font-size: 15px;
         padding: 10px 20px;
         max-width: 95%;
-        overflow: visible;
-        text-overflow: unset;
-        white-space: normal;
+        overflow-x: auto;
+        overflow-y: hidden;
+        text-overflow: clip;
+        white-space: nowrap;
     }
 
     ol.breadcrumb li {
         max-width: none !important;
-        white-space: normal !important;
+        white-space: nowrap !important;
         overflow: visible !important;
-        text-overflow: unset !important;
+        text-overflow: clip !important;
     }
 
     ol.breadcrumb li:not([style*="display: none"]) {
@@ -148,6 +151,7 @@ ol.breadcrumb li[aria-current="page"] {
     }
 }
 
+/* Estilos específicos para escritorios grandes */
 @media (min-width: 1024px) {
     ol.breadcrumb {
         font-size: 14px;
@@ -158,8 +162,19 @@ ol.breadcrumb li[aria-current="page"] {
     }
 }
 
+
 @media (min-width: 768px) and (max-width: 1023px) {
     ol.breadcrumb {
         top: var(--breadcrumb-top-base);
+        flex-wrap: nowrap !important;
+        white-space: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+    }
+
+    ol.breadcrumb li,
+    ol.breadcrumb a,
+    ol.breadcrumb span {
+        white-space: nowrap !important;
     }
 }

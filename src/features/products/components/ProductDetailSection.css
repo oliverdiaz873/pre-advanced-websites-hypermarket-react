@@ -210,9 +210,24 @@
     }
 }
 
+/* Estilos específicos para escritorios grandes */
 @media (min-width: 1024px) {
     .producto-detalle {
         max-width: 1100px !important;
         padding: 60px 100px !important;
+    }
+}
+
+/* Estilos específicos para tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .producto-detalle {
+        margin: 70px auto 30px auto;
+    }
+}
+
+/* Tablets grandes táctiles como iPad Pro */
+@media (min-width: 1024px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+    .producto-detalle {
+        margin: 80px auto 30px auto !important;
     }
 }
