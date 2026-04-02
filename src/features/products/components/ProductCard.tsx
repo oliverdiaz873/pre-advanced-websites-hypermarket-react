@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { memo } from 'react'
 import { Product } from '../../../data/productos'
 import { getAssetUrl } from '../../../utils/assetUtils'
+import { cleanPrice, unitLabel } from '../../../utils/priceUtils'
 import OfferBadge from './OfferBadge'
 import AddToCartButton from '../../cart/components/AddToCartButton'
 import './ProductCard.css'
@@ -11,28 +13,7 @@ interface ProductCardProps {
     oldPrice?: string
 }
 
-/** Texto después de "/" en precioTexto, o cantidad+unidad si no hay barra; fallback "unidad". */
-function unitLabel(product: Product): string {
-    const explicit = product.unidad?.trim()
-    if (explicit) return explicit
-    const raw = product.precioTexto
-    const parts = raw.split('/')
-    if (parts.length > 1) {
-        const last = parts[parts.length - 1].trim().replace(/\.$/, '')
-        if (last) return last
-    }
-    const afterPrecio = raw.replace(/^Precio:\s*/i, '').replace(/^\$[\d.,]+\s*/i, '').trim()
-    if (afterPrecio) return afterPrecio
-    return 'unidad'
-}
-
 const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
-
-    const cleanPrice = (text: string) => {
-        const cleaned = text.replace('Precio: ', '').trim()
-        const match = cleaned.match(/(\$?\d+(?:,\d+)?(?:\.\d+)?)/)
-        return match ? match[1] : cleaned
-    }
 
     return (
         <article className={`producto product-card ${isOffer ? 'offer-card' : ''} block shrink-0 snap-start`}>
@@ -74,4 +55,4 @@ const ProductCard = ({ product, isOffer, oldPrice }: ProductCardProps) => {
     )
 }
 
-export default ProductCard
+export default memo(ProductCard)

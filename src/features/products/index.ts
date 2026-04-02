@@ -1,0 +1,11 @@
+// Products feature exports
+export { default as ProductCard } from './components/ProductCard'
+export { default as OfferBadge } from './components/OfferBadge'
+export { default as ProductCarousel } from './components/ProductCarousel'
+export { default as ProductCarouselSection } from './components/ProductCarouselSection'
+export { default as ProductDetailSection } from './components/ProductDetailSection'
+export { default as ProductFilters } from './components/ProductFilters'
+export { default as ProductImage } from './components/ProductImage'
+export { default as ProductImageGallery } from './components/ProductImageGallery'
+export { default as ProductStockStatus } from './components/ProductStockStatus'
+export { default as RelatedProducts } from './components/RelatedProducts'

@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { memo } from 'react'
+import { Product } from '../../../data/productos'
 import { getAssetUrl } from '../../../utils/assetUtils'
+import { cleanPrice, unitLabel } from '../../../utils/priceUtils'
 import QuantityControls from './QuantityControls'
 import OfferBadge from '../../products/components/OfferBadge'
 import './CartItem.css'
@@ -44,23 +47,7 @@ const CartItem = ({
     removeFromCart
 }: CartItemProps) => {
 
-    const cleanPrice = (text: string) => {
-        const cleaned = text.replace('Precio: ', '').trim()
-        const match = cleaned.match(/(\$?\d+(?:,\d+)?(?:\.\d+)?)/)
-        return match ? match[1] : cleaned
-    }
-
-    const unitLabel = () => {
-        if (unidad) return unidad
-        if (precioTexto) {
-            const parts = precioTexto.split('/')
-            if (parts.length > 1) {
-                const last = parts[parts.length - 1].trim().replace(/\.$/, '')
-                if (last) return last
-            }
-        }
-        return 'unidad'
-    }
+    const cartProduct: Product = { id, nombre, precio, precioTexto, imagen: img, unidad } as Product
 
     return (
         <div className="cart-item">
@@ -105,7 +92,7 @@ const CartItem = ({
                 </div>
 
                 <div className="cart-item__variant">
-                    <span className="cart-item__unit">${precio.toLocaleString()} / {unitLabel()}</span>
+                    <span className="cart-item__unit">${precio.toLocaleString()} / {unitLabel(cartProduct)}</span>
                 </div>
 
                 <div className="cart-item__footer">
@@ -135,4 +122,4 @@ const CartItem = ({
     )
 }
 
-export default CartItem
+export default memo(CartItem)

@@ -1,21 +1,43 @@
 /**
- * Utility to resolve asset paths dynamically in a Vite/React environment.
- * Uses Vite's glob import to pre-load all possible asset URLs.
+ * @fileoverview Utilidades para resolver rutas de assets en entorno Vite/React
+ * 
+ * Este módulo maneja la carga dinámica de assets (imágenes, fuentes, etc.)
+ * desde la carpeta /assets usando el sistema de glob imports de Vite.
+ * 
+ * Ventajas:
+ * - Rutas seguras en tiempo de compilación
+ * - Compatible con bundling y optimización de Vite
+ * - Logs de debugging en modo desarrollo
  */
 
-// Basic glob that works for most Vite versions to get URLs
+/**
+ * Glob import de Vite que pre-carga todas las URLs de assets disponibles
+ * Esta es la manera recomendada para trabajar con assets en Vite
+ */
 const allAssets = import.meta.glob('../assets/**/*', {
     eager: true,
     import: 'default'
 })
 
+/**
+ * Resuelve la URL completa de un asset dado su ruta relativa
+ * 
+ * @param path - Ruta del asset (ej: "images/productos/alimentos/arroz.png")
+ * @returns URL del asset o la ruta original si no se encontró
+ * 
+ * @example
+ * ```typescript
+ * const imageUrl = getAssetUrl('images/logo/logo-primary.svg')
+ * // Retorna la URL compilada por Vite
+ * ```
+ */
 export const getAssetUrl = (path: string) => {
     if (!path) return ''
 
-    // Normalize path: "/assets/images/..." -> "assets/images/..."
+    // Normalizar ruta: "/assets/images/..." -> "assets/images/..."
     const normalizedPath = path.startsWith('/') ? path.slice(1) : path
 
-    // Try several possible key formats that Vite might use
+    // Intentar varios formatos de clave que Vite podría usar
     const possibleKeys = [
         `../${normalizedPath}`,
         `./${normalizedPath}`,
@@ -29,16 +51,16 @@ export const getAssetUrl = (path: string) => {
         }
     }
 
-    // In dev mode, this log will help see why it's failing
+    // En desarrollo, mostrar logs para debugging
     if (import.meta.env.DEV) {
-        console.warn(`[AssetUtils] ❌ Resolution failed for: "${path}"`)
-        console.debug(`[AssetUtils] Keys tried:`, possibleKeys)
-        console.debug(`[AssetUtils] Total keys available: ${Object.keys(allAssets).length}`)
+        console.warn(`[AssetUtils] ❌ Resolución fallida para: "${path}"`)
+        console.debug(`[AssetUtils] Claves intentadas:`, possibleKeys)
+        console.debug(`[AssetUtils] Total de claves disponibles: ${Object.keys(allAssets).length}`)
         if (Object.keys(allAssets).length > 0) {
-            console.debug(`[AssetUtils] First 3 keys available:`, Object.keys(allAssets).slice(0, 3))
+            console.debug(`[AssetUtils] Primeras 3 claves disponibles:`, Object.keys(allAssets).slice(0, 3))
         }
     }
 
-    // Fallback to original path
+    // Fallback: retornar la ruta original si no se encontró
     return path
 }

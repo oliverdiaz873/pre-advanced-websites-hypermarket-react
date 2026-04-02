@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Product } from '../../../data/productos'
 import AddToCartButton from '../../cart/components/AddToCartButton'
 import { getAssetUrl } from '../../../utils/assetUtils'
@@ -23,11 +23,59 @@ interface ProductDetailSectionProps {
  */
 const ProductDetailSection = ({ product, pageData }: ProductDetailSectionProps) => {
     const [modalOpen, setModalOpen] = useState(false)
+    const modalRef = useRef<HTMLDivElement>(null)
+    const closeButtonRef = useRef<HTMLButtonElement>(null)
 
     const description = pageData?.descripcion ??
         `Disfruta de la mejor calidad con nuestro ${product.nombre}. En Hipermercado Superior nos esforzamos por ofrecerte siempre lo mejor.`
 
     const detalles = pageData?.detalles ?? []
+
+    // Trapfoco y manejo de ESC en modal
+    useEffect(() => {
+        if (!modalOpen) return
+
+        // Restablecer foco cuando el modal abre
+        closeButtonRef.current?.focus()
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Cerrar modal con ESC
+            if (e.key === 'Escape') {
+                setModalOpen(false)
+            }
+
+            // Trapfoco: TAB dentro del modal
+            if (e.key === 'Tab' && modalRef.current) {
+                const focusableElements = modalRef.current.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                )
+                const firstElement = focusableElements[0] as HTMLElement
+                const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement
+
+                if (e.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        lastElement?.focus()
+                        e.preventDefault()
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement?.focus()
+                        e.preventDefault()
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [modalOpen])
+
+    // Guardar elemento que tenía foco antes del modal
+    const previousFocusRef = useRef<HTMLElement | null>(null)
 
     return (
         <section className="producto-detalle">
@@ -38,19 +86,35 @@ const ProductDetailSection = ({ product, pageData }: ProductDetailSectionProps) 
                     <img
                         src={getAssetUrl(product.imagen)}
                         alt={product.nombre}
-                        onClick={() => setModalOpen(true)}
+                        onClick={() => {
+                            previousFocusRef.current = document.activeElement as HTMLElement
+                            setModalOpen(true)
+                        }}
                         title="Haz clic para ampliar"
                     />
                 </figure>
 
-                {/* Modal lightbox */}
+                {/* Modal lightbox con trapfoco */}
                 <div
+                    ref={modalRef}
                     className={`modal-imagen${modalOpen ? ' modal-activo' : ''}`}
                     role="dialog"
                     aria-modal="true"
                     aria-label={`Imagen ampliada de ${product.nombre}`}
                     onClick={() => setModalOpen(false)}
                 >
+                    <button
+                        ref={closeButtonRef}
+                        aria-label="Cerrar modal (ESC)"
+                        className="modal-close-button"
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            setModalOpen(false)
+                        }}
+                        style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 10 }}
+                    >
+                        ✕
+                    </button>
                     {/* El div completo sirve de área de cierre */}
                     <img
                         src={getAssetUrl(product.imagen)}
