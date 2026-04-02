@@ -30,13 +30,13 @@ function App() {
             <Router>
                 <ScrollToTop />
                 <Icons />
-                <div className="min-h-screen">
+                <div className="min-h-screen flex flex-col">
                     <Header />
 
                     {/* Spacer for fixed header */}
                     <div className="h-[60px] xl:h-[85px]"></div>
 
-                    <main className="pt-0 pb-4 md:pt-0 md:pb-8">
+                    <main className="flex-1 pt-0 pb-4 md:pt-0 md:pb-8">
                         <Suspense fallback={<LoadingFallback />}>
                             <Routes>
                                 <Route path="/" element={<Home />} />

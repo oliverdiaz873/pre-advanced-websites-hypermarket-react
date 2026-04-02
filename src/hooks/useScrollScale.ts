@@ -1,99 +1,108 @@
-// Un hook es una función especial de React que maneja lógica reutilizable en componentes.
-// Scroll-Driven Scale Animation progresiva para sección Sobre Nosotros.
-import { useEffect, useState, RefObject, useCallback } from 'react';
+import { CSSProperties, RefObject, useEffect, useState } from 'react'
 
-/**
- * Crea una función throttled que se ejecuta máximo una vez cada `wait` ms
- */
-function useThrottle<T extends (...args: any[]) => any>(
-    callback: T,
-    delay: number
-): (...args: Parameters<T>) => void {
-    const lastRun = useCallback(() => {
-        let lastRunTime = 0;
-        return (...args: Parameters<T>) => {
-            const now = Date.now();
-            if (now - lastRunTime >= delay) {
-                lastRunTime = now;
-                callback(...args);
-            }
-        };
-    }, [callback, delay]);
-
-    return lastRun();
+interface ScrollScaleState {
+    scaleClass: string
+    scaleStyle?: CSSProperties
 }
 
 export const useScrollScale = (sectionRef: RefObject<HTMLElement | null>) => {
-    const [scaleClass, setScaleClass] = useState('scale-0'); // Initial small state
+    const [scrollScale, setScrollScale] = useState<ScrollScaleState>({
+        scaleClass: 'scale-0',
+    })
 
     useEffect(() => {
-        const section = sectionRef.current;
-        if (!section) return;
+        const section = sectionRef.current
+        if (!section) return
 
-        const isMobile = () => window.innerWidth <= 767.98;
+        const isMobile = () => window.innerWidth <= 767.98
+
+        const getDesktopScaleClass = (progress: number) => {
+            if (progress >= 1) return 'scale-100'
+            if (progress >= 0.66) return 'scale-66'
+            if (progress >= 0.33) return 'scale-33'
+            return 'scale-0'
+        }
 
         const updateScale = () => {
-            const rect = section.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const sectionTop = rect.top;
-            const sectionBottom = rect.bottom;
-            const sectionHeight = rect.height || 1; // Avoid division by zero
+            const rect = section.getBoundingClientRect()
+            const windowHeight = window.innerHeight
+            const sectionTop = rect.top
+            const sectionBottom = rect.bottom
+            const sectionHeight = rect.height || 1
+            const mobile = isMobile()
 
-            let progress = 0;
+            let progress = 0
 
-            // Check if section is in viewport
             if (sectionTop <= windowHeight && sectionBottom >= 0) {
-                if (isMobile()) {
-                    progress = 1 - (sectionTop / windowHeight);
+                if (mobile) {
+                    // En móvil comprimimos el rango de activación para que la expansión
+                    // ocurra antes y se sienta más ágil con scroll corto.
+                    const startPoint = windowHeight * 0.9
+                    const endPoint = windowHeight * 0.35
+                    progress = (startPoint - sectionTop) / Math.max(1, startPoint - endPoint)
+                } else if (sectionTop >= 0) {
+                    const visibleHeight = Math.min(sectionHeight, windowHeight - sectionTop)
+                    progress = visibleHeight / sectionHeight
                 } else {
-                    if (sectionTop >= 0) {
-                        const visibleHeight = Math.min(sectionHeight, windowHeight - sectionTop);
-                        progress = visibleHeight / sectionHeight;
-                    } else {
-                        progress = 1;
-                    }
+                    progress = 1
                 }
             } else if (sectionBottom < 0) {
-                progress = 1; // Already scrolled past
+                progress = 1
             }
 
-            progress = Math.max(0, Math.min(1, progress));
+            progress = Math.max(0, Math.min(1, progress))
 
-            if (isMobile()) {
-                if (progress >= 0.65) setScaleClass('scale-100');
-                else if (progress >= 0.25) setScaleClass('scale-50');
-                else setScaleClass('scale-0');
-            } else {
-                if (progress >= 1) setScaleClass('scale-100');
-                else if (progress >= 0.66) setScaleClass('scale-66');
-                else if (progress >= 0.33) setScaleClass('scale-33');
-                else setScaleClass('scale-0');
+            if (mobile) {
+                // Aceleramos y suavizamos el progreso para evitar saltos bruscos
+                // cuando el usuario hace scroll rápido en pantallas pequeñas.
+                const acceleratedProgress = Math.min(1, progress * 1.35)
+                const easedProgress = 1 - Math.pow(1 - acceleratedProgress, 3)
+                const mobileScale = 0.88 + easedProgress * 0.12
+
+                setScrollScale({
+                    scaleClass: 'scale-100',
+                    scaleStyle: {
+                        transform: `scale(${mobileScale})`,
+                        opacity: 0.82 + easedProgress * 0.18,
+                    },
+                })
+                return
             }
-        };
 
-        // Throttle scroll events a 100ms para evitar múltiples cálculos
-        let lastRun = 0;
-        const throttledUpdateScale = () => {
-            const now = Date.now();
-            if (now - lastRun >= 100) {
-                lastRun = now;
-                updateScale();
-            }
-        };
+            setScrollScale({
+                scaleClass: getDesktopScaleClass(progress),
+                scaleStyle: undefined,
+            })
+        }
 
-        window.addEventListener('scroll', throttledUpdateScale, { passive: true });
-        window.addEventListener('resize', updateScale);
+        let frameId = 0
+        const requestScaleUpdate = () => {
+            if (frameId) return
 
-        // Immediate check on mount and after a short delay to ensure layout is ready
-        updateScale();
-        const timer = setTimeout(updateScale, 100);
+            // requestAnimationFrame sincroniza la animación con el repintado
+            // del navegador y mejora la fluidez frente a un throttle fijo.
+            frameId = window.requestAnimationFrame(() => {
+                frameId = 0
+                updateScale()
+            })
+        }
+
+        window.addEventListener('scroll', requestScaleUpdate, { passive: true })
+        window.addEventListener('resize', requestScaleUpdate)
+
+        updateScale()
+        const timer = window.setTimeout(updateScale, 100)
 
         return () => {
-            window.removeEventListener('scroll', throttledUpdateScale);
-            window.removeEventListener('resize', updateScale);
-            clearTimeout(timer);
-        };
-    }, [sectionRef]);
+            window.removeEventListener('scroll', requestScaleUpdate)
+            window.removeEventListener('resize', requestScaleUpdate)
+            window.clearTimeout(timer)
 
-    return scaleClass;
-};
+            if (frameId) {
+                window.cancelAnimationFrame(frameId)
+            }
+        }
+    }, [sectionRef])
+
+    return scrollScale
+}

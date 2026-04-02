@@ -35,6 +35,20 @@
     }
 }
 
+/* Espaciado específico para tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .cart-layout {
+        margin: 2rem 1.5rem 2.5rem;
+    }
+}
+
+/* Espaciado para tablets grandes táctiles como iPad Pro */
+@media (min-width: 1024px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+    .cart-layout {
+        margin: 2rem 1.5rem 2.5rem;
+    }
+}
+
 /* Responsive para móviles */
 @media (max-width: 640px) {
     .cart-layout {

@@ -3,4 +3,12 @@
 .about-us-section {
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center center;
+    will-change: transform, opacity;
+}
+
+@media (max-width: 767px) {
+    .about-us-section {
+        transition: transform 0.28s ease-out, opacity 0.28s ease-out;
+    }
 }
