@@ -1,7 +1,8 @@
 /**
- * Componente ProductGrid que usa el componente ProductCard en la página de Search
+ * Componente reutilizable para mostrar una cuadrícula de productos.
+ * Utilizado en páginas como Búsqueda y Ofertas para mantener la consistencia visual.
  */
-import ProductCard from '../../products/components/ProductCard'
+import ProductCard from './ProductCard'
 import { Product } from '../../../data/productos'
 import './ProductGrid.css'
 

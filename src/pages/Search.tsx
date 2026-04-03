@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { productos } from '../data/productos'
-import ProductGrid from '../features/search/components/ProductGrid'
+import ProductGrid from '../features/products/components/ProductGrid'
 import { hasSearchQuery, matchesSearchQuery } from '../utils/searchUtils'
 import './Search.css'
 

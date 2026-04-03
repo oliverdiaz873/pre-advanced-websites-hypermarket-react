@@ -1,4 +1,4 @@
-import ProductCard from '../features/products/components/ProductCard'
+import ProductGrid from '../features/products/components/ProductGrid'
 import { OfferFilters, EmptyOffers } from '../features/offers'
 import { useOfferFilters } from '../features/offers/hooks'
 import './Offers.css'
@@ -34,17 +34,10 @@ const Offers = () => {
                 <div className="offers-main">
                     {/* Grid de Productos */}
                     {sortedProducts.length > 0 ? (
-                        <div className="offers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-                            {sortedProducts.map((product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                    isOffer={true}
-                                    oldPrice={product.oldPrice}
-                                    discountPercentage={product.discountPercentage}
-                                />
-                            ))}
-                        </div>
+                        <ProductGrid 
+                            products={sortedProducts.map(p => ({ ...p, isOffer: true }))} 
+                            className="offers-grid" 
+                        />
                     ) : (
                         <EmptyOffers />
                     )}
