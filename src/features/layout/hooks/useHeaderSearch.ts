@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { productos } from '../../../data/productos'
-import { normalizarTexto } from '../../../utils/searchUtils'
+import { hasSearchQuery, normalizarTexto } from '../../../utils/searchUtils'
 
 export interface HeaderSearchProduct {
     id: string
@@ -11,7 +11,10 @@ export interface HeaderSearchProduct {
 // Hook: comparte el estado, el filtrado y los handlers del buscador del
 // header para que desktop, tablet y mobile reutilicen la misma logica
 // sin duplicar el comportamiento de apertura, cierre y seleccion.
-export const useHeaderSearch = (onResultSelect: (id: string) => void) => {
+export const useHeaderSearch = (
+    onResultSelect: (id: string) => void,
+    onSearchSubmit: (term: string) => void
+) => {
     const [isSearchActive, setIsSearchActive] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState<HeaderSearchProduct[]>([])
@@ -70,6 +73,27 @@ export const useHeaderSearch = (onResultSelect: (id: string) => void) => {
         onResultSelect(id)
     }
 
+    const handleSearchSubmit = () => {
+        if (!isSearchActive) {
+            setIsSearchActive(true)
+            setTimeout(() => searchInputRef.current?.focus(), 100)
+            return
+        }
+
+        if (!hasSearchQuery(searchTerm)) {
+            setIsSearchActive(false)
+            setSearchTerm('')
+            setSearchResults([])
+            return
+        }
+
+        const nextTerm = searchTerm.trim()
+        setSearchTerm('')
+        setSearchResults([])
+        setIsSearchActive(false)
+        onSearchSubmit(nextTerm)
+    }
+
     return {
         isSearchActive,
         searchInputRef,
@@ -78,6 +102,7 @@ export const useHeaderSearch = (onResultSelect: (id: string) => void) => {
         searchTerm,
         setSearchTerm,
         handleResultClick,
+        handleSearchSubmit,
         handleSearchToggle,
     }
 }

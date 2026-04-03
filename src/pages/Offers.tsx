@@ -36,9 +36,6 @@ const Offers = () => {
                     {sortedProducts.length > 0 ? (
                         <div className="offers-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                             {sortedProducts.map((product) => (
-                                // Reutilizamos ProductCard del feature products
-                                // Pasamos isOffer={true}, oldPrice y discountPercentage
-                                // para que ProductCard renderice el badge de oferta y precios comparativos
                                 <ProductCard
                                     key={product.id}
                                     product={product}

@@ -12,6 +12,7 @@ interface MobileSearchProps {
     totalItems: number
     onResultClick: (id: string) => void
     onSearchChange: (value: string) => void
+    onSearchSubmit: () => void
     onSearchToggle: () => void
 }
 
@@ -27,6 +28,7 @@ const MobileSearch = ({
     totalItems,
     onResultClick,
     onSearchChange,
+    onSearchSubmit,
     onSearchToggle,
 }: MobileSearchProps) => {
     return (
@@ -39,6 +41,12 @@ const MobileSearch = ({
                     className={`mobile-search__input search-input-modern bg-white text-black px-3 py-1.5 rounded-lg outline-none ${isActive ? 'is-active' : ''}`}
                     value={searchTerm}
                     onChange={(e) => onSearchChange(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault()
+                            onSearchSubmit()
+                        }
+                    }}
                 />
 
                 {searchResults.length > 0 && (
@@ -62,9 +70,9 @@ const MobileSearch = ({
             </div>
 
             <button
-                onClick={onSearchToggle}
+                onClick={isActive ? onSearchSubmit : onSearchToggle}
                 className="util-btn group relative"
-                aria-label={isActive ? 'Cerrar busqueda' : 'Buscar productos'}
+                aria-label={isActive ? 'Buscar productos' : 'Abrir buscador'}
             >
                 <svg
                     className={`util-icon w-6 h-6 transition-all duration-300 ${isActive ? 'text-red-500 scale-[2]' : ''}`}

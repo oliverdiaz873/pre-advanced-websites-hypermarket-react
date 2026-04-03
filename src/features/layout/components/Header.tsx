@@ -41,8 +41,12 @@ const Header = () => {
         searchTerm,
         setSearchTerm,
         handleResultClick,
+        handleSearchSubmit,
         handleSearchToggle,
-    } = useHeaderSearch((id) => navigate(`/product/${id}`))
+    } = useHeaderSearch(
+        (id) => navigate(`/product/${id}`),
+        (term) => navigate(`/search?q=${encodeURIComponent(term)}`)
+    )
 
     useEffect(() => {
         const handleResize = () => {
@@ -99,6 +103,7 @@ const Header = () => {
                         totalItems={totalItems}
                         onResultClick={handleResultClick}
                         onSearchChange={setSearchTerm}
+                        onSearchSubmit={handleSearchSubmit}
                         onSearchToggle={handleSearchToggle}
                     />
                 )}
@@ -113,6 +118,7 @@ const Header = () => {
                         totalItems={totalItems}
                         onResultClick={handleResultClick}
                         onSearchChange={setSearchTerm}
+                        onSearchSubmit={handleSearchSubmit}
                         onSearchToggle={handleSearchToggle}
                     />
                 )}
@@ -127,6 +133,7 @@ const Header = () => {
                         totalItems={totalItems}
                         onResultClick={handleResultClick}
                         onSearchChange={setSearchTerm}
+                        onSearchSubmit={handleSearchSubmit}
                         onSearchToggle={handleSearchToggle}
                     />
                 )}

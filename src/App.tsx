@@ -10,6 +10,7 @@ import Icons from './shared/components/Icons'
 const Home = lazy(() => import('./pages/Home'))
 const Offers = lazy(() => import('./pages/Offers'))
 const Category = lazy(() => import('./pages/Category'))
+const Search = lazy(() => import('./pages/Search'))
 const ProductDetails = lazy(() => import('./pages/ProductDetails'))
 const CartPage = lazy(() => import('./pages/CartPage'))
 const Contact = lazy(() => import('./pages/Contact'))
@@ -43,6 +44,7 @@ function App() {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/offers" element={<Offers />} />
                                 <Route path="/category/:categoryId" element={<Category />} />
+                                <Route path="/search" element={<Search />} />
                                 <Route path="/product/:productId" element={<ProductDetails />} />
                                 <Route path="/cart" element={<CartPage />} />
                                 <Route path="/contact" element={<Contact />} />
