@@ -20,13 +20,17 @@
     bottom: 0;
     width: 85%;
     max-width: 360px;
-    background-color: rgba(0, 0, 0, 0.95); /* Color a juego con el header (negro con opacidad) */
-    backdrop-filter: blur(12px); /* Un poco más de blur para el efecto glassmorphism */
+    background-color: #000000; /* Fondo negro sólido */
     z-index: 9999;
     display: flex;
     flex-direction: column;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+}
+
+.drawer.is-open {
+    visibility: visible;
 }
 
 .drawer--right {
