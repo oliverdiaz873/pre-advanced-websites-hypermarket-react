@@ -6,27 +6,38 @@ interface OfferFiltersProps {
     onCategoryChange: (category: string) => void
     totalProducts: number
     filteredProducts: number
+    isDrawer?: boolean
 }
 
+/**
+ * Componente de filtros para ofertas.
+ * 
+ * NOTA DE ARQUITECTURA: Patrón de Composición + Responsive Rendering.
+ * - Este componente es agnóstico a su contenedor.
+ * - En Desktop: Se inyecta en un sidebar lateral estático.
+ * - En Móviles: Se compone dentro de un Drawer para optimizar el espacio (Estrategia de renderizado condicional).
+ */
 const OfferFilters = ({
     selectedCategory,
     onCategoryChange,
     totalProducts,
     filteredProducts,
+    isDrawer = false,
 }: OfferFiltersProps) => {
 
     return (
-        <aside className="offer-filters">
-            <div className="offer-filters__header">
-                <h2 className="offer-filters__title">Filtros</h2>
-                <div className="offer-filters__badge">
-                    {filteredProducts} / {totalProducts}
+        <div className={`offer-filters ${isDrawer ? 'offer-filters--drawer' : ''}`}>
+            {!isDrawer && (
+                <div className="offer-filters__header">
+                    <h2 className="offer-filters__title">Filtros</h2>
+                    <div className="offer-filters__badge">
+                        {filteredProducts} / {totalProducts}
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* Sección de Categorías */}
             <div className="offer-filters__section">
-                <h3 className="offer-filters__section-title">Categoría</h3>
                 
                 <div className="offer-filters__option">
                     <input
@@ -63,11 +74,9 @@ const OfferFilters = ({
 
             {/* Info de filtros */}
             <div className="offer-filters__info">
-                <p>
-                    Mostrando <strong>{filteredProducts}</strong> de <strong>{totalProducts}</strong> ofertas
-                </p>
+                Mostrando <strong>{filteredProducts}</strong> de <strong>{totalProducts}</strong> ofertas activas
             </div>
-        </aside>
+        </div>
     )
 }
 

@@ -22,7 +22,7 @@ const Search = () => {
 
     return (
         <section className="search-page">
-                <div className="search-page__hero">
+            <div className="search-page__hero">
                     <h1 className="search-page__title">
                         {hasSearchQuery(trimmedQuery)
                             ? `Resultados para: "${trimmedQuery}"`

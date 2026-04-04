@@ -1,15 +1,15 @@
-/* Estilos para la página de Ofertas */
+/* Estilos para la página de Ofertas (Mobile First) */
 
 .offers-page {
     min-height: calc(100vh - 200px);
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding-top: 0.25rem;
+    padding-bottom: 2rem;
 }
 
 .offers-header {
-    padding-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .offers-header h1 {
@@ -17,18 +17,19 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid #e5e5e5;
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    padding-bottom: 5px;
 }
 
 .offers-header__icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
     flex-shrink: 0;
     /* Usa la clase genérica .icon-fire definida en styles/index.css */
 }
@@ -38,11 +39,11 @@
     font-weight: 500;
 }
 
-/* Layout principal: Grid con aside izquierda */
+/* Layout: Grid Sidebar + Main */
 .offers-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 2rem;
+    grid-template-columns: 300px 1fr;
+    gap: 2.5rem;
     align-items: start;
 }
 
@@ -51,37 +52,99 @@
     width: 100%;
 }
 
-/* Responsividad: Tablet */
+/* Sidebar: Solo visible en desktop */
+.offers-sidebar {
+    display: block;
+}
+
+/* Botón de filtros móvil: Solo visible en pantallas pequeñas */
+.offers-mobile-filters-btn {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.offers-mobile-filters-btn:active {
+    background: linear-gradient(135deg, #e65a2b, #d67d16);
+    transform: translateY(1px);
+}
+
+.offers-mobile-filters-btn__content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0; /* Evita que el texto "Filtrar" se comprima */
+}
+
+.offers-mobile-filters-btn__icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+.offers-mobile-filters-active-chip {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Manejo de textos largos */
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+/* Botón de aplicar dentro del drawer */
+.offers-drawer-apply-btn {
+    width: 100%;
+    margin-top: 2rem;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsividad: Tablet/Mobile */
 @media (max-width: 1024px) {
     .offers-layout {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    .offers-page {
-        padding-top: 1.5rem;
-        padding-bottom: 3rem;
+    .offers-sidebar {
+        display: none;
     }
 
-    .offers-header h1 {
-        font-size: 2rem;
-    }
-
-    .offers-header__icon {
-        width: 2rem;
-        height: 2rem;
+    .offers-mobile-filters-btn {
+        display: flex;
     }
 }
 
 /* Responsividad: Mobile */
 @media (max-width: 768px) {
-    .offers-page {
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-    }
-
     .offers-header {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.75rem;
     }
 
     .offers-header h1 {
@@ -127,6 +190,22 @@
 }
 
 /* Desktop grande */
+@media (min-width: 1024px) {
+    .offers-page {
+        padding-top: 0.5rem;
+        padding-bottom: 4rem;
+    }
+
+    .offers-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .offers-header__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
 @media (min-width: 1440px) {
     .offers-layout {
         grid-template-columns: 300px 1fr;
@@ -134,7 +213,7 @@
     }
 
     .offers-header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
 
     .offers-header h1 {
