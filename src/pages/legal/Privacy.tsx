@@ -1,8 +1,29 @@
 import LegalLayout from '../../features/layout/components/LegalLayout'
+import SEOHead from '../../shared/components/SEOHead'
 
 const Privacy = () => {
     return (
-        <LegalLayout title="Política de Privacidad" date="21 de marzo de 2026">
+        <>
+            {/* ── Meta tags SEO para la política de privacidad ── */}
+            <SEOHead
+                title="Política de Privacidad"
+                description="Conoce cómo Hipermercado Superior recopila, utiliza y protege tu información personal. Tu privacidad es nuestra prioridad."
+                url="/legal/privacy"
+                keywords="política de privacidad, protección de datos, privacidad, cookies, derechos del usuario"
+                jsonLd={{
+                    '@type': 'WebPage',
+                    name: 'Política de Privacidad - Hipermercado Superior',
+                    description: 'Política de privacidad y protección de datos personales de Hipermercado Superior.',
+                    url: 'https://www.hipermercadosuperior.com/legal/privacy',
+                    dateModified: '2026-03-21',
+                    publisher: {
+                        '@type': 'Organization',
+                        name: 'Hipermercado Superior',
+                    },
+                }}
+            />
+
+            <LegalLayout title="Política de Privacidad" date="21 de marzo de 2026">
             <p>
                 En Hipermercado Superior valoramos la privacidad de cada uno de nuestros usuarios.
                 Esta política explica qué información recopilamos, cómo la utilizamos y las medidas que tomamos para protegerla.
@@ -51,6 +72,7 @@ const Privacy = () => {
                 a través del correo <strong>soporte@hipermercado.com</strong>. Estaremos encantados de ayudarte.
             </p>
         </LegalLayout>
+        </>
     )
 }
 

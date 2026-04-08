@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { HeaderSearchProduct } from '../hooks/useHeaderSearch'
-import { getAssetUrl } from '../../../utils/assetUtils'
+import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import './TabletSearch.css'
 
 interface TabletSearchProps {

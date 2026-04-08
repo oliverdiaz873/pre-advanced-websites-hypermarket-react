@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { Product } from '../../../data/productos'
+import { Product } from '../../../shared/types/product'
 import AddToCartButton from '../../cart/components/AddToCartButton'
-import { getAssetUrl } from '../../../utils/assetUtils'
+import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import { ProductPageData } from '../../../data/productPageData'
 import './ProductDetailSection.css'
 

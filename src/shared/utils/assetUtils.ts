@@ -14,7 +14,7 @@
  * Glob import de Vite que pre-carga todas las URLs de assets disponibles
  * Esta es la manera recomendada para trabajar con assets en Vite
  */
-const allAssets = import.meta.glob('../assets/**/*', {
+const allAssets = import.meta.glob('../../assets/**/*', {
     eager: true,
     import: 'default'
 })
@@ -39,6 +39,7 @@ export const getAssetUrl = (path: string) => {
 
     // Intentar varios formatos de clave que Vite podría usar
     const possibleKeys = [
+        `../../${normalizedPath}`,
         `../${normalizedPath}`,
         `./${normalizedPath}`,
         normalizedPath,
@@ -51,13 +52,23 @@ export const getAssetUrl = (path: string) => {
         }
     }
 
-    // En desarrollo, mostrar logs para debugging
+    // Búsqueda robusta final: Si nada de lo anterior funcionó, buscar por sufijo
+    // Esto previene errores ante cambios futuros en la profundidad de carpetas
+    const foundKey = Object.keys(allAssets).find(key => 
+        key.endsWith(normalizedPath) || normalizedPath.endsWith(key.replace(/^\.\.\/|^\.\/|^\//, ''))
+    )
+
+    if (foundKey) {
+        return allAssets[foundKey] as string
+    }
+
+    // En desarrollo, mostrar logs para debugging si falló completamente
     if (import.meta.env.DEV) {
         console.warn(`[AssetUtils] ❌ Resolución fallida para: "${path}"`)
         console.debug(`[AssetUtils] Claves intentadas:`, possibleKeys)
         console.debug(`[AssetUtils] Total de claves disponibles: ${Object.keys(allAssets).length}`)
         if (Object.keys(allAssets).length > 0) {
-            console.debug(`[AssetUtils] Primeras 3 claves disponibles:`, Object.keys(allAssets).slice(0, 3))
+            console.debug(`[AssetUtils] Primera clave disponible: "${Object.keys(allAssets)[0]}"`)
         }
     }
 

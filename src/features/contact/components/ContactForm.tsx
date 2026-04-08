@@ -1,4 +1,4 @@
-import { useFormValidation } from '../../hooks/useFormValidation'
+import { useFormValidation } from '../hooks/useFormValidation'
 import './ContactForm.css'
 
 interface ContactFormProps {

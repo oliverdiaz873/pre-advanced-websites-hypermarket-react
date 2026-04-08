@@ -1,7 +1,9 @@
 import HeroCarousel from '../features/home/components/HeroCarousel'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
 import AboutUs from '../features/home/components/AboutUs'
-import { Product, productos } from '../data/productos'
+import SEOHead from '../shared/components/SEOHead'
+import { productos } from '../data/productos'
+import { Product } from '../shared/types/product'
 import { calculateDiscountPercentage, offersData } from '../data/offers'
 
 type OfferProduct = Product & {
@@ -37,6 +39,27 @@ const Home = () => {
 
     return (
         <>
+            {/* ── Meta tags SEO para la página principal ── */}
+            <SEOHead
+                title="Compras inteligentes y productos de calidad"
+                description="Hipermercado Superior: tu destino para compras inteligentes. Encuentra la mejor selección de alimentos, electrónica, hogar y más con ofertas exclusivas y precios imbatibles."
+                url="/"
+                keywords="hipermercado, compras online, supermercado, ofertas, productos frescos, calidad, ahorro, electrodomésticos, alimentos"
+                jsonLd={{
+                    '@type': 'Organization',
+                    name: 'Hipermercado Superior',
+                    url: 'https://www.hipermercadosuperior.com',
+                    logo: 'https://www.hipermercadosuperior.com/assets/images/logo/logo.png',
+                    description: 'Tu destino para compras inteligentes con la mejor selección de productos de calidad.',
+                    contactPoint: {
+                        '@type': 'ContactPoint',
+                        contactType: 'customer service',
+                        availableLanguage: 'Spanish',
+                    },
+                    sameAs: [],
+                }}
+            />
+
             <HeroCarousel />
             
             <ProductCarouselSection 

@@ -1,6 +1,6 @@
 
 import { useContext } from 'react'
-import { CartContext, CartItem } from '../features/cart/CartContext'
+import { CartContext, CartItem } from '../CartContext'
 
 /**
  * Hook para acceder al estado y métodos del carrito

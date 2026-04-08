@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
-import { Product, productos } from '../../../data/productos'
+import { Product } from '../../../shared/types/product'
+import { productos } from '../../../data/productos'
 import { calculateDiscountPercentage, offersData } from '../../../data/offers'
 import { categories } from '../../../data/categories'
 

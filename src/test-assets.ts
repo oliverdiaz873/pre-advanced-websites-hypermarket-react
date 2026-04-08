@@ -1,4 +1,4 @@
-import { getAssetUrl } from './utils/assetUtils'
+import { getAssetUrl } from './shared/utils/assetUtils'
 
 console.log('Testing getAssetUrl...')
 const testPath = '/assets/images/productos/alimentos/bebidas/refresco/coca_cola.avif'

@@ -8,7 +8,7 @@
  */
 import ProductCard from './ProductCard'
 import ProductCarousel from './ProductCarousel'
-import { Product } from '../../../data/productos'
+import { Product } from '../../../shared/types/product'
 import './ProductCarouselSection.css'
 
 type CarouselProduct = Product & {

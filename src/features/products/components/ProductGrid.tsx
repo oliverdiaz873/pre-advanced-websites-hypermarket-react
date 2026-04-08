@@ -3,7 +3,7 @@
  * Utilizado en páginas como Búsqueda y Ofertas para mantener la consistencia visual.
  */
 import ProductCard from './ProductCard'
-import { Product } from '../../../data/productos'
+import { Product } from '../../../shared/types/product'
 import './ProductGrid.css'
 
 interface ProductGridProps {

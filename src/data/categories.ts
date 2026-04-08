@@ -1,14 +1,4 @@
-export interface Subcategory {
-    name: string
-    href: string
-}
-
-export interface Category {
-    name: string
-    id: string
-    href: string
-    subcategories: Subcategory[]
-}
+import { Category, Subcategory } from '../shared/types/category'
 
 export const categories: Category[] = [
     {

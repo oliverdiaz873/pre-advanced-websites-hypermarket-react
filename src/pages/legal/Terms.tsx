@@ -1,8 +1,29 @@
 import LegalLayout from '../../features/layout/components/LegalLayout'
+import SEOHead from '../../shared/components/SEOHead'
 
 const Terms = () => {
     return (
-        <LegalLayout title="Términos de Uso" date="21 de marzo de 2026">
+        <>
+            {/* ── Meta tags SEO para los términos de uso ── */}
+            <SEOHead
+                title="Términos de Uso"
+                description="Consulta los Términos de Uso de Hipermercado Superior. Conoce las condiciones de acceso, compras, propiedad intelectual y responsabilidades al usar nuestra plataforma."
+                url="/legal/terms"
+                keywords="términos de uso, condiciones de uso, términos y condiciones, reglas del sitio, compras online"
+                jsonLd={{
+                    '@type': 'WebPage',
+                    name: 'Términos de Uso - Hipermercado Superior',
+                    description: 'Términos y condiciones de uso de la plataforma de Hipermercado Superior.',
+                    url: 'https://www.hipermercadosuperior.com/legal/terms',
+                    dateModified: '2026-03-21',
+                    publisher: {
+                        '@type': 'Organization',
+                        name: 'Hipermercado Superior',
+                    },
+                }}
+            />
+
+            <LegalLayout title="Términos de Uso" date="21 de marzo de 2026">
             <p>
                 Estos Términos de Uso regulan el acceso y utilización de la plataforma digital de Hipermercado Superior.
                 Al navegar o emplear nuestros servicios, aceptas estas condiciones en su totalidad. Si no estás de acuerdo,
@@ -61,6 +82,7 @@ const Terms = () => {
                 puedes comunicarte con nosotros en <strong>soporte@hipermercado.com</strong>.
             </p>
         </LegalLayout>
+        </>
     )
 }
 

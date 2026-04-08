@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './features/cart/CartContext'
-import ScrollToTop from './shared/utils/ScrollToTop'
+import ScrollToTop from './shared/components/ScrollToTop'
 import Header from './features/layout/components/Header'
 import Footer from './features/layout/components/Footer'
 import Icons from './shared/components/Icons'

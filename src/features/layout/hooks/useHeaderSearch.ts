@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { productos } from '../../../data/productos'
-import { hasSearchQuery, normalizarTexto } from '../../../utils/searchUtils'
+import { hasSearchQuery, normalizarTexto } from '../../../shared/utils/searchUtils'
 
 export interface HeaderSearchProduct {
     id: string

@@ -10,7 +10,7 @@
  * - ProductDetails: Detalles del producto
  */
 
-import { Product } from '../data/productos'
+import { Product } from '../types/product'
 
 /**
  * Extrae el precio numérico limpio de una cadena de texto formateado

@@ -8,6 +8,7 @@ import {
 } from '../data/categorySectionMap'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
 import Breadcrumb from '../shared/components/Breadcrumb'
+import SEOHead from '../shared/components/SEOHead'
 
 const Category = () => {
     const { categoryId } = useParams()
@@ -69,8 +70,43 @@ const Category = () => {
         return <Navigate to="/" replace />
     }
 
+    /* ── Datos SEO dinámicos según la categoría ──────────────────── */
+    const subcategoryNames = category.subcategories.map((s) => s.name).join(', ')
+
+    const seoTitle = category.name
+    const seoDescription = `Explora nuestra selección de ${category.name} en Hipermercado Superior: ${subcategoryNames}. Los mejores productos al mejor precio.`
+    const seoKeywords = `${category.name.toLowerCase()}, ${category.subcategories.map((s) => s.name.toLowerCase()).join(', ')}, hipermercado, compras online`
+
     return (
         <>
+            {/* ── Meta tags SEO dinámicas para la categoría ── */}
+            <SEOHead
+                title={seoTitle}
+                description={seoDescription}
+                url={`/category/${category.id}`}
+                keywords={seoKeywords}
+                jsonLd={{
+                    '@type': 'CollectionPage',
+                    name: `${category.name} - Hipermercado Superior`,
+                    description: seoDescription,
+                    url: `https://www.hipermercadosuperior.com/category/${category.id}`,
+                    mainEntity: {
+                        '@type': 'ItemList',
+                        name: category.name,
+                        numberOfItems: sectionsToRender.reduce((acc, s) => acc + s.sectionProducts.length, 0),
+                        itemListElement: category.subcategories.map((sub, i) => ({
+                            '@type': 'ListItem',
+                            position: i + 1,
+                            name: sub.name,
+                        })),
+                    },
+                    provider: {
+                        '@type': 'Organization',
+                        name: 'Hipermercado Superior',
+                    },
+                }}
+            />
+
             <Breadcrumb variant="category" items={breadcrumbItems} />
 
             <div className="category-page-content w-full pb-6 pt-[5rem] md:pt-[5.25rem] xl:pt-[5.25rem]">

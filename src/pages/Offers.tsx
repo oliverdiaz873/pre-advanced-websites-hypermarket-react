@@ -3,6 +3,7 @@ import ProductGrid from '../features/products/components/ProductGrid'
 import { OfferFilters, EmptyOffers } from '../features/offers'
 import { useOfferFilters } from '../features/offers/hooks'
 import Drawer from '../shared/components/Drawer/Drawer'
+import SEOHead from '../shared/components/SEOHead'
 import './Offers.css'
 
 const Offers = () => {
@@ -10,7 +11,26 @@ const Offers = () => {
     const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
     return (
-        <div className="offers-page container mx-auto px-4 py-8">
+        <>
+            {/* ── Meta tags SEO para la página de ofertas ── */}
+            <SEOHead
+                title="Ofertas y Promociones"
+                description="Descubre las mejores ofertas y promociones en Hipermercado Superior. Ahorra en productos de calidad con descuentos exclusivos en alimentos, bebidas, limpieza y más."
+                url="/offers"
+                keywords="ofertas hipermercado, promociones supermercado, descuentos productos, ofertas semanales, ahorro compras, mega ofertas"
+                jsonLd={{
+                    '@type': 'OfferCatalog',
+                    name: 'Ofertas y Promociones - Hipermercado Superior',
+                    description: 'Catálogo de ofertas y promociones activas con descuentos exclusivos en productos de calidad.',
+                    url: 'https://www.hipermercadosuperior.com/offers',
+                    provider: {
+                        '@type': 'Organization',
+                        name: 'Hipermercado Superior',
+                    },
+                }}
+            />
+
+            <div className="offers-page container mx-auto px-4 py-8">
             <div className="offers-header flex justify-between items-center mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     <svg className="offers-header__icon icon-fire">
@@ -91,6 +111,7 @@ const Offers = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -2,7 +2,8 @@ import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { productos } from '../data/productos'
 import ProductGrid from '../features/products/components/ProductGrid'
-import { hasSearchQuery, matchesSearchQuery } from '../utils/searchUtils'
+import SEOHead from '../shared/components/SEOHead'
+import { hasSearchQuery, matchesSearchQuery } from '../shared/utils/searchUtils'
 import './Search.css'
 
 const Search = () => {
@@ -20,9 +21,39 @@ const Search = () => {
         [trimmedQuery]
     )
 
+    /* ── Título y descripción dinámicos según la búsqueda ──────── */
+    const pageTitle = hasSearchQuery(trimmedQuery)
+        ? `Resultados para "${trimmedQuery}"`
+        : 'Resultados de Búsqueda'
+
+    const pageDescription = hasSearchQuery(trimmedQuery)
+        ? `${matchingProducts.length} resultado${matchingProducts.length !== 1 ? 's' : ''} para "${trimmedQuery}" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.`
+        : 'Busca y encuentra rápidamente los productos que necesitas en Hipermercado Superior. Amplio catálogo con las mejores ofertas.'
+
     return (
-        <section className="search-page">
-            <div className="search-page__hero">
+        <>
+            {/* ── Meta tags SEO dinámicas para la página de búsqueda ── */}
+            <SEOHead
+                title={pageTitle}
+                description={pageDescription}
+                url="/search"
+                keywords="búsqueda productos, hipermercado, supermercado, ofertas, compras online"
+                noIndex={!hasSearchQuery(trimmedQuery)}
+                jsonLd={hasSearchQuery(trimmedQuery) ? {
+                    '@type': 'SearchResultsPage',
+                    name: `Resultados para "${trimmedQuery}"`,
+                    description: pageDescription,
+                    url: `https://www.hipermercadosuperior.com/search?q=${encodeURIComponent(trimmedQuery)}`,
+                    mainEntity: {
+                        '@type': 'ItemList',
+                        numberOfItems: matchingProducts.length,
+                        name: `Productos encontrados para "${trimmedQuery}"`,
+                    },
+                } : undefined}
+            />
+
+            <section className="search-page">
+                <div className="search-page__hero">
                     <h1 className="search-page__title">
                         {hasSearchQuery(trimmedQuery)
                             ? `Resultados para: "${trimmedQuery}"`
@@ -60,7 +91,9 @@ const Search = () => {
                     </div>
                 )}
             </section>
+        </>
     )
 }
 
 export default Search
+
