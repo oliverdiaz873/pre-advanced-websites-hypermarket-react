@@ -74,7 +74,7 @@ const MobileSearch = ({
             <button
                 onClick={isActive ? onSearchSubmit : onSearchToggle}
                 className="util-btn group relative"
-                aria-label={isActive ? t('header:search_submit') : t('header:search_open')}
+                aria-label={isActive ? t('search:button.submit') : t('search:button.open')}
             >
                 <svg
                     className={`util-icon w-6 h-6 transition-all duration-300 ${isActive ? 'text-red-500 scale-[2]' : ''}`}
