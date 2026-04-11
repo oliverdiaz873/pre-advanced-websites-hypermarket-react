@@ -5,11 +5,11 @@
     "usage": "Usado en navegación, menús de categorías, filtros de búsqueda y componentes de páginas de categoría",
     "contains": "8 categorías principales + 25+ subcategorías",
     "responsible_for": [
-      "Breadcrumb items en páginas de categoría (category.id y sub.${slug})",
+      "Breadcrumb items en páginas de categoría (category.id y sub.{{slug}})",
       "Títulos dinámicos de ProductCarouselSection en Category.tsx",
       "Meta tags SEO y JSON-LD estructurado en páginas de categoría"
     ],
-    "usage_pattern": "t('categories:${categoryId}') para categorías, t('categories:sub.${subcategorySlug}') para subcategorías"
+    "usage_pattern": "t('categories:{{categoryId}}') para categorías, t('categories:sub.{{subcategorySlug}}') para subcategorías"
   },
   "alimentos": "Alimentos",
   "electrodomesticos": "Electrodomésticos",
