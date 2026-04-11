@@ -1,10 +1,10 @@
-# 📚 Documentación de Archivos i18n - Locales
+# Documentación de Archivos i18n - Locales
 
 Este documento explica la función de cada archivo de traducción en la carpeta `public/locales/`.
 
 ---
 
-## 📂 Estructura de Carpetas
+## Estructura de Carpetas
 
 ```
 public/locales/
@@ -35,9 +35,9 @@ public/locales/
 
 ---
 
-## 📋 Descripción de Cada Archivo
+## Descripción de Cada Archivo
 
-### 1. **categories.json** 🏷️
+### 1. **categories.json**
 **Función**: Traducción de nombres de categorías de productos
 - Contiene 8 categorías principales (alimentos, electrodomésticos, etc.)
 - Incluye 25+ subcategorías específicas
@@ -51,7 +51,7 @@ public/locales/
 
 ---
 
-### 2. **common.json** 🔄
+### 2. **common.json**
 **Función**: Elementos comunes reutilizables en toda la aplicación
 - Textos genéricos (botones, etiquetas, mensajes)
 - Configuración por defecto
@@ -68,7 +68,7 @@ public/locales/
 
 ---
 
-### 3. **contact.json** 📧
+### 3. **contact.json**
 **Función**: Contenido específico de la página de contacto
 - Información de empresas/contacto
 - Métodos de comunicación disponibles
@@ -82,7 +82,7 @@ public/locales/
 
 ---
 
-### 4. **footer.json** 🔗
+### 4. **footer.json**
 **Función**: Contenido del pie de página (footer)
 - Información de la empresa (nombre, derechos)
 - Enlaces a redes sociales
@@ -96,7 +96,7 @@ public/locales/
 
 ---
 
-### 5. **header.json** 🎯
+### 5. **header.json**
 **Función**: Contenido del encabezado y navegación principal
 - Logo y branding
 - Menú principal de navegación
@@ -111,7 +111,7 @@ public/locales/
 
 ---
 
-### 6. **home.json** 🏠
+### 6. **home.json**
 **Función**: Contenido específico de la página de inicio
 - Texto hero (título, subtítulo)
 - Secciones destacadas
@@ -127,7 +127,7 @@ public/locales/
 
 ---
 
-### 7. **legal.json** ⚖️
+### 7. **legal.json**
 **Función**: Contenido legal y de privacidad
 - Política de privacidad
 - Términos y condiciones
@@ -143,7 +143,7 @@ public/locales/
 
 ---
 
-### 8. **offers.json** 🎁
+### 8. **offers.json**
 **Función**: Contenido de la página de ofertas/promociones
 - Títulos y descriptions de ofertas
 - Banners promosionales
@@ -158,7 +158,7 @@ public/locales/
 
 ---
 
-### 9. **products.json** 🛍️
+### 9. **products.json**
 **Función**: Información detallada de cada uno de los 184 productos
 - **Nombre del producto** (name)
 - **Descripción detallada** (description)
@@ -181,7 +181,7 @@ public/locales/
 
 ---
 
-### 10. **search.json** 🔍
+### 10. **search.json**
 **Función**: Elementos relacionados con búsqueda y filtros
 - Placeholders de búsqueda
 - Etiquetas de filtros
@@ -197,7 +197,7 @@ public/locales/
 
 ---
 
-## 🎯 Flujo de Cargas de Traducción
+## Flujo de Cargas de Traducción
 
 1. **Aplicación inicia** → `i18n.ts` detecta idioma
 2. **HttpBackend carga** → `/locales/{idioma}/{namespace}.json`
@@ -206,7 +206,7 @@ public/locales/
 
 ---
 
-## 📝 Estructura JSON Standard
+## Estructura JSON Standard
 
 Cada archivo sigue este patrón:
 
@@ -227,7 +227,7 @@ Cada archivo sigue este patrón:
 
 ---
 
-## 🔄 Agregar Nuevas Traducciones
+## Agregar Nuevas Traducciones
 
 1. Elige el namespace (archivo) correcto
 2. Agrega la clave-valor en ambos idiomas (EN y ES)
@@ -236,13 +236,13 @@ Cada archivo sigue este patrón:
 
 ---
 
-## ✅ Verificación de Integridad
+## Verificación de Integridad
 
-✓ Todos los archivos EN e ES están sincronizados
-✓ 184 productos completamente traducidos
-✓ Estructura JSON válida
-✓ Sin claves huérfanas
-✓ Compatible con i18next
+- Todos los archivos EN e ES están sincronizados
+- 184 productos completamente traducidos
+- Estructura JSON válida
+- Sin claves huérfanas
+- Compatible con i18next
 
 ---
 

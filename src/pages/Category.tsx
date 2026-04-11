@@ -1,6 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { useParams, useLocation, Navigate } from 'react-router-dom'
-import { categories } from '../data/categories'
+import { useParams, useLocation, Navigate } from 'react-router-dom'import { useTranslation } from 'react-i18next'import { categories } from '../data/categories'
 import { productos } from '../data/productos'
 import {
     sectionSlugToProductCategoria,
@@ -13,6 +12,7 @@ import SEOHead from '../shared/components/SEOHead'
 const Category = () => {
     const { categoryId } = useParams()
     const location = useLocation()
+    const { t } = useTranslation(['categories', 'common'])
 
     const category = useMemo(
         () => categories.find((c) => c.id === categoryId),
@@ -24,9 +24,9 @@ const Category = () => {
     const breadcrumbItems = useMemo(() => {
         if (!category) return []
         const base = [
-            { label: 'Inicio', to: '/' },
-            { label: 'Categorías' },
-            { label: category.name },
+            { label: t('common:breadcrumb.home'), to: '/' },
+            { label: t('common:breadcrumb.categories') },
+            { label: t(`categories:${category.id}`) },
         ]
         if (!hashSlug) return base
 
@@ -36,12 +36,12 @@ const Category = () => {
         if (!sub) return base
 
         return [
-            { label: 'Inicio', to: '/' },
-            { label: 'Categorías' },
-            { label: category.name, to: category.href },
-            { label: sub.name },
+            { label: t('common:breadcrumb.home'), to: '/' },
+            { label: t('common:breadcrumb.categories') },
+            { label: t(`categories:${category.id}`), to: category.href },
+            { label: t(`categories:sub.${hashSlug}`) },
         ]
-    }, [category, hashSlug])
+    }, [category, hashSlug, t])
 
     const sectionsToRender = useMemo(() => {
         if (!category) return []
@@ -71,11 +71,17 @@ const Category = () => {
     }
 
     /* ── Datos SEO dinámicos según la categoría ──────────────────── */
-    const subcategoryNames = category.subcategories.map((s) => s.name).join(', ')
+    const translatedCategoryName = t(`categories:${category.id}`)
+    const translatedSubcategoryNames = category.subcategories
+        .map((s) => {
+            const slug = subcategorySlugFromHref(s.href)
+            return t(`categories:sub.${slug}`)
+        })
+        .join(', ')
 
-    const seoTitle = category.name
-    const seoDescription = `Explora nuestra selección de ${category.name} en Hipermercado Superior: ${subcategoryNames}. Los mejores productos al mejor precio.`
-    const seoKeywords = `${category.name.toLowerCase()}, ${category.subcategories.map((s) => s.name.toLowerCase()).join(', ')}, hipermercado, compras online`
+    const seoTitle = translatedCategoryName
+    const seoDescription = `Explora nuestra selección de ${translatedCategoryName} en Hipermercado Superior: ${translatedSubcategoryNames}. Los mejores productos al mejor precio.`
+    const seoKeywords = `${translatedCategoryName.toLowerCase()}, ${translatedSubcategoryNames.toLowerCase()}, hipermercado, compras online`
 
     return (
         <>
@@ -87,17 +93,17 @@ const Category = () => {
                 keywords={seoKeywords}
                 jsonLd={{
                     '@type': 'CollectionPage',
-                    name: `${category.name} - Hipermercado Superior`,
+                    name: `${translatedCategoryName} - Hipermercado Superior`,
                     description: seoDescription,
                     url: `https://www.hipermercadosuperior.com/category/${category.id}`,
                     mainEntity: {
                         '@type': 'ItemList',
-                        name: category.name,
+                        name: translatedCategoryName,
                         numberOfItems: sectionsToRender.reduce((acc, s) => acc + s.sectionProducts.length, 0),
                         itemListElement: category.subcategories.map((sub, i) => ({
                             '@type': 'ListItem',
                             position: i + 1,
-                            name: sub.name,
+                            name: t(`categories:sub.${subcategorySlugFromHref(sub.href)}`),
                         })),
                     },
                     provider: {
@@ -111,9 +117,11 @@ const Category = () => {
 
             <div className="category-page-content w-full pb-6 pt-[5rem] md:pt-[5.25rem] xl:pt-[5.25rem]">
                 {sectionsToRender.map(({ sub, slug, sectionProducts }, index) => (
+                    // Reusing ProductCarouselSection component to display each subcategory
+                    // with translated titles and filtered products from the current category
                     <ProductCarouselSection
                         key={slug}
-                        title={sub.name}
+                        title={t(`categories:sub.${slug}`)}
                         products={sectionProducts}
                         id={slug}
                         idPrefix={slug.replace(/[^a-z0-9]+/gi, '_')}
