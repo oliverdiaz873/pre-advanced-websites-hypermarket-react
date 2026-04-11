@@ -3,7 +3,13 @@
     "namespace": "categories",
     "description": "Traducción de nombres de categorías de productos (alimentos, electrodomésticos, ropa, etc.)",
     "usage": "Usados en navegación, menús de categorías y filtros de búsqueda",
-    "contains": "8 categorías principales + 25+ subcategorías"
+    "contains": "8 categorías principales + 25+ subcategorías",
+    "responsible_for": [
+      "Breadcrumb items en páginas de categoría (category.id y sub.${slug})",
+      "Títulos dinámicos de ProductCarouselSection en Category.tsx",
+      "Meta tags SEO y JSON-LD estructurado en páginas de categoría"
+    ],
+    "usage_pattern": "t('categories:${categoryId}') para categorías, t('categories:sub.${subcategorySlug}') para subcategorías"
   },
   "alimentos": "Food",
   "electrodomesticos": "Appliances",
