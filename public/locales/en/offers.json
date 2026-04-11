@@ -1,9 +1,16 @@
 {
   "_documentation": {
     "namespace": "offers",
-    "description": "Contenido de la página de ofertas y promociones semanales",
-    "usage": "Página /offers, secciones de promoción, banners de descuento",
-    "contains": "Títulos de ofertas, descripciones, información de descuentos, datos SEO"
+    "description": "Contenido de la página de ofertas y promociones semanales. Responsable de traducir títulos de filtros, mensajes de ofertas vacías y etiquetas en componentes EmptyOffers y OfferFilters.",
+    "usage": "Página /offers, secciones de promoción, componentes OfferFilters y EmptyOffers",
+    "contains": "Títulos de ofertas, descripciones, información de descuentos, datos SEO, textos de filtros",
+    "responsible_for": [
+      "EmptyOffers component: empty.title y empty.message (cuando no hay ofertas)",
+      "OfferFilters component: filters.title, filters.all_categories, filters.info, drawer_btn_one/other",
+      "Offers page SEO: seo.title, seo.description, seo.json_ld_name, seo.json_ld_description",
+      "Header section: header.title, header.filter_btn"
+    ],
+    "usage_pattern": "t('offers:{{key}}') o t('offers:filters.{{key}}') para acceso anidado"
   },
   "seo": {
     "title": "Offers and Promotions",
