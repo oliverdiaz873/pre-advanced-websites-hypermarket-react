@@ -4,6 +4,21 @@ import type { HeaderSearchProduct } from '../hooks/useHeaderSearch'
 import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import './MobileSearch.css'
 
+/**
+ * Props del componente MobileSearch.
+ * 
+ * @interface MobileSearchProps
+ * @property {boolean} isActive - Indica si el buscador está activo (input expandido)
+ * @property {React.RefObject<HTMLUListElement>} resultsRef - Referencia al DOM para detectar clicks fuera
+ * @property {React.RefObject<HTMLInputElement>} searchInputRef - Referencia al input para focus automático
+ * @property {HeaderSearchProduct[]} searchResults - Array de productos encontrados
+ * @property {string} searchTerm - Término actual de búsqueda
+ * @property {number} totalItems - Total de items en carrito (para badge)
+ * @property {Function} onResultClick - Callback al hacer click en un resultado
+ * @property {Function} onSearchChange - Callback al escribir en el input
+ * @property {Function} onSearchSubmit - Callback al presionar Enter o botón submit
+ * @property {Function} onSearchToggle - Callback para abrir/cerrar buscador
+ */
 interface MobileSearchProps {
     isActive: boolean
     resultsRef: React.RefObject<HTMLUListElement | null>
@@ -17,9 +32,33 @@ interface MobileSearchProps {
     onSearchToggle: () => void
 }
 
-// Component: renderiza la variante del buscador para mobile, adaptando
-// el input y el dropdown de resultados al espacio reducido del header
-// para priorizar la escritura y la seleccion rapida en pantallas pequenas.
+/**
+ * Componente de búsqueda optimizado para mobile (< 768px).
+ * 
+ * CARACTERÍSTICAS:
+ * - Input a pantalla completa: cuando activo, ocupa todo el ancho disponible
+ * - Carrito oculto: se oculta al activar búsqueda para ahorrar espacio
+ * - Dropdown contextual: resultados ajustados al ancho de pantalla
+ * - Scroll automático: lista de resultados con scroll independiente
+ * - Mayor área de toque: items con padding optimizado para dedos
+ * - Búsqueda rápida: focus automático para empezar a escribir
+ * 
+ * LAYOUT MOBILE (< 768px):
+ * [Menu] [Search Button]
+ *          ↓ (cuando activo)
+ * [Search Input (full width)]
+ *    ↓
+ * [Dropdown Resultados (responsive)]
+ * 
+ * ESTILOS:
+ * - Buscador: flex layout con margin-left auto
+ * - Resultados: min(320px, calc(100vw - 24px)) - adaptado a pantalla
+ * - Carrito: ocultado con display:none cuando isActive
+ * - Padding: 10px para mejor interacción táctil
+ * 
+ * @component
+ * @returns {JSX.Element} UI del buscador para mobile
+ */
 const MobileSearch = ({
     isActive,
     resultsRef,

@@ -4,6 +4,21 @@ import type { HeaderSearchProduct } from '../hooks/useHeaderSearch'
 import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import './TabletSearch.css'
 
+/**
+ * Props del componente TabletSearch.
+ * 
+ * @interface TabletSearchProps
+ * @property {boolean} isActive - Indica si el buscador está activo (input expandido)
+ * @property {React.RefObject<HTMLUListElement>} resultsRef - Referencia al DOM para detectar clicks fuera
+ * @property {React.RefObject<HTMLInputElement>} searchInputRef - Referencia al input para focus automático
+ * @property {HeaderSearchProduct[]} searchResults - Array de productos encontrados
+ * @property {string} searchTerm - Término actual de búsqueda
+ * @property {number} totalItems - Total de items en carrito (para badge)
+ * @property {Function} onResultClick - Callback al hacer click en un resultado
+ * @property {Function} onSearchChange - Callback al escribir en el input
+ * @property {Function} onSearchSubmit - Callback al presionar Enter o botón submit
+ * @property {Function} onSearchToggle - Callback para abrir/cerrar buscador
+ */
 interface TabletSearchProps {
     isActive: boolean
     resultsRef: React.RefObject<HTMLUListElement | null>
@@ -17,9 +32,36 @@ interface TabletSearchProps {
     onSearchToggle: () => void
 }
 
-// Component: renderiza la variante del buscador para tablet, conservando
-// visible la marca del header y usando el espacio restante para mostrar
-// un input util mientras oculta acciones secundarias cuando esta activo.
+/**
+ * Componente de búsqueda optimizado para tablet (768px - 1199px).
+ * 
+ * CARACTERÍSTICAS:
+ * - Balance logo-search: mantiene logo visible mientras hay espacio
+ * - Input flexible: expande usando el espacio disponible al activarse
+ * - Carrito oculto: se oculta cuando la búsqueda está activa
+ * - Breakpoint específico: solo se renderiza en 768px - 1199px (CSS media query)
+ * - Dropdown 400px: ancho máximo aprovechando el espacio de tablet
+ * - Enfoque UX: mantiene marca visible pero prioriza búsqueda
+ * 
+ * LAYOUT TABLET (768px - 1199px):
+ * [Logo] [Search Field (flexible)] [Cart]
+ *                    ↓ (cuando activo)
+ *       [Search Input (expand)] [Search Results]
+ * 
+ * ESTILOS:
+ * - Display: flex con flex: 1 1 auto para crecer
+ * - Search field activo: width: 100% tomando todo el espacio
+ * - Resultados: min(400px, 100%) - máximo 400px pero responsivo
+ * - Media query: @media (min-width: 768px) and (max-width: 1199px)
+ * - Carrito: display: none cuando tablet-search.is-active
+ * 
+ * DIFERENCIAS CON DESKTOP/MOBILE:
+ * - Vs Desktop: menos espacio, logo obligatorio visible
+ * - Vs Mobile: más espacio, carrito visible cuando no busca
+ * 
+ * @component
+ * @returns {JSX.Element} UI del buscador para tablet
+ */
 const TabletSearch = ({
     isActive,
     resultsRef,

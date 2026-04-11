@@ -3,17 +3,44 @@ import { useTranslation } from 'react-i18next'
 import { productos } from '../../../data/productos'
 import { hasSearchQuery, normalizarTexto } from '../../../shared/utils/searchUtils'
 
+/**
+ * Interfaz que representa un producto en los resultados de búsqueda del header.
+ * 
+ * @interface HeaderSearchProduct
+ * @property {string} id - Identificador único del producto (ej: 'manzana_verde')
+ * @property {string} nombre - Nombre del producto en idioma base (español)
+ * @property {string} imagen - Ruta a la imagen del producto
+ */
 export interface HeaderSearchProduct {
     id: string
     nombre: string
     imagen: string
 }
 
-// Hook: comparte el estado, el filtrado y los handlers del buscador del
-// header para que desktop, tablet y mobile reutilicen la misma logica
-// sin duplicar el comportamiento de apertura, cierre y seleccion.
-// IMPORTANTE: Busca en ambos idiomas (español e inglés) para encontrar
-// productos sin importar el idioma de la interfaz.
+/**
+ * Hook personalizado para gestionar la lógica de búsqueda del header.
+ * 
+ * Comparte estado, filtrado y handlers para que los componentes DesktopSearch,
+ * TabletSearch y MobileSearch reutilicen la misma lógica sin duplicar código.
+ * 
+ * CARACTERÍSTICAS:
+ * - Búsqueda bilingüe: busca en español e inglés simultáneamente
+ * - Filtrado en tiempo real: actualiza resultados mientras escribes
+ * - Cierre automático: detecta clicks fuera del dropdown
+ * - Normalización: ignora acentos y mayúsculas en búsquedas
+ * - Límite de resultados: máximo 8 productos por búsqueda
+ * 
+ * FLUJO DE USO:
+ * 1. Usuario escribe en input → onSearchChange actualiza searchTerm
+ * 2. useEffect filtra productos en ES e EN
+ * 3. Click en resultado → handleResultClick navega a producto
+ * 4. Enter o botón submit → handleSearchSubmit navega a página de resultados
+ * 
+ * @hook
+ * @param {Function} onResultSelect - Callback cuando usuario selecciona un producto individual
+ * @param {Function} onSearchSubmit - Callback cuando usuario ejecuta búsqueda general
+ * @returns {Object} Estado y handlers del buscador
+ */
 export const useHeaderSearch = (
     onResultSelect: (id: string) => void,
     onSearchSubmit: (term: string) => void
