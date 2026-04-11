@@ -1,8 +1,8 @@
 {
   "_documentation": {
     "namespace": "categories",
-    "description": "Traducción de nombres de categorías de productos (alimentos, electrodomésticos, ropa, etc.)",
-    "usage": "Usados en navegación, menús de categorías y filtros de búsqueda",
+    "description": "Traducción de nombres de categorías de productos (alimentos, electrodomésticos, ropa, etc). Responsable de traducir breadcrumb items y títulos de ProductCarouselSection en páginas de categoría, así como meta tags de SEO y datos estructurados JSON-LD.",
+    "usage": "Usado en navegación, menús de categorías, filtros de búsqueda y componentes de páginas de categoría",
     "contains": "8 categorías principales + 25+ subcategorías",
     "responsible_for": [
       "Breadcrumb items en páginas de categoría (category.id y sub.${slug})",
