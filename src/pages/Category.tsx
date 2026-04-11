@@ -1,5 +1,7 @@
 import { useEffect, useMemo } from 'react'
-import { useParams, useLocation, Navigate } from 'react-router-dom'import { useTranslation } from 'react-i18next'import { categories } from '../data/categories'
+import { useParams, useLocation, Navigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { categories } from '../data/categories'
 import { productos } from '../data/productos'
 import {
     sectionSlugToProductCategoria,
