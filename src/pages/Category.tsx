@@ -118,7 +118,7 @@ const Category = () => {
             <Breadcrumb variant="category" items={breadcrumbItems} />
 
             <div className="category-page-content w-full pb-6 pt-[5rem] md:pt-[5.25rem] xl:pt-[5.25rem]">
-                {sectionsToRender.map(({ sub, slug, sectionProducts }, index) => (
+                {sectionsToRender.map(({ slug, sectionProducts }, index) => (
                     // Reusing ProductCarouselSection component to display each subcategory
                     // with translated titles and filtered products from the current category
                     <ProductCarouselSection

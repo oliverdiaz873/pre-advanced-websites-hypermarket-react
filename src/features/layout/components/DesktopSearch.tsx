@@ -32,14 +32,14 @@ const DesktopSearch = ({
     onSearchSubmit,
     onSearchToggle,
 }: DesktopSearchProps) => {
-    const { t } = useTranslation(['header', 'common'])
+    const { t } = useTranslation(['search', 'common', 'products'])
     return (
         <div className="desktop-search">
             <div className={`desktop-search__field ${isActive ? 'is-active' : ''}`}>
                 <input
                     ref={searchInputRef}
                     type="text"
-                    placeholder={t('header:search_placeholder')}
+                    placeholder={t('search:input.placeholder')}
                     className={`desktop-search__input search-input-modern bg-white text-black px-3 py-1.5 rounded-lg outline-none ${isActive ? 'is-active' : ''}`}
                     value={searchTerm}
                     onChange={(e) => onSearchChange(e.target.value)}
@@ -64,7 +64,7 @@ const DesktopSearch = ({
                                     alt=""
                                     className="desktop-search__thumb"
                                 />
-                                <span className="desktop-search__label">{product.nombre}</span>
+                                <span className="desktop-search__label">{t(`products:${product.id}.name`, { defaultValue: product.nombre })}</span>
                             </li>
                         ))}
                     </ul>
@@ -74,7 +74,7 @@ const DesktopSearch = ({
             <button
                 onClick={isActive ? onSearchSubmit : onSearchToggle}
                 className="util-btn group relative"
-                aria-label={isActive ? t('header:search_submit') : t('header:search_open')}
+                aria-label={isActive ? t('search:button.submit') : t('search:button.open')}
             >
                 <svg
                     className={`util-icon w-6 h-6 transition-all duration-300 ${isActive ? 'text-red-500 scale-[2]' : ''}`}

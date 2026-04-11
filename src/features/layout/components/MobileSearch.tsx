@@ -32,14 +32,14 @@ const MobileSearch = ({
     onSearchSubmit,
     onSearchToggle,
 }: MobileSearchProps) => {
-    const { t } = useTranslation(['header'])
+    const { t } = useTranslation(['search', 'products'])
     return (
         <div className={`mobile-search ${isActive ? 'is-active' : ''}`}>
             <div className={`mobile-search__field ${isActive ? 'is-active' : ''}`}>
                 <input
                     ref={searchInputRef}
                     type="text"
-                    placeholder={t('header:search_placeholder')}
+                    placeholder={t('search:input.placeholder')}
                     className={`mobile-search__input search-input-modern bg-white text-black px-3 py-1.5 rounded-lg outline-none ${isActive ? 'is-active' : ''}`}
                     value={searchTerm}
                     onChange={(e) => onSearchChange(e.target.value)}
@@ -64,7 +64,7 @@ const MobileSearch = ({
                                     alt=""
                                     className="mobile-search__thumb"
                                 />
-                                <span className="mobile-search__label">{product.nombre}</span>
+                                <span className="mobile-search__label">{t(`products:${product.id}.name`, { defaultValue: product.nombre })}</span>
                             </li>
                         ))}
                     </ul>

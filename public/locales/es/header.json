@@ -2,16 +2,19 @@
   "_documentation": {
     "namespace": "header",
     "description": "Contenido del encabezado y navegación principal de la aplicación",
-    "usage": "Barra superior, logo, menú principal, búsqueda, zona de usuario",
-    "contains": "Brand, menú, opciones de usuario, carrito, búsqueda, categorías"
+    "usage": "Barra superior, logo, menú principal, zona de usuario y carrito",
+    "contains": "Brand, menú de navegación, opciones de usuario, etiqueta del carrito",
+    "responsible_for": [
+      "Header brand name and menu labels: brand, menu_open, menu_close, nav_aria",
+      "Navigation menu items: nav.home, nav.categories, nav.offers, nav.contact",
+      "Cart action: cart_label"
+    ],
+    "note": "Las claves relacionadas con búsqueda han sido movidas a search.json para mejor escalabilidad"
   },
   "brand": "Hipermercado Superior",
   "menu_open": "Abrir menú",
   "menu_close": "Cerrar menú",
   "cart_label": "Ver carrito",
-  "search_placeholder": "Busca tus productos...",
-  "search_submit": "Buscar productos",
-  "search_open": "Abrir buscador",
   "nav_aria": "Menú principal",
   "nav": {
     "home": "Inicio",

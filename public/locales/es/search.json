@@ -1,11 +1,25 @@
 {
   "_documentation": {
     "namespace": "search",
-    "description": "Elementos de búsqueda y filtros de la aplicación",
-    "usage": "Barra de búsqueda, página /search, filtros de productos, resultados",
-    "contains": "Placeholders de búsqueda, etiquetas de filtros, mensajes de resultados, textos de ayuda"
+    "description": "Elementos de búsqueda y filtros de la aplicación. Responsable de traducir el interface del buscador (input, botones) y la página de resultados.",
+    "usage": "Componentes DesktopSearch, MobileSearch, TabletSearch, página /search, página de resultados de búsqueda",
+    "contains": "Placeholders del input, etiquetas de botones (submit, open, close), mensajes de resultados, textos de ayuda y SEO",
+    "responsible_for": [
+      "DesktopSearch, MobileSearch, TabletSearch: search.input.placeholder, search.button.submit, search.button.open, search.button.cancel",
+      "Search results page: hero.title_query, hero.title_empty, hero.summary_query, hero.summary_empty",
+      "Empty states: empty_state.no_results.title/desc, empty_state.start_search.title/desc",
+      "SEO metadata: seo.title_query, seo.description, seo.json_ld_*"
+    ],
+    "usage_pattern": "t('search:{{key}}') para acceso anidado, ej: t('search:input.placeholder')"
   },
-  "seo": {
+  "input": {
+    "placeholder": "Busca tus productos..."
+  },
+  "button": {
+    "submit": "Buscar productos",
+    "open": "Abrir buscador",
+    "cancel": "Cancelar búsqueda"
+  },
     "title_query": "Resultados para \"{{query}}\"",
     "title_empty": "Resultados de Búsqueda",
     "desc_query_one": "{{count}} resultado para \"{{query}}\" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.",
