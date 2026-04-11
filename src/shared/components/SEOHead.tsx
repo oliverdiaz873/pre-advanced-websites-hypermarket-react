@@ -26,14 +26,12 @@
  */
 
 import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 
 /* ── Constantes del sitio ─────────────────────────────────────────── */
-const SITE_NAME = 'Hipermercado Superior'
+/* ── Constantes del sitio ─────────────────────────────────────────── */
 const BASE_URL = 'https://www.hipermercadosuperior.com'
 const DEFAULT_IMAGE = `${BASE_URL}/assets/images/logo/logo.png`
-const DEFAULT_IMAGE_ALT = 'Logo de Hipermercado Superior'
-const DEFAULT_IMAGE_WIDTH = 1200
-const DEFAULT_IMAGE_HEIGHT = 630
 const THEME_COLOR = '#ef4444'
 const AUTHOR = 'Oliver Antonio Díaz'
 const TWITTER_SITE = '@hipermercadosuperior'
@@ -86,8 +84,12 @@ const SEOHead = ({
     keywords,
     jsonLd,
 }: SEOHeadProps) => {
+    const { t, i18n } = useTranslation(['header', 'footer'])
+    const siteName = t('header:brand')
+    const currentLocale = i18n.language === 'es' ? 'es_ES' : 'en_US'
+
     /* ── Título completo con el nombre del sitio ────────────────── */
-    const fullTitle = `${title} | ${SITE_NAME}`
+    const fullTitle = `${title} | ${siteName}`
 
     /* ── URL canónica completa ──────────────────────────────────── */
     const canonicalUrl = `${BASE_URL}${url}`
@@ -102,9 +104,9 @@ const SEOHead = ({
         ? imageData.url
         : `${BASE_URL}${imageData.url}`
 
-    const imageAlt = imageData.alt ?? DEFAULT_IMAGE_ALT
-    const imageWidth = imageData.width ?? DEFAULT_IMAGE_WIDTH
-    const imageHeight = imageData.height ?? DEFAULT_IMAGE_HEIGHT
+    const imageAlt = imageData.alt ?? t('home:about_us.logo_alt')
+    const imageWidth = imageData.width ?? 1200
+    const imageHeight = imageData.height ?? 630
 
     /* ── JSON-LD con @context automático ────────────────────────── */
     const jsonLdScript = jsonLd
@@ -122,7 +124,7 @@ const SEOHead = ({
                 name="robots"
                 content={noIndex ? 'noindex, nofollow' : 'index, follow'}
             />
-            <meta name="copyright" content={`${AUTHOR}. Todos los derechos reservados.`} />
+            <meta name="copyright" content={`${AUTHOR}. ${t('footer:rights_reserved')}`} />
             <meta name="theme-color" content={THEME_COLOR} />
 
             {/* ── Enlace canónico ────────────────────────────────── */}
@@ -137,8 +139,8 @@ const SEOHead = ({
             <meta property="og:image:width" content={String(imageWidth)} />
             <meta property="og:image:height" content={String(imageHeight)} />
             <meta property="og:description" content={description} />
-            <meta property="og:site_name" content={SITE_NAME} />
-            <meta property="og:locale" content="es_ES" />
+            <meta property="og:site_name" content={siteName} />
+            <meta property="og:locale" content={currentLocale} />
 
             {/* ── Twitter Cards ──────────────────────────────────── */}
             <meta name="twitter:card" content="summary_large_image" />

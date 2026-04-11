@@ -1,0 +1,29 @@
+{
+  "_documentation": {
+    "namespace": "offers",
+    "description": "Contenido de la página de ofertas y promociones semanales",
+    "usage": "Página /offers, secciones de promoción, banners de descuento",
+    "contains": "Títulos de ofertas, descripciones, información de descuentos, datos SEO"
+  },
+  "seo": {
+    "title": "Ofertas y Promociones",
+    "description": "Descubre las mejores ofertas y promociones en Hipermercado Superior. Ahorra en productos de calidad con descuentos exclusivos en alimentos, bebidas, limpieza y más.",
+    "json_ld_name": "Ofertas y Promociones - Hipermercado Superior",
+    "json_ld_description": "Catálogo de ofertas y promociones activas con descuentos exclusivos en productos de calidad."
+  },
+  "header": {
+    "title": "Ofertas",
+    "filter_btn": "Filtrar"
+  },
+  "filters": {
+    "title": "Filtros",
+    "all_categories": "Todas las categorías",
+    "info": "Mostrando <strong>{{filtered}}</strong> de <strong>{{total}}</strong> ofertas activas",
+    "drawer_btn_one": "Ver {{count}} resultado",
+    "drawer_btn_other": "Ver {{count}} resultados"
+  },
+  "empty": {
+    "title": "No hay ofertas disponibles",
+    "message": "Selecciona otra categoría o intenta más tarde"
+  }
+}

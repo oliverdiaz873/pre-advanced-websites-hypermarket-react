@@ -1,0 +1,57 @@
+{  "_documentation": {
+    "namespace": "contact",
+    "description": "Contenido específico de la página de contacto (información, formularios, ubicación)",
+    "usage": "Página /contact, modal de contacto, formularios de comunicación",
+    "contains": "Información de empresa, emails, teléfonos, direcciones, redes sociales"
+  },  "seo": {
+    "title": "Contacto",
+    "description": "Contáctanos en Hipermercado Superior. Estamos disponibles por correo, teléfono o formulario de contacto. Atención de lunes a domingo, 8:00 AM – 10:00 PM.",
+    "json_ld_name": "Contacto - Hipermercado Superior",
+    "json_ld_description": "Página de contacto de Hipermercado Superior."
+  },
+  "form": {
+    "title": "Contacto",
+    "labels": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono (Opcional)",
+      "message": "Tu Mensaje"
+    },
+    "placeholders": {
+      "name": "Escribe tu nombre aquí...",
+      "email": "juan@ejemplo.com",
+      "phone": "Escribe tu teléfono aquí...",
+      "message": "¿En qué podemos ayudarte?"
+    },
+    "buttons": {
+      "submit": "Enviar",
+      "submitting": "Enviando..."
+    },
+    "success_toast": "✓ ¡Mensaje enviado con éxito!"
+  },
+  "validation": {
+    "name": {
+      "required": "El nombre es obligatorio.",
+      "length": "El nombre debe tener entre 2 y 50 caracteres.",
+      "format": "El nombre solo puede contener letras y espacios."
+    },
+    "email": {
+      "required": "El correo es obligatorio.",
+      "format": "El formato del correo no es válido."
+    },
+    "phone": {
+      "format": "El formato del teléfono no es válido. Use 8-15 dígitos (ej: 8095555555 o (809) 555-5555)."
+    },
+    "message": {
+      "required": "El mensaje es obligatorio.",
+      "length": "El mensaje debe tener entre 10 y 500 caracteres."
+    }
+  },
+  "info": {
+    "title": "Otros medios de contacto:",
+    "email_label": "Correo:",
+    "phone_label": "Teléfono:",
+    "hours_label": "Horario:",
+    "hours_text": "Lunes a Domingo, 8:00 AM – 10:00 PM"
+  }
+}

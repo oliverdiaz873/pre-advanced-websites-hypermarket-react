@@ -1,0 +1,59 @@
+{
+  "_documentation": {
+    "namespace": "contact",
+    "description": "Contenido específico de la página de contacto (información, formularios, ubicación)",
+    "usage": "Página /contact, modal de contacto, formularios de comunicación",
+    "contains": "Información de empresa, emails, teléfonos, direcciones, redes sociales"
+  },
+  "seo": {
+    "title": "Contact",
+    "description": "Contact us at Hipermercado Superior. We are available by email, phone, or contact form. Customer service Monday to Sunday, 8:00 AM – 10:00 PM.",
+    "json_ld_name": "Contact - Hipermercado Superior",
+    "json_ld_description": "Contact page for Hipermercado Superior."
+  },
+  "form": {
+    "title": "Contact",
+    "labels": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number (Optional)",
+      "message": "Your Message"
+    },
+    "placeholders": {
+      "name": "Enter your name here...",
+      "email": "john@example.com",
+      "phone": "Enter your phone number here...",
+      "message": "How can we help you?"
+    },
+    "buttons": {
+      "submit": "Send",
+      "submitting": "Sending..."
+    },
+    "success_toast": "✓ Message sent successfully!"
+  },
+  "validation": {
+    "name": {
+      "required": "Name is required.",
+      "length": "Name must be between 2 and 50 characters.",
+      "format": "Name can only contain letters and spaces."
+    },
+    "email": {
+      "required": "Email is required.",
+      "format": "Email format is invalid."
+    },
+    "phone": {
+      "format": "Phone format is invalid. Use 8-15 digits (e.g., 8095555555 or (809) 555-5555)."
+    },
+    "message": {
+      "required": "Message is required.",
+      "length": "Message must be between 10 and 500 characters."
+    }
+  },
+  "info": {
+    "title": "Other ways to reach us:",
+    "email_label": "Email:",
+    "phone_label": "Phone:",
+    "hours_label": "Hours:",
+    "hours_text": "Monday to Sunday, 8:00 AM – 10:00 PM"
+  }
+}

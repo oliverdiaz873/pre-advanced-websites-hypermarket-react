@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { categories } from '../../../data/categories'
 
 const navLinkClass =
@@ -11,16 +12,18 @@ const subLinkClass =
     'text-white no-underline text-base px-4 py-1.5 block hover:bg-white/15'
 
 const DesktopNav = () => {
+    const { t } = useTranslation(['categories', 'header'])
+
     return (
         <nav
             className="hidden md:flex justify-center nav-links desktop-nav"
             role="navigation"
-            aria-label="Menú principal"
+            aria-label={t('header:nav_aria')}
         >
             <ul className="flex gap-5 items-center list-none p-0 m-0">
                 <li>
                     <Link to="/" className={navLinkClass}>
-                        Inicio
+                        {t('header:nav.home')}
                     </Link>
                 </li>
 
@@ -30,7 +33,7 @@ const DesktopNav = () => {
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        Categorías{' '}
+                        {t('header:nav.categories')}{' '}
                         <span className="text-[0.7em] ml-0.5 opacity-80">▼</span>
                     </button>
 
@@ -38,17 +41,20 @@ const DesktopNav = () => {
                         {categories.map((category) => (
                             <li key={category.id} className="relative group/sub">
                                 <Link to={category.href} className={dropdownLinkClass}>
-                                    {category.name} <span>▸</span>
+                                    {t(`categories:${category.id}`)} <span>▸</span>
                                 </Link>
 
                                 <ul className="absolute top-0 left-full bg-black/90 rounded-lg min-w-[220px] hidden group-hover/sub:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl">
-                                    {category.subcategories.map((sub) => (
-                                        <li key={sub.name}>
-                                            <Link to={sub.href} className={subLinkClass}>
-                                                {sub.name}
-                                            </Link>
-                                        </li>
-                                    ))}
+                                    {category.subcategories.map((sub) => {
+                                        const subKey = sub.href.split('#')[1]
+                                        return (
+                                            <li key={sub.name}>
+                                                <Link to={sub.href} className={subLinkClass}>
+                                                    {t(`categories:sub.${subKey}`)}
+                                                </Link>
+                                            </li>
+                                        )
+                                    })}
                                 </ul>
                             </li>
                         ))}
@@ -57,13 +63,13 @@ const DesktopNav = () => {
 
                 <li>
                     <Link to="/offers" className={navLinkClass}>
-                        Ofertas
+                        {t('header:nav.offers')}
                     </Link>
                 </li>
 
                 <li>
                     <Link to="/contact" className={navLinkClass}>
-                        Contacto
+                        {t('header:nav.contact')}
                     </Link>
                 </li>
             </ul>

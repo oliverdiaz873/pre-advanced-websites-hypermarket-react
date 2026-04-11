@@ -1,0 +1,91 @@
+{
+  "_documentation": {
+    "namespace": "legal",
+    "description": "Contenido legal y de privacidad (términos, privacidad, aviso legal)",
+    "usage": "Páginas /privacy, /terms, modales legales, cookie consent",
+    "contains": "Política de privacidad, términos y condiciones, aviso legal, información de cookies"
+  },
+  "last_updated": "Última actualización",
+  "terms": {
+    "title": "Términos de Uso",
+    "date": "21 de marzo de 2026",
+    "intro": "Estos Términos de Uso regulan el acceso y utilización de la plataforma digital de Hipermercado Superior. Al navegar o emplear nuestros servicios, aceptas estas condiciones en su totalidad. Si no estás de acuerdo, te recomendamos no utilizar nuestro sitio web.",
+    "seo": {
+      "title": "Términos de Uso",
+      "description": "Consulta los Términos de Uso de Hipermercado Superior. Conoce las condiciones de acceso, compras, propiedad intelectual y responsabilidades al usar nuestra plataforma.",
+      "keywords": "términos de uso, condiciones de uso, términos y condiciones, reglas del sitio, compras online",
+      "json_ld_desc": "Términos y condiciones de uso de la plataforma de Hipermercado Superior."
+    },
+    "sections": {
+      "1": {
+        "title": "1. Uso permitido",
+        "content": "El usuario se compromete a utilizar la plataforma únicamente para fines legales y de acuerdo con las normas establecidas en estos Términos. Está prohibido el uso del sitio para actividades fraudulentas, distribución de contenido malicioso o cualquier acción que afecte negativamente a otros usuarios o a la integridad del sistema."
+      },
+      "2": {
+        "title": "2. Registro y autenticidad de la información",
+        "content": "Para realizar compras u otros servicios, el usuario puede necesitar registrarse. La información proporcionada debe ser verdadera, completa y actualizada. Hipermercado Superior no se hace responsable por datos incorrectos suministrados por el usuario."
+      },
+      "3": {
+        "title": "3. Compras y transacciones",
+        "content": "Todos los precios y productos están sujetos a disponibilidad y pueden cambiar sin previo aviso. El usuario debe verificar cuidadosamente el contenido del pedido antes de completarlo."
+      },
+      "4": {
+        "title": "4. Propiedad intelectual",
+        "content": "Todo el contenido disponible en el sitio, incluyendo textos, imágenes, logotipos, íconos, gráficos y diseño, pertenece a Hipermercado Superior o a sus respectivos titulares. Está prohibida la reproducción parcial o total sin autorización previa."
+      },
+      "5": {
+        "title": "5. Limitación de responsabilidad",
+        "content": "Hipermercado Superior no garantiza la disponibilidad continua del sitio ni la ausencia de errores técnicos. No asumimos responsabilidad por daños derivados del uso incorrecto de la plataforma."
+      },
+      "6": {
+        "title": "6. Enlaces externos",
+        "content": "Nuestro sitio puede incluir enlaces a páginas externas. No tenemos control sobre su contenido y no asumimos responsabilidad por información o prácticas ajenas a nuestra plataforma."
+      },
+      "7": {
+        "title": "7. Modificaciones a los Términos",
+        "content": "Nos reservamos el derecho de actualizar o modificar estos Términos en cualquier momento. Se recomienda revisarlos periódicamente para estar informado sobre los cambios."
+      },
+      "8": {
+        "title": "8. Contacto",
+        "content": "Si tienes preguntas o inquietudes relacionadas con estos Términos de Uso, puedes comunicarte con nosotros en"
+      }
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "date": "21 de marzo de 2026",
+    "intro": "En Hipermercado Superior valoramos la privacidad de cada uno de nuestros usuarios. Esta política explica qué información recopilamos, cómo la utilizamos y las medidas que tomamos para protegerla.",
+    "seo": {
+      "title": "Política de Privacidad",
+      "description": "Conoce cómo Hipermercado Superior recopila, utiliza y protege tu información personal. Tu privacidad es nuestra prioridad.",
+      "keywords": "política de privacidad, protección de datos, privacidad, cookies, derechos del usuario",
+      "json_ld_desc": "Política de privacidad y protección de datos personales de Hipermercado Superior."
+    },
+    "sections": {
+      "1": {
+        "title": "1. Información que recopilamos",
+        "content": "Podemos recopilar información personal que el usuario nos proporciona de forma directa, como su nombre completo, correo electrónico, número de teléfono, dirección de envío y detalles relacionados con sus compras realizadas en nuestra plataforma. Esta información es necesaria para garantizar un servicio adecuado y ofrecer una mejor experiencia de usuario."
+      },
+      "2": {
+        "title": "2. Uso de la información",
+        "content": "La información recopilada se utiliza para procesar pedidos, ofrecer atención al cliente, mejorar nuestros servicios, personalizar la experiencia de navegación y enviar avisos o promociones relacionadas con el interés del usuario. También empleamos estos datos para reforzar la seguridad de nuestras operaciones y prevenir actividades fraudulentas."
+      },
+      "3": {
+        "title": "3. Protección de datos",
+        "content": "Implementamos medidas técnicas y administrativas para proteger los datos personales contra accesos no autorizados, alteraciones o pérdidas. Aunque ningún sistema es totalmente infalible, nos comprometemos a aplicar prácticas de seguridad actualizadas y efectivas para resguardar tu información."
+      },
+      "4": {
+        "title": "4. Cookies",
+        "content": "Utilizamos cookies con el fin de mejorar la experiencia del usuario, recordar preferencias, analizar estadísticas de navegación y mostrar contenido adaptado. El usuario puede desactivar el uso de cookies directamente desde la configuración de su navegador si así lo prefiere."
+      },
+      "5": {
+        "title": "5. Derechos del usuario",
+        "content": "El usuario puede solicitar acceso a su información personal, así como pedir la corrección o eliminación de sus datos cuando sea aplicable. Asimismo, tiene la posibilidad de retirar su consentimiento para el uso de su información en cualquier momento, de acuerdo con la legislación vigente."
+      },
+      "6": {
+        "title": "6. Contacto",
+        "content": "Si tienes preguntas o inquietudes sobre esta Política de Privacidad, puedes comunicarte con nosotros a través del correo"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "_documentation": {
+    "namespace": "footer",
+    "description": "Contenido del pie de página (footer) presente en todas las páginas",
+    "usage": "Footer de la aplicación, información legal, redes sociales",
+    "contains": "Nombre de empresa, copyright, enlaces a redes sociales, políticas legales"
+  },
+  "company_name": "Hipermercado Superior",
+  "rights_reserved": "Todos los derechos reservados.",
+  "social": {
+    "facebook": "Visítanos en Facebook",
+    "x": "Visítanos en X (antes Twitter)",
+    "instagram": "Visítanos en Instagram"
+  },
+  "links": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Uso"
+  }
+}

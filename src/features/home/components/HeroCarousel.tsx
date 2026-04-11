@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import './HeroCarousel.css'
 
@@ -7,19 +8,19 @@ const banners = [
         id: 1, 
         desktopImage: 'assets/images/banners/offers/fruits_and_vegetables.png',
         mobileImage: 'assets/images/banners/offers/fruits_and_vegetables_mobile.png',
-        alt: 'Ofertas en frutas y verduras' 
+        altKey: 'home:hero.alt_fruits' 
     },
     { 
         id: 2, 
         desktopImage: 'assets/images/banners/offers/iphone.png',
         mobileImage: 'assets/images/banners/offers/iphone_mobile.png',
-        alt: 'Promociones en tecnología e iPhone' 
+        altKey: 'home:hero.alt_tech' 
     },
     { 
         id: 3, 
         desktopImage: 'assets/images/banners/offers/wine.png',
         mobileImage: 'assets/images/banners/offers/wine_mobile.png',
-        alt: 'Selección premium de vinos' 
+        altKey: 'home:hero.alt_wine' 
     },
 ]
 
@@ -29,6 +30,7 @@ const HeroCarousel = () => {
     const [touchEnd, setTouchEnd] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
+    const { t } = useTranslation(['home'])
 
     // Detectar si es mobile
     useEffect(() => {
@@ -100,7 +102,7 @@ const HeroCarousel = () => {
                         <div key={banner.id} className="banner w-full h-full flex-shrink-0">
                             <img
                                 src={getAssetUrl(isMobile ? banner.mobileImage : banner.desktopImage)}
-                                alt={banner.alt}
+                                alt={t(banner.altKey as any)}
                                 className="w-full h-full object-cover"
                                 onError={(e) => console.error('Error loading banner:', isMobile ? banner.mobileImage : banner.desktopImage, e)}
                             />
@@ -112,7 +114,7 @@ const HeroCarousel = () => {
                 <button
                     onClick={prevSlide}
                     className="hero-control-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 text-white rounded-full items-center justify-center hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 lg:flex lg:opacity-100 hidden"
-                    aria-label="Imagen anterior"
+                    aria-label={t('home:hero.prev')}
                 >
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -121,7 +123,7 @@ const HeroCarousel = () => {
                 <button
                     onClick={nextSlide}
                     className="hero-control-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 text-white rounded-full items-center justify-center hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 lg:flex lg:opacity-100 hidden"
-                    aria-label="Siguiente imagen"
+                    aria-label={t('home:hero.next')}
                 >
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -136,7 +138,7 @@ const HeroCarousel = () => {
                             onClick={() => goToSlide(index)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-white scale-125 w-4' : 'bg-white/50 hover:bg-white/80'
                                 }`}
-                            aria-label={`Ir a imagen ${index + 1}`}
+                            aria-label={t('home:hero.go_to', { index: index + 1 })}
                         />
                     ))}
                 </div>

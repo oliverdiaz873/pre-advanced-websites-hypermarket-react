@@ -2,6 +2,7 @@ import HeroCarousel from '../features/home/components/HeroCarousel'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
 import AboutUs from '../features/home/components/AboutUs'
 import SEOHead from '../shared/components/SEOHead'
+import { useTranslation } from 'react-i18next'
 import { productos } from '../data/productos'
 import { Product } from '../shared/types/product'
 import { calculateDiscountPercentage, offersData } from '../data/offers'
@@ -12,8 +13,8 @@ type OfferProduct = Product & {
 }
 
 const featuredIds = [
-    'tv_samsung_75',
-    'nevera_lg_grande_moderna',
+    'televisor_samsung_75_pulgadas',
+    'nevera_lg',
     'ventilador_daiwa',
     'sofa_cama_blanco',
     'carne_de_res_para_hamburguesas',
@@ -22,6 +23,7 @@ const featuredIds = [
 ]
 
 const Home = () => {
+    const { t } = useTranslation(['home'])
     const featuredProducts = productos.filter((p) => featuredIds.includes(p.id))
 
     const offerProducts: OfferProduct[] = offersData
@@ -41,20 +43,20 @@ const Home = () => {
         <>
             {/* ── Meta tags SEO para la página principal ── */}
             <SEOHead
-                title="Compras inteligentes y productos de calidad"
-                description="Hipermercado Superior: tu destino para compras inteligentes. Encuentra la mejor selección de alimentos, electrónica, hogar y más con ofertas exclusivas y precios imbatibles."
+                title={t('home:seo.title')}
+                description={t('home:seo.description')}
                 url="/"
-                keywords="hipermercado, compras online, supermercado, ofertas, productos frescos, calidad, ahorro, electrodomésticos, alimentos"
+                keywords={t('home:seo.keywords')}
                 jsonLd={{
                     '@type': 'Organization',
                     name: 'Hipermercado Superior',
                     url: 'https://www.hipermercadosuperior.com',
                     logo: 'https://www.hipermercadosuperior.com/assets/images/logo/logo.png',
-                    description: 'Tu destino para compras inteligentes con la mejor selección de productos de calidad.',
+                    description: t('home:seo.description'),
                     contactPoint: {
                         '@type': 'ContactPoint',
                         contactType: 'customer service',
-                        availableLanguage: 'Spanish',
+                        availableLanguage: ['Spanish', 'English'],
                     },
                     sameAs: [],
                 }}
@@ -63,7 +65,7 @@ const Home = () => {
             <HeroCarousel />
             
             <ProductCarouselSection 
-                title="Ofertas de la Semana"
+                title={t('home:sections.offers')}
                 products={offerProducts}
                 id="ofertas"
                 idPrefix="offers"
@@ -71,7 +73,7 @@ const Home = () => {
             />
 
             <ProductCarouselSection 
-                title="Productos Destacados"
+                title={t('home:sections.featured')}
                 products={featuredProducts}
                 id="productos-destacados"
                 idPrefix="featured"

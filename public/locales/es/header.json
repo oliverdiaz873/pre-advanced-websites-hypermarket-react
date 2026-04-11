@@ -1,0 +1,22 @@
+{
+  "_documentation": {
+    "namespace": "header",
+    "description": "Contenido del encabezado y navegación principal de la aplicación",
+    "usage": "Barra superior, logo, menú principal, búsqueda, zona de usuario",
+    "contains": "Brand, menú, opciones de usuario, carrito, búsqueda, categorías"
+  },
+  "brand": "Hipermercado Superior",
+  "menu_open": "Abrir menú",
+  "menu_close": "Cerrar menú",
+  "cart_label": "Ver carrito",
+  "search_placeholder": "Busca tus productos...",
+  "search_submit": "Buscar productos",
+  "search_open": "Abrir buscador",
+  "nav_aria": "Menú principal",
+  "nav": {
+    "home": "Inicio",
+    "categories": "Categorías",
+    "offers": "Ofertas",
+    "contact": "Contacto"
+  }
+}

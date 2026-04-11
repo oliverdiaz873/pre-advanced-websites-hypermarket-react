@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { categories } from '../../../data/categories'
 import './OfferFilters.css'
 
@@ -24,12 +25,13 @@ const OfferFilters = ({
     filteredProducts,
     isDrawer = false,
 }: OfferFiltersProps) => {
+    const { t } = useTranslation(['offers', 'categories'])
 
     return (
         <div className={`offer-filters ${isDrawer ? 'offer-filters--drawer' : ''}`}>
             {!isDrawer && (
                 <div className="offer-filters__header">
-                    <h2 className="offer-filters__title">Filtros</h2>
+                    <h2 className="offer-filters__title">{t('offers:filters.title')}</h2>
                     <div className="offer-filters__badge">
                         {filteredProducts} / {totalProducts}
                     </div>
@@ -50,7 +52,7 @@ const OfferFilters = ({
                         className="offer-filters__radio"
                     />
                     <label htmlFor="category-all" className="offer-filters__label">
-                        Todas las categorías
+                        {t('offers:filters.all_categories')}
                     </label>
                 </div>
 
@@ -66,16 +68,17 @@ const OfferFilters = ({
                             className="offer-filters__radio"
                         />
                         <label htmlFor={`category-${category.id}`} className="offer-filters__label">
-                            {category.name}
+                            {t(`categories:${category.id}.name`, { defaultValue: category.name })}
                         </label>
                     </div>
                 ))}
             </div>
 
             {/* Info de filtros */}
-            <div className="offer-filters__info">
-                Mostrando <strong>{filteredProducts}</strong> de <strong>{totalProducts}</strong> ofertas activas
-            </div>
+            <div 
+                className="offer-filters__info"
+                dangerouslySetInnerHTML={{ __html: t('offers:filters.info', { filtered: filteredProducts, total: totalProducts }) }}
+            />
         </div>
     )
 }

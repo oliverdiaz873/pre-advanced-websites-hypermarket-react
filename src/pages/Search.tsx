@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { productos } from '../data/productos'
 import ProductGrid from '../features/products/components/ProductGrid'
 import SEOHead from '../shared/components/SEOHead'
@@ -7,28 +8,34 @@ import { hasSearchQuery, matchesSearchQuery } from '../shared/utils/searchUtils'
 import './Search.css'
 
 const Search = () => {
+    const { t, i18n } = useTranslation(['search', 'products'])
     const [searchParams] = useSearchParams()
     const query = searchParams.get('q') ?? ''
     const trimmedQuery = query.trim()
 
     const matchingProducts = useMemo(
-        () =>
-            hasSearchQuery(trimmedQuery)
-                ? productos.filter((product) =>
-                      matchesSearchQuery(product.nombre, trimmedQuery)
-                  )
-                : [],
-        [trimmedQuery]
+        () => {
+            if (!hasSearchQuery(trimmedQuery)) return []
+            
+            return productos.filter((product) => {
+                // Buscamos tanto en el nombre original como en el traducido (para fallback o idiomas cruzados)
+                const translatedName = t(`products:${product.id}.name`, { defaultValue: product.nombre })
+                
+                return matchesSearchQuery(product.nombre, trimmedQuery) || 
+                       matchesSearchQuery(translatedName, trimmedQuery)
+            })
+        },
+        [trimmedQuery, t, i18n.language]
     )
 
     /* ── Título y descripción dinámicos según la búsqueda ──────── */
     const pageTitle = hasSearchQuery(trimmedQuery)
-        ? `Resultados para "${trimmedQuery}"`
-        : 'Resultados de Búsqueda'
+        ? t('search:seo.title_query', { query: trimmedQuery })
+        : t('search:seo.title_empty')
 
     const pageDescription = hasSearchQuery(trimmedQuery)
-        ? `${matchingProducts.length} resultado${matchingProducts.length !== 1 ? 's' : ''} para "${trimmedQuery}" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.`
-        : 'Busca y encuentra rápidamente los productos que necesitas en Hipermercado Superior. Amplio catálogo con las mejores ofertas.'
+        ? t('search:seo.desc_query', { count: matchingProducts.length, query: trimmedQuery })
+        : t('search:seo.desc_empty')
 
     return (
         <>
@@ -41,13 +48,13 @@ const Search = () => {
                 noIndex={!hasSearchQuery(trimmedQuery)}
                 jsonLd={hasSearchQuery(trimmedQuery) ? {
                     '@type': 'SearchResultsPage',
-                    name: `Resultados para "${trimmedQuery}"`,
+                    name: t('search:seo.json_ld_name', { query: trimmedQuery }),
                     description: pageDescription,
                     url: `https://www.hipermercadosuperior.com/search?q=${encodeURIComponent(trimmedQuery)}`,
                     mainEntity: {
                         '@type': 'ItemList',
                         numberOfItems: matchingProducts.length,
-                        name: `Productos encontrados para "${trimmedQuery}"`,
+                        name: t('search:seo.json_ld_items', { query: trimmedQuery }),
                     },
                 } : undefined}
             />
@@ -56,17 +63,13 @@ const Search = () => {
                 <div className="search-page__hero">
                     <h1 className="search-page__title">
                         {hasSearchQuery(trimmedQuery)
-                            ? `Resultados para: "${trimmedQuery}"`
-                            : 'Escribe algo en el buscador'}
+                            ? t('search:hero.title_query', { query: trimmedQuery })
+                            : t('search:hero.title_empty')}
                     </h1>
                     <p className="search-page__summary">
                         {hasSearchQuery(trimmedQuery)
-                            ? `${matchingProducts.length} producto${
-                                  matchingProducts.length === 1 ? '' : 's'
-                              } encontrado${
-                                  matchingProducts.length === 1 ? '' : 's'
-                              }.`
-                            : 'Usa el buscador del encabezado para ver productos relacionados.'}
+                            ? t('search:hero.summary_query', { count: matchingProducts.length })
+                            : t('search:hero.summary_empty')}
                     </p>
                 </div>
 
@@ -77,17 +80,13 @@ const Search = () => {
                     />
                 ) : hasSearchQuery(trimmedQuery) ? (
                     <div className="search-page__empty">
-                        <h2>No se encontraron productos</h2>
-                        <p>
-                            Prueba con otro nombre o una búsqueda más específica.
-                        </p>
+                        <h2>{t('search:empty_state.no_results.title')}</h2>
+                        <p>{t('search:empty_state.no_results.desc')}</p>
                     </div>
                 ) : (
                     <div className="search-page__empty">
-                        <h2>Tu búsqueda comienza en el encabezado</h2>
-                        <p>
-                            Escribe el nombre de un producto y presiona Enter para ver los resultados aquí.
-                        </p>
+                        <h2>{t('search:empty_state.start_search.title')}</h2>
+                        <p>{t('search:empty_state.start_search.desc')}</p>
                     </div>
                 )}
             </section>

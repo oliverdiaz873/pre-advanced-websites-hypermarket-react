@@ -1,0 +1,34 @@
+{
+  "_documentation": {
+    "namespace": "search",
+    "description": "Elementos de búsqueda y filtros de la aplicación",
+    "usage": "Barra de búsqueda, página /search, filtros de productos, resultados",
+    "contains": "Placeholders de búsqueda, etiquetas de filtros, mensajes de resultados, textos de ayuda"
+  },
+  "seo": {
+    "title_query": "Resultados para \"{{query}}\"",
+    "title_empty": "Resultados de Búsqueda",
+    "desc_query_one": "{{count}} resultado para \"{{query}}\" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.",
+    "desc_query_other": "{{count}} resultados para \"{{query}}\" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.",
+    "desc_empty": "Busca y encuentra rápidamente los productos que necesitas en Hipermercado Superior. Amplio catálogo con las mejores ofertas.",
+    "json_ld_name": "Resultados para \"{{query}}\"",
+    "json_ld_items": "Productos encontrados para \"{{query}}\""
+  },
+  "hero": {
+    "title_query": "Resultados para: \"{{query}}\"",
+    "title_empty": "Escribe algo en el buscador",
+    "summary_query_one": "{{count}} producto encontrado.",
+    "summary_query_other": "{{count}} productos encontrados.",
+    "summary_empty": "Usa el buscador del encabezado para ver productos relacionados."
+  },
+  "empty_state": {
+    "no_results": {
+      "title": "No se encontraron productos",
+      "desc": "Prueba con otro nombre o una búsqueda más específica."
+    },
+    "start_search": {
+      "title": "Tu búsqueda comienza en el encabezado",
+      "desc": "Escribe el nombre de un producto y presiona Enter para ver los resultados aquí."
+    }
+  }
+}

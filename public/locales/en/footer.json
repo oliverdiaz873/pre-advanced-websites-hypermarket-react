@@ -1,0 +1,19 @@
+{
+  "_documentation": {
+    "namespace": "footer",
+    "description": "Contenido del pie de página (footer) presente en todas las páginas",
+    "usage": "Footer de la aplicación, información legal, redes sociales",
+    "contains": "Nombre de empresa, copyright, enlaces a redes sociales, políticas legales"
+  },
+  "company_name": "Superior Hypermarket",
+  "rights_reserved": "All rights reserved.",
+  "social": {
+    "facebook": "Visit us on Facebook",
+    "x": "Visit us on X (formerly Twitter)",
+    "instagram": "Visit us on Instagram"
+  },
+  "links": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "_documentation": {
+    "namespace": "home",
+    "description": "Contenido específico de la página de inicio (hero, featured, about)",
+    "usage": "Página / (inicio), secciones destacadas, carrusel",
+    "contains": "Titulo hero, subtitulo, descripción de oferta, sección about, datos SEO"
+  },
+  "hero": {
+    "title": "Superior Hypermarket",
+    "subtitle": "The best prices in one place",
+    "alt_fruits": "Offers on fruits and vegetables",
+    "alt_tech": "Tech and iPhone promotions",
+    "alt_wine": "Premium wine selection",
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "go_to": "Go to slide {{index}}"
+  },
+  "sections": {
+    "offers": "Weekly Offers",
+    "featured": "Featured Products"
+  },
+  "about_us": {
+    "title": "About Us",
+    "description": "At Superior Hypermarket, we work to offer you quality, variety, and fair prices. Our commitment is to provide the best shopping experience both in-store and online.",
+    "logo_alt": "Superior Hypermarket Logo"
+  },
+  "seo": {
+    "title": "Smart Shopping and Quality Products",
+    "description": "Superior Hypermarket: your destination for smart shopping. Find the best selection of food, electronics, home goods, and more with exclusive deals and unbeatable prices.",
+    "keywords": "hypermarket, online shopping, supermarket, deals, fresh produce, quality, savings, appliances, food"
+  }
+}

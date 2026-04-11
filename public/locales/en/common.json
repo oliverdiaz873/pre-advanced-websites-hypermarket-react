@@ -1,0 +1,38 @@
+{
+  "_documentation": {
+    "namespace": "common",
+    "description": "Elementos comunes reutilizables en toda la aplicación (botones, etiquetas, mensajes genéricos)",
+    "usage": "Barra de navegación, botones de acción, tooltips, breadcrumb, datos SEO comunes",
+    "contains": "Selección de idioma, breadcrumb, producto, carrito, unidades de medida, SEO"
+  },
+  "select_language": "Select Language",
+  "breadcrumb": {
+    "home": "Home",
+    "categories": "Categories"
+  },
+  "product": {
+    "view_details": "View details of {{name}}",
+    "add_to_cart": "Add to Cart",
+    "price_prefix": "Price: ",
+    "similar_products": "Similar Products",
+    "not_found": "Product not found",
+    "click_to_enlarge": "Click to enlarge",
+    "close_modal": "Close modal (ESC)",
+    "expanded_image": "Expanded image of {{name}}",
+    "remove": "Remove"
+  },
+  "cart": {
+    "decrease_qty": "Decrease quantity",
+    "increase_qty": "Increase quantity"
+  },
+  "units": {
+    "unidad": "unit",
+    "kg": "kg",
+    "lb": "lb",
+    "litro": "liter",
+    "paquete": "pack"
+  },
+  "seo": {
+    "keywords": "{{name}}, {{category}}, hypermarket, offer, dominican republic"
+  }
+}

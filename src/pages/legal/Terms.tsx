@@ -1,19 +1,22 @@
 import LegalLayout from '../../features/layout/components/LegalLayout'
 import SEOHead from '../../shared/components/SEOHead'
+import { useTranslation } from 'react-i18next'
 
 const Terms = () => {
+    const { t } = useTranslation(['legal'])
+
     return (
         <>
             {/* ── Meta tags SEO para los términos de uso ── */}
             <SEOHead
-                title="Términos de Uso"
-                description="Consulta los Términos de Uso de Hipermercado Superior. Conoce las condiciones de acceso, compras, propiedad intelectual y responsabilidades al usar nuestra plataforma."
+                title={t('legal:terms.seo.title')}
+                description={t('legal:terms.seo.description')}
                 url="/legal/terms"
-                keywords="términos de uso, condiciones de uso, términos y condiciones, reglas del sitio, compras online"
+                keywords={t('legal:terms.seo.keywords')}
                 jsonLd={{
                     '@type': 'WebPage',
-                    name: 'Términos de Uso - Hipermercado Superior',
-                    description: 'Términos y condiciones de uso de la plataforma de Hipermercado Superior.',
+                    name: `${t('legal:terms.title')} - Hipermercado Superior`,
+                    description: t('legal:terms.seo.json_ld_desc'),
                     url: 'https://www.hipermercadosuperior.com/legal/terms',
                     dateModified: '2026-03-21',
                     publisher: {
@@ -23,65 +26,36 @@ const Terms = () => {
                 }}
             />
 
-            <LegalLayout title="Términos de Uso" date="21 de marzo de 2026">
-            <p>
-                Estos Términos de Uso regulan el acceso y utilización de la plataforma digital de Hipermercado Superior.
-                Al navegar o emplear nuestros servicios, aceptas estas condiciones en su totalidad. Si no estás de acuerdo,
-                te recomendamos no utilizar nuestro sitio web.
-            </p>
+            <LegalLayout title={t('legal:terms.title')} date={t('legal:terms.date')}>
+                <p>{t('legal:terms.intro')}</p>
 
-            <h2>1. Uso permitido</h2>
-            <p>
-                El usuario se compromete a utilizar la plataforma únicamente para fines legales y de acuerdo con las normas
-                establecidas en estos Términos. Está prohibido el uso del sitio para actividades fraudulentas,
-                distribución de contenido malicioso o cualquier acción que afecte negativamente a otros usuarios o a la
-                integridad del sistema.
-            </p>
+                <h2>{t('legal:terms.sections.1.title')}</h2>
+                <p>{t('legal:terms.sections.1.content')}</p>
 
-            <h2>2. Registro y autenticidad de la información</h2>
-            <p>
-                Para realizar compras u otros servicios, el usuario puede necesitar registrarse.
-                La información proporcionada debe ser verdadera, completa y actualizada.
-                Hipermercado Superior no se hace responsable por datos incorrectos suministrados por el usuario.
-            </p>
+                <h2>{t('legal:terms.sections.2.title')}</h2>
+                <p>{t('legal:terms.sections.2.content')}</p>
 
-            <h2>3. Compras y transacciones</h2>
-            <p>
-                Todos los precios y productos están sujetos a disponibilidad y pueden cambiar sin previo aviso.
-                El usuario debe verificar cuidadosamente el contenido del pedido antes de completarlo.
-            </p>
+                <h2>{t('legal:terms.sections.3.title')}</h2>
+                <p>{t('legal:terms.sections.3.content')}</p>
 
-            <h2>4. Propiedad intelectual</h2>
-            <p>
-                Todo el contenido disponible en el sitio, incluyendo textos, imágenes, logotipos, íconos,
-                gráficos y diseño, pertenece a Hipermercado Superior o a sus respectivos titulares.
-                Está prohibida la reproducción parcial o total sin autorización previa.
-            </p>
+                <h2>{t('legal:terms.sections.4.title')}</h2>
+                <p>{t('legal:terms.sections.4.content')}</p>
 
-            <h2>5. Limitación de responsabilidad</h2>
-            <p>
-                Hipermercado Superior no garantiza la disponibilidad continua del sitio ni la ausencia de
-                errores técnicos. No asumimos responsabilidad por daños derivados del uso incorrecto de la plataforma.
-            </p>
+                <h2>{t('legal:terms.sections.5.title')}</h2>
+                <p>{t('legal:terms.sections.5.content')}</p>
 
-            <h2>6. Enlaces externos</h2>
-            <p>
-                Nuestro sitio puede incluir enlaces a páginas externas. No tenemos control sobre su contenido y no
-                asumimos responsabilidad por información o prácticas ajenas a nuestra plataforma.
-            </p>
+                <h2>{t('legal:terms.sections.6.title')}</h2>
+                <p>{t('legal:terms.sections.6.content')}</p>
 
-            <h2>7. Modificaciones a los Términos</h2>
-            <p>
-                Nos reservamos el derecho de actualizar o modificar estos Términos en cualquier momento.
-                Se recomienda revisarlos periódicamente para estar informado sobre los cambios.
-            </p>
+                <h2>{t('legal:terms.sections.7.title')}</h2>
+                <p>{t('legal:terms.sections.7.content')}</p>
 
-            <h2>8. Contacto</h2>
-            <p>
-                Si tienes preguntas o inquietudes relacionadas con estos Términos de Uso,
-                puedes comunicarte con nosotros en <strong>soporte@hipermercado.com</strong>.
-            </p>
-        </LegalLayout>
+                <h2>{t('legal:terms.sections.8.title')}</h2>
+                <p>
+                    {t('legal:terms.sections.8.content')}{' '}
+                    <strong>soporte@hipermercado.com</strong>.
+                </p>
+            </LegalLayout>
         </>
     )
 }

@@ -1,0 +1,29 @@
+{
+  "_documentation": {
+    "namespace": "offers",
+    "description": "Contenido de la página de ofertas y promociones semanales",
+    "usage": "Página /offers, secciones de promoción, banners de descuento",
+    "contains": "Títulos de ofertas, descripciones, información de descuentos, datos SEO"
+  },
+  "seo": {
+    "title": "Offers and Promotions",
+    "description": "Discover the best offers and promotions at Superior Hypermarket. Save on quality products with exclusive discounts on food, drinks, cleaning supplies, and more.",
+    "json_ld_name": "Offers and Promotions - Superior Hypermarket",
+    "json_ld_description": "Catalog of active offers and promotions with exclusive discounts on quality products."
+  },
+  "header": {
+    "title": "Offers",
+    "filter_btn": "Filter"
+  },
+  "filters": {
+    "title": "Filters",
+    "all_categories": "All Categories",
+    "info": "Showing <strong>{{filtered}}</strong> of <strong>{{total}}</strong> active offers",
+    "drawer_btn_one": "View {{count}} result",
+    "drawer_btn_other": "View {{count}} results"
+  },
+  "empty": {
+    "title": "No offers available",
+    "message": "Select another category or try again later"
+  }
+}

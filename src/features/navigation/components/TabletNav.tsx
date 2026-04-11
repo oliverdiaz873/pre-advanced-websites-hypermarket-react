@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { categories } from '../../../data/categories'
 import { useTabletMenu } from '../hooks/useTabletMenu'
 import './TabletNav.css'
@@ -15,6 +16,7 @@ const subLinkClass =
 // Component: navegacion dedicada a tablets. Renderiza el menu principal
 // y delega la apertura/cierre de submenus al hook de interaccion por clic.
 const TabletNav = () => {
+    const { t } = useTranslation(['categories', 'header'])
     const navRef = useTabletMenu()
 
     return (
@@ -22,12 +24,12 @@ const TabletNav = () => {
             ref={navRef}
             className="hidden md:flex justify-center nav-links tablet-nav"
             role="navigation"
-            aria-label="Menu principal"
+            aria-label={t('header:nav_aria')}
         >
             <ul className="flex gap-5 items-center list-none p-0 m-0">
                 <li>
                     <Link to="/" className={navLinkClass}>
-                        Inicio
+                        {t('header:nav.home')}
                     </Link>
                 </li>
 
@@ -38,7 +40,7 @@ const TabletNav = () => {
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        Categorias <span className="text-[0.7em] ml-0.5 opacity-80">▼</span>
+                        {t('header:nav.categories')} <span className="text-[0.7em] ml-0.5 opacity-80">▼</span>
                     </button>
 
                     <ul className="absolute top-full left-0 bg-black/90 rounded-lg min-w-[220px] hidden group-hover:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl">
@@ -49,17 +51,20 @@ const TabletNav = () => {
                                     className={dropdownLinkClass}
                                     data-tablet-trigger="level-2"
                                 >
-                                    {category.name} <span>▸</span>
+                                    {t(`categories:${category.id}`)} <span>▸</span>
                                 </Link>
 
                                 <ul className="absolute top-0 left-full bg-black/90 rounded-lg min-w-[220px] hidden group-hover/sub:flex flex-col z-[1000] list-none p-0 m-0 shadow-xl">
-                                    {category.subcategories.map((sub) => (
-                                        <li key={sub.name}>
-                                            <Link to={sub.href} className={subLinkClass}>
-                                                {sub.name}
-                                            </Link>
-                                        </li>
-                                    ))}
+                                    {category.subcategories.map((sub) => {
+                                        const subKey = sub.href.split('#')[1]
+                                        return (
+                                            <li key={sub.name}>
+                                                <Link to={sub.href} className={subLinkClass}>
+                                                    {t(`categories:sub.${subKey}`)}
+                                                </Link>
+                                            </li>
+                                        )
+                                    })}
                                 </ul>
                             </li>
                         ))}
@@ -68,13 +73,13 @@ const TabletNav = () => {
 
                 <li>
                     <Link to="/offers" className={navLinkClass}>
-                        Ofertas
+                        {t('header:nav.offers')}
                     </Link>
                 </li>
 
                 <li>
                     <Link to="/contact" className={navLinkClass}>
-                        Contacto
+                        {t('header:nav.contact')}
                     </Link>
                 </li>
             </ul>

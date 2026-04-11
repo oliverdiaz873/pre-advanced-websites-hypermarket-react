@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useFormValidation } from '../hooks/useFormValidation'
 import './ContactForm.css'
 
@@ -7,6 +8,7 @@ interface ContactFormProps {
 }
 
 const ContactForm = ({ onSubmit, onSuccess }: ContactFormProps) => {
+    const { t } = useTranslation('contact')
     const { formData, errors, isSubmitting, handleInputChange, handleSubmit, resetForm } = useFormValidation(async () => {
         // Simular envío del formulario
         await new Promise(resolve => setTimeout(resolve, 1500))
@@ -27,15 +29,15 @@ const ContactForm = ({ onSubmit, onSuccess }: ContactFormProps) => {
 
     return (
         <form onSubmit={handleSubmit} className="contacto-form" noValidate>
-            <h1>Contacto</h1>
+            <h1>{t('form.title')}</h1>
 
             <div className="input-box mb-5 md:mb-6">
-                <label htmlFor="nombre">Nombre Completo</label>
+                <label htmlFor="nombre">{t('form.labels.name')}</label>
                 <input
                     id="nombre"
                     name="nombre"
                     type="text"
-                    placeholder="Escribe tu nombre aquí..."
+                    placeholder={t('form.placeholders.name')}
                     value={formData.nombre}
                     onChange={handleInputChange}
                     className={`w-full ${
@@ -53,12 +55,12 @@ const ContactForm = ({ onSubmit, onSuccess }: ContactFormProps) => {
             </div>
             
             <div className="input-box mb-5 md:mb-6">
-                <label htmlFor="email">Correo Electrónico</label>
+                <label htmlFor="email">{t('form.labels.email')}</label>
                 <input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="juan@ejemplo.com"
+                    placeholder={t('form.placeholders.email')}
                     value={formData.email}
                     onChange={handleInputChange}
                     className={`w-full ${
@@ -76,12 +78,12 @@ const ContactForm = ({ onSubmit, onSuccess }: ContactFormProps) => {
             </div>
             
             <div className="input-box mb-5 md:mb-6">
-                <label htmlFor="telefono">Teléfono (Opcional)</label>
+                <label htmlFor="telefono">{t('form.labels.phone')}</label>
                 <input
                     id="telefono"
                     name="telefono"
                     type="text"
-                    placeholder="Escribe tu teléfono aquí..."
+                    placeholder={t('form.placeholders.phone')}
                     value={formData.telefono}
                     onChange={handleInputChange}
                     className={`w-full ${
@@ -98,12 +100,12 @@ const ContactForm = ({ onSubmit, onSuccess }: ContactFormProps) => {
             </div>
 
             <div className="input-box mb-5 md:mb-6">
-                <label htmlFor="mensaje">Tu Mensaje</label>
+                <label htmlFor="mensaje">{t('form.labels.message')}</label>
                 <textarea
                     id="mensaje"
                     name="mensaje"
                     rows={6}
-                    placeholder="¿En qué podemos ayudarte?"
+                    placeholder={t('form.placeholders.message')}
                     value={formData.mensaje}
                     onChange={handleInputChange}
                     className={`w-full ${
@@ -125,7 +127,7 @@ const ContactForm = ({ onSubmit, onSuccess }: ContactFormProps) => {
                 disabled={isSubmitting}
                 className="w-full"
             >
-                {isSubmitting ? 'Enviando...' : 'Enviar'}
+                {isSubmitting ? t('form.buttons.submitting') : t('form.buttons.submit')}
             </button>
         </form>
     )

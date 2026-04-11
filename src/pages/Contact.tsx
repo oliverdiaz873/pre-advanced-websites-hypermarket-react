@@ -1,15 +1,17 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Toast from '../shared/components/Toast'
 import ContactForm from '../features/contact/components/ContactForm'
 import SEOHead from '../shared/components/SEOHead'
 
 const Contact = () => {
+    const { t } = useTranslation('contact')
     const [showToast, setShowToast] = useState(false)
     const [toastMessage, setToastMessage] = useState('')
 
     // Función para mostrar toast (Usando el componente Toast)
     const showSuccessToast = () => {
-        setToastMessage('✓ ¡Mensaje enviado con éxito!')
+        setToastMessage(t('form.success_toast'))
         setShowToast(true)
     }
 
@@ -17,14 +19,14 @@ const Contact = () => {
         <>
             {/* ── Meta tags SEO para la página de contacto ── */}
             <SEOHead
-                title="Contacto"
-                description="Contáctanos en Hipermercado Superior. Estamos disponibles por correo, teléfono o formulario de contacto. Atención de lunes a domingo, 8:00 AM – 10:00 PM."
+                title={t('seo.title')}
+                description={t('seo.description')}
                 url="/contact"
                 keywords="contacto hipermercado, atención al cliente, soporte, teléfono supermercado, correo hipermercado"
                 jsonLd={{
                     '@type': 'ContactPage',
-                    name: 'Contacto - Hipermercado Superior',
-                    description: 'Página de contacto de Hipermercado Superior.',
+                    name: t('seo.json_ld_name'),
+                    description: t('seo.json_ld_description'),
                     url: 'https://www.hipermercadosuperior.com/contact',
                     mainEntity: {
                         '@type': 'Organization',
@@ -48,15 +50,15 @@ const Contact = () => {
                     <ContactForm onSuccess={showSuccessToast} />
 
                     <section className="contacto-info mt-5 md:mt-5">
-                        <h2 className="text-xl md:text-2xl text-center mb-6 md:mb-8 pt-4 md:pt-6">Otros medios de contacto:</h2>
+                        <h2 className="text-xl md:text-2xl text-center mb-6 md:mb-8 pt-4 md:pt-6">{t('info.title')}</h2>
                         <div className="info-item text-center mb-4">
-                            <p><strong>Correo:</strong> soporte@hipermercadosuperior.com</p>
+                            <p><strong>{t('info.email_label')}</strong> soporte@hipermercadosuperior.com</p>
                         </div>
                         <div className="info-item text-center mb-4">
-                            <p><strong>Teléfono:</strong> +1 (809) 555-5555</p>
+                            <p><strong>{t('info.phone_label')}</strong> +1 (809) 555-5555</p>
                         </div>
                         <div className="info-item text-center mb-4">
-                            <p><strong>Horario:</strong> Lunes a Domingo, 8:00 AM – 10:00 PM</p>
+                            <p><strong>{t('info.hours_label')}</strong> {t('info.hours_text')}</p>
                         </div>
                     </section>
                 </main>

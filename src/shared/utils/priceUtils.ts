@@ -32,7 +32,8 @@ import { Product } from '../types/product'
  * Beneficio: Permite mostrar precios consistentemente en toda la app
  */
 export const cleanPrice = (text: string): string => {
-    const cleaned = text.replace('Precio: ', '').trim()
+    // Remove common labels like "Precio: " or "Price: " (case insensitive)
+    const cleaned = text.replace(/^[a-z]+:\s*/i, '').trim()
     const match = cleaned.match(/(\$?\d+(?:,\d+)?(?:\.\d+)?)/)
     return match ? match[1] : cleaned
 }
@@ -84,4 +85,33 @@ export const unitLabel = (product: Product): string => {
 
     // Fallback: "unidad" genérico
     return 'unidad'
+}
+
+interface FormatPriceOptions {
+    pricePrefix?: string
+    translatedUnit?: string
+}
+
+/**
+ * Construye una etiqueta de precio localizada para la UI.
+ *
+ * Mantiene el comportamiento anterior:
+ * - Si el producto tiene unidad explícita o `precioTexto` incluye un formato `/ unidad`,
+ *   la conserva.
+ * - Si no la tiene, solo muestra el precio.
+ */
+export const formatProductPrice = (
+    product: Product,
+    { pricePrefix = 'Precio: ', translatedUnit }: FormatPriceOptions = {}
+): string => {
+    const price = `$${product.precio.toLocaleString()}`
+    const hasExplicitUnit = Boolean(product.unidad?.trim())
+    const hasInlineUnit = product.precioTexto?.includes('/') ?? false
+
+    if (!hasExplicitUnit && !hasInlineUnit) {
+        return `${pricePrefix}${price}`
+    }
+
+    const unit = translatedUnit ?? unitLabel(product)
+    return `${pricePrefix}${price} / ${unit}`
 }

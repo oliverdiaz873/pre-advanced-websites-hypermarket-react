@@ -1,0 +1,91 @@
+{
+  "_documentation": {
+    "namespace": "legal",
+    "description": "Contenido legal y de privacidad (términos, privacidad, aviso legal)",
+    "usage": "Páginas /privacy, /terms, modales legales, cookie consent",
+    "contains": "Política de privacidad, términos y condiciones, aviso legal, información de cookies"
+  },
+  "last_updated": "Last updated",
+  "terms": {
+    "title": "Terms of Use",
+    "date": "March 21, 2026",
+    "intro": "These Terms of Use govern the access and use of the Superior Hypermarket digital platform. By browsing or using our services, you accept these conditions in their entirety. If you do not agree, we recommend that you do not use our website.",
+    "seo": {
+      "title": "Terms of Use",
+      "description": "Consult the Terms of Use of Superior Hypermarket. Learn about the conditions of access, purchases, intellectual property, and responsibilities when using our platform.",
+      "keywords": "terms of use, terms and conditions, site rules, online shopping",
+      "json_ld_desc": "Terms and conditions of use of the Superior Hypermarket platform."
+    },
+    "sections": {
+      "1": {
+        "title": "1. Permitted use",
+        "content": "The user agrees to use the platform only for legal purposes and in accordance with the rules established in these Terms. It is forbidden to use the site for fraudulent activities, distribution of malicious content, or any action that negatively affects other users or the integrity of the system."
+      },
+      "2": {
+        "title": "2. Registration and authenticity of information",
+        "content": "To make purchases or other services, the user may need to register. The information provided must be true, complete, and up to date. Superior Hypermarket is not responsible for incorrect data provided by the user."
+      },
+      "3": {
+        "title": "3. Purchases and transactions",
+        "content": "All prices and products are subject to availability and may change without notice. The user must carefully check the contents of the order before completing it."
+      },
+      "4": {
+        "title": "4. Intellectual property",
+        "content": "All content available on the site, including text, images, logos, icons, graphics, and design, belongs to Superior Hypermarket or its respective owners. Partial or total reproduction without prior authorization is prohibited."
+      },
+      "5": {
+        "title": "5. Limitation of liability",
+        "content": "Superior Hypermarket does not guarantee the continuous availability of the site or the absence of technical errors. We assume no responsibility for damages derived from the incorrect use of the platform."
+      },
+      "6": {
+        "title": "6. External links",
+        "content": "Our site may include links to external pages. We have no control over their content and assume no responsibility for information or practices outside our platform."
+      },
+      "7": {
+        "title": "7. Modifications to the Terms",
+        "content": "We reserve the right to update or modify these Terms at any time. It is recommended to review them periodically to stay informed about changes."
+      },
+      "8": {
+        "title": "8. Contact",
+        "content": "If you have questions or concerns related to these Terms of Use, you can contact us at"
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "date": "March 21, 2026",
+    "intro": "At Superior Hypermarket, we value the privacy of each of our users. This policy explains what information we collect, how we use it, and the measures we take to protect it.",
+    "seo": {
+      "title": "Privacy Policy",
+      "description": "Learn how Superior Hypermarket collects, uses, and protects your personal information. Your privacy is our priority.",
+      "keywords": "privacy policy, data protection, privacy, cookies, user rights",
+      "json_ld_desc": "Privacy policy and protection of personal data of Superior Hypermarket."
+    },
+    "sections": {
+      "1": {
+        "title": "1. Information we collect",
+        "content": "We may collect personal information that the user provides directly, such as their full name, email address, telephone number, shipping address, and details related to their purchases made on our platform. This information is necessary to ensure proper service and offer a better user experience."
+      },
+      "2": {
+        "title": "2. Use of information",
+        "content": "The information collected is used to process orders, offer customer service, improve our services, personalize the browsing experience, and send notices or promotions related to the user's interest. We also use this data to strengthen the security of our operations and prevent fraudulent activities."
+      },
+      "3": {
+        "title": "3. Data protection",
+        "content": "We implement technical and administrative measures to protect personal data against unauthorized access, alterations, or loss. Although no system is completely infallible, we are committed to applying up-to-date and effective security practices to safeguard your information."
+      },
+      "4": {
+        "title": "4. Cookies",
+        "content": "We use cookies to improve the user experience, remember preferences, analyze browsing statistics, and show adapted content. The user can disable the use of cookies directly from their browser settings if they prefer."
+      },
+      "5": {
+        "title": "5. User rights",
+        "content": "The user may request access to their personal information, as well as request the correction or deletion of their data when applicable. Likewise, they have the possibility to withdraw their consent for the use of their information at any time, in accordance with current legislation."
+      },
+      "6": {
+        "title": "6. Contact",
+        "content": "If you have questions or concerns about this Privacy Policy, you can contact us via email at"
+      }
+    }
+  }
+}

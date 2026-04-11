@@ -1,4 +1,4 @@
-import { Category, Subcategory } from '../shared/types/category'
+import { Category } from '../shared/types/category'
 
 export const categories: Category[] = [
     {

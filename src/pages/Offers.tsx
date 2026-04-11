@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ProductGrid from '../features/products/components/ProductGrid'
 import { OfferFilters, EmptyOffers } from '../features/offers'
 import { useOfferFilters } from '../features/offers/hooks'
@@ -7,6 +8,7 @@ import SEOHead from '../shared/components/SEOHead'
 import './Offers.css'
 
 const Offers = () => {
+    const { t } = useTranslation('offers')
     const { offerProducts, sortedProducts, selectedCategory, onCategoryChange } = useOfferFilters()
     const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 
@@ -14,14 +16,14 @@ const Offers = () => {
         <>
             {/* ── Meta tags SEO para la página de ofertas ── */}
             <SEOHead
-                title="Ofertas y Promociones"
-                description="Descubre las mejores ofertas y promociones en Hipermercado Superior. Ahorra en productos de calidad con descuentos exclusivos en alimentos, bebidas, limpieza y más."
+                title={t('seo.title')}
+                description={t('seo.description')}
                 url="/offers"
                 keywords="ofertas hipermercado, promociones supermercado, descuentos productos, ofertas semanales, ahorro compras, mega ofertas"
                 jsonLd={{
                     '@type': 'OfferCatalog',
-                    name: 'Ofertas y Promociones - Hipermercado Superior',
-                    description: 'Catálogo de ofertas y promociones activas con descuentos exclusivos en productos de calidad.',
+                    name: t('seo.json_ld_name'),
+                    description: t('seo.json_ld_description'),
                     url: 'https://www.hipermercadosuperior.com/offers',
                     provider: {
                         '@type': 'Organization',
@@ -36,7 +38,7 @@ const Offers = () => {
                     <svg className="offers-header__icon icon-fire">
                         <use href="#icon-fire" />
                     </svg>
-                    Ofertas
+                    {t('header.title')}
                 </h1>
 
                 {/* Botón de Filtros solo para móviles */}
@@ -48,7 +50,7 @@ const Offers = () => {
                         <svg className="offers-mobile-filters-btn__icon">
                             <use href="#icon-sliders" />
                         </svg>
-                        <span>Filtrar</span>
+                        <span>{t('header.filter_btn')}</span>
                     </div>
                     {selectedCategory !== 'all' && (
                         <span className="offers-mobile-filters-active-chip">
@@ -62,7 +64,7 @@ const Offers = () => {
             <Drawer
                 isOpen={isFiltersOpen}
                 onClose={() => setIsFiltersOpen(false)}
-                title="Filtros"
+                title={t('filters.title')}
                 position="right"
             >
                 <OfferFilters
@@ -81,7 +83,7 @@ const Offers = () => {
                     className="offers-drawer-apply-btn"
                     onClick={() => setIsFiltersOpen(false)}
                 >
-                    Ver {sortedProducts.length} resultados
+                    {t('filters.drawer_btn', { count: sortedProducts.length })}
                 </button>
             </Drawer>
 

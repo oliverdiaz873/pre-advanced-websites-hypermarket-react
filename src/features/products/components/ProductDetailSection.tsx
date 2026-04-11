@@ -3,6 +3,7 @@ import { Product } from '../../../shared/types/product'
 import AddToCartButton from '../../cart/components/AddToCartButton'
 import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import { ProductPageData } from '../../../data/productPageData'
+import { useProductTranslation } from '../hooks/useProductTranslation'
 import './ProductDetailSection.css'
 
 interface ProductDetailSectionProps {
@@ -22,14 +23,10 @@ interface ProductDetailSectionProps {
  * @param {ProductPageData} [props.pageData] - Objeto opcional (diccionario) con los datos extendidos del producto (descripción larga y detalles/especificaciones). Si no se provee, muestra valores por defecto.
  */
 const ProductDetailSection = ({ product, pageData }: ProductDetailSectionProps) => {
+    const { name, description, specs, priceText, labels } = useProductTranslation(product, pageData)
     const [modalOpen, setModalOpen] = useState(false)
     const modalRef = useRef<HTMLDivElement>(null)
     const closeButtonRef = useRef<HTMLButtonElement>(null)
-
-    const description = pageData?.descripcion ??
-        `Disfruta de la mejor calidad con nuestro ${product.nombre}. En Hipermercado Superior nos esforzamos por ofrecerte siempre lo mejor.`
-
-    const detalles = pageData?.detalles ?? []
 
     // Trapfoco y manejo de ESC en modal
     useEffect(() => {
@@ -85,12 +82,12 @@ const ProductDetailSection = ({ product, pageData }: ProductDetailSectionProps) 
                 <figure className="imagen-producto">
                     <img
                         src={getAssetUrl(product.imagen)}
-                        alt={product.nombre}
+                        alt={name}
                         onClick={() => {
                             previousFocusRef.current = document.activeElement as HTMLElement
                             setModalOpen(true)
                         }}
-                        title="Haz clic para ampliar"
+                        title={labels.clickToEnlarge}
                     />
                 </figure>
 
@@ -100,12 +97,12 @@ const ProductDetailSection = ({ product, pageData }: ProductDetailSectionProps) 
                     className={`modal-imagen${modalOpen ? ' modal-activo' : ''}`}
                     role="dialog"
                     aria-modal="true"
-                    aria-label={`Imagen ampliada de ${product.nombre}`}
+                    aria-label={labels.expandedImage}
                     onClick={() => setModalOpen(false)}
                 >
                     <button
                         ref={closeButtonRef}
-                        aria-label="Cerrar modal (ESC)"
+                        aria-label={labels.closeModal}
                         className="modal-close-button"
                         onClick={(e) => {
                             e.stopPropagation()
@@ -118,23 +115,23 @@ const ProductDetailSection = ({ product, pageData }: ProductDetailSectionProps) 
                     {/* El div completo sirve de área de cierre */}
                     <img
                         src={getAssetUrl(product.imagen)}
-                        alt={`${product.nombre} ampliado`}
+                        alt={labels.expandedImage}
                         onClick={(e) => e.stopPropagation()}
                     />
                 </div>
 
                 {/* Información del producto */}
                 <div className="info-producto">
-                    <h1>{product.nombre}</h1>
-                    <p className="precio">{product.precioTexto}</p>
+                    <h1>{name}</h1>
+                    <p className="precio">{priceText}</p>
 
                     <p className="descripcion">
                         {description}
                     </p>
 
-                    {detalles.length > 0 && (
+                    {specs.length > 0 && (
                         <ul className="detalles">
-                            {detalles.map((detalle, i) => (
+                            {specs.map((detalle: string, i: number) => (
                                 <li key={i}>{detalle}</li>
                             ))}
                         </ul>

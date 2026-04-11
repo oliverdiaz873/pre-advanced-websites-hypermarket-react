@@ -1,19 +1,22 @@
 import LegalLayout from '../../features/layout/components/LegalLayout'
 import SEOHead from '../../shared/components/SEOHead'
+import { useTranslation } from 'react-i18next'
 
 const Privacy = () => {
+    const { t } = useTranslation(['legal'])
+
     return (
         <>
             {/* ── Meta tags SEO para la política de privacidad ── */}
             <SEOHead
-                title="Política de Privacidad"
-                description="Conoce cómo Hipermercado Superior recopila, utiliza y protege tu información personal. Tu privacidad es nuestra prioridad."
+                title={t('legal:privacy.seo.title')}
+                description={t('legal:privacy.seo.description')}
                 url="/legal/privacy"
-                keywords="política de privacidad, protección de datos, privacidad, cookies, derechos del usuario"
+                keywords={t('legal:privacy.seo.keywords')}
                 jsonLd={{
                     '@type': 'WebPage',
-                    name: 'Política de Privacidad - Hipermercado Superior',
-                    description: 'Política de privacidad y protección de datos personales de Hipermercado Superior.',
+                    name: `${t('legal:privacy.title')} - Hipermercado Superior`,
+                    description: t('legal:privacy.seo.json_ld_desc'),
                     url: 'https://www.hipermercadosuperior.com/legal/privacy',
                     dateModified: '2026-03-21',
                     publisher: {
@@ -23,55 +26,30 @@ const Privacy = () => {
                 }}
             />
 
-            <LegalLayout title="Política de Privacidad" date="21 de marzo de 2026">
-            <p>
-                En Hipermercado Superior valoramos la privacidad de cada uno de nuestros usuarios.
-                Esta política explica qué información recopilamos, cómo la utilizamos y las medidas que tomamos para protegerla.
-            </p>
+            <LegalLayout title={t('legal:privacy.title')} date={t('legal:privacy.date')}>
+                <p>{t('legal:privacy.intro')}</p>
 
-            <h2>1. Información que recopilamos</h2>
-            <p>
-                Podemos recopilar información personal que el usuario nos proporciona de forma directa,
-                como su nombre completo, correo electrónico, número de teléfono, dirección de envío y detalles relacionados
-                con sus compras realizadas en nuestra plataforma. Esta información es necesaria para garantizar un servicio
-                adecuado y ofrecer una mejor experiencia de usuario.
-            </p>
+                <h2>{t('legal:privacy.sections.1.title')}</h2>
+                <p>{t('legal:privacy.sections.1.content')}</p>
 
-            <h2>2. Uso de la información</h2>
-            <p>
-                La información recopilada se utiliza para procesar pedidos, ofrecer atención al cliente,
-                mejorar nuestros servicios, personalizar la experiencia de navegación y enviar avisos o promociones relacionadas
-                con el interés del usuario. También empleamos estos datos para reforzar la seguridad de nuestras operaciones
-                y prevenir actividades fraudulentas.
-            </p>
+                <h2>{t('legal:privacy.sections.2.title')}</h2>
+                <p>{t('legal:privacy.sections.2.content')}</p>
 
-            <h2>3. Protección de datos</h2>
-            <p>
-                Implementamos medidas técnicas y administrativas para proteger los datos personales contra accesos no autorizados,
-                alteraciones o pérdidas. Aunque ningún sistema es totalmente infalible, nos comprometemos a aplicar prácticas
-                de seguridad actualizadas y efectivas para resguardar tu información.
-            </p>
+                <h2>{t('legal:privacy.sections.3.title')}</h2>
+                <p>{t('legal:privacy.sections.3.content')}</p>
 
-            <h2>4. Cookies</h2>
-            <p>
-                Utilizamos cookies con el fin de mejorar la experiencia del usuario, recordar preferencias,
-                analizar estadísticas de navegación y mostrar contenido adaptado. El usuario puede desactivar el uso de cookies
-                directamente desde la configuración de su navegador si así lo prefiere.
-            </p>
+                <h2>{t('legal:privacy.sections.4.title')}</h2>
+                <p>{t('legal:privacy.sections.4.content')}</p>
 
-            <h2>5. Derechos del usuario</h2>
-            <p>
-                El usuario puede solicitar acceso a su información personal, así como pedir la corrección o eliminación
-                de sus datos cuando sea aplicable. Asimismo, tiene la posibilidad de retirar su consentimiento para el uso
-                de su información en cualquier momento, de acuerdo con la legislación vigente.
-            </p>
+                <h2>{t('legal:privacy.sections.5.title')}</h2>
+                <p>{t('legal:privacy.sections.5.content')}</p>
 
-            <h2>6. Contacto</h2>
-            <p>
-                Si tienes preguntas o inquietudes sobre esta Política de Privacidad, puedes comunicarte con nosotros
-                a través del correo <strong>soporte@hipermercado.com</strong>. Estaremos encantados de ayudarte.
-            </p>
-        </LegalLayout>
+                <h2>{t('legal:privacy.sections.6.title')}</h2>
+                <p>
+                    {t('legal:privacy.sections.6.content')}{' '}
+                    <strong>soporte@hipermercado.com</strong>.
+                </p>
+            </LegalLayout>
         </>
     )
 }

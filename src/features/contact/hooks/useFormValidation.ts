@@ -1,4 +1,6 @@
 import { useState, FormEvent, ChangeEvent } from 'react'
+import { useTranslation } from 'react-i18next'
+import { TFunction } from 'i18next'
 
 interface FormData {
     nombre: string
@@ -23,35 +25,36 @@ interface UseFormValidationReturn {
     resetForm: () => void
 }
 
-// Validación detallada (Usando estados de React en lugar de clases CSS)
-const validateField = (name: string, value: string): string => {
+// Validación detallada (Usando traducciones i18n para proveer los mensajes de error)
+const validateField = (name: string, value: string, t: TFunction): string => {
     const trimmedValue = value.trim()
     
     switch (name) {
         case 'nombre':
-            if (!trimmedValue) return 'El nombre es obligatorio.'
-            if (trimmedValue.length < 2 || trimmedValue.length > 50) return 'El nombre debe tener entre 2 y 50 caracteres.'
-            if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmedValue)) return 'El nombre solo puede contener letras y espacios.'
+            if (!trimmedValue) return t('contact:validation.name.required')
+            if (trimmedValue.length < 2 || trimmedValue.length > 50) return t('contact:validation.name.length')
+            if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmedValue)) return t('contact:validation.name.format')
             break
         case 'email':
-            if (!trimmedValue) return 'El correo es obligatorio.'
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue)) return 'El formato del correo no es válido.'
+            if (!trimmedValue) return t('contact:validation.email.required')
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue)) return t('contact:validation.email.format')
             break
         case 'telefono':
             if (trimmedValue) {
                 const cleanPhone = trimmedValue.replace(/[\s-()]/g, '')
-                if (!/^[0-9]{8,15}$/.test(cleanPhone)) return 'El formato del teléfono no es válido. Use 8-15 dígitos (ej: 8095555555 o (809) 555-5555).'
+                if (!/^[0-9]{8,15}$/.test(cleanPhone)) return t('contact:validation.phone.format')
             }
             break
         case 'mensaje':
-            if (!trimmedValue) return 'El mensaje es obligatorio.'
-            if (trimmedValue.length < 10 || trimmedValue.length > 500) return 'El mensaje debe tener entre 10 y 500 caracteres.'
+            if (!trimmedValue) return t('contact:validation.message.required')
+            if (trimmedValue.length < 10 || trimmedValue.length > 500) return t('contact:validation.message.length')
             break
     }
     return ''
 }
 
 export const useFormValidation = (onSubmit?: (data: FormData) => Promise<void>): UseFormValidationReturn => {
+    const { t } = useTranslation('contact')
     const [formData, setFormData] = useState<FormData>({
         nombre: '',
         email: '',
@@ -67,18 +70,18 @@ export const useFormValidation = (onSubmit?: (data: FormData) => Promise<void>):
         const { name, value } = e.target
         setFormData(prev => ({ ...prev, [name]: value }))
         
-        // Validar en tiempo real
-        const error = validateField(name, value)
+        // Validar en tiempo real con la traducción
+        const error = validateField(name, value, t)
         setErrors(prev => ({ ...prev, [name]: error }))
     }
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
         
-        // Validar todos los campos
+        // Validar todos los campos con la traducción
         const newErrors: FormErrors = {}
         Object.keys(formData).forEach(key => {
-            const error = validateField(key, formData[key as keyof FormData])
+            const error = validateField(key, formData[key as keyof FormData], t)
             if (error) {
                 newErrors[key as keyof FormErrors] = error
             }

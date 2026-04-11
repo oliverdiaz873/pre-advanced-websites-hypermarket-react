@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import type { HeaderSearchProduct } from '../hooks/useHeaderSearch'
 import { getAssetUrl } from '../../../shared/utils/assetUtils'
 import './MobileSearch.css'
@@ -31,13 +32,14 @@ const MobileSearch = ({
     onSearchSubmit,
     onSearchToggle,
 }: MobileSearchProps) => {
+    const { t } = useTranslation(['header'])
     return (
         <div className={`mobile-search ${isActive ? 'is-active' : ''}`}>
             <div className={`mobile-search__field ${isActive ? 'is-active' : ''}`}>
                 <input
                     ref={searchInputRef}
                     type="text"
-                    placeholder="Buscar productos..."
+                    placeholder={t('header:search_placeholder')}
                     className={`mobile-search__input search-input-modern bg-white text-black px-3 py-1.5 rounded-lg outline-none ${isActive ? 'is-active' : ''}`}
                     value={searchTerm}
                     onChange={(e) => onSearchChange(e.target.value)}
@@ -72,7 +74,7 @@ const MobileSearch = ({
             <button
                 onClick={isActive ? onSearchSubmit : onSearchToggle}
                 className="util-btn group relative"
-                aria-label={isActive ? 'Buscar productos' : 'Abrir buscador'}
+                aria-label={isActive ? t('header:search_submit') : t('header:search_open')}
             >
                 <svg
                     className={`util-icon w-6 h-6 transition-all duration-300 ${isActive ? 'text-red-500 scale-[2]' : ''}`}
@@ -87,7 +89,7 @@ const MobileSearch = ({
                 </svg>
             </button>
 
-            <Link to="/cart" className="util-btn mobile-search__cart group relative" aria-label="Ver carrito">
+            <Link to="/cart" className="util-btn mobile-search__cart group relative" aria-label={t('header:cart_label')}>
                 <svg className="util-icon w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
                     <use href="#icon-cart" />
                 </svg>

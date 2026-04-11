@@ -1,0 +1,32 @@
+{
+  "_documentation": {
+    "namespace": "home",
+    "description": "Contenido específico de la página de inicio (hero, featured, about)",
+    "usage": "Página / (inicio), secciones destacadas, carrusel",
+    "contains": "Titulo hero, subtitulo, descripción de oferta, sección about, datos SEO"
+  },
+  "hero": {
+    "title": "Hipermercado Superior",
+    "subtitle": "Los mejores precios en un solo lugar",
+    "alt_fruits": "Ofertas en frutas y verduras",
+    "alt_tech": "Promociones en tecnología e iPhone",
+    "alt_wine": "Selección premium de vinos",
+    "prev": "Imagen anterior",
+    "next": "Siguiente imagen",
+    "go_to": "Ir a imagen {{index}}"
+  },
+  "sections": {
+    "offers": "Ofertas de la Semana",
+    "featured": "Productos Destacados"
+  },
+  "about_us": {
+    "title": "Sobre Nosotros",
+    "description": "En Hipermercado Superior trabajamos para ofrecerte calidad, variedad y precios justos. Nuestro compromiso es brindarte la mejor experiencia de compra tanto en tienda física como online.",
+    "logo_alt": "Logo del Hipermercado Superior"
+  },
+  "seo": {
+    "title": "Compras inteligentes y productos de calidad",
+    "description": "Hipermercado Superior: tu destino para compras inteligentes. Encuentra la mejor selección de alimentos, electrónica, hogar y más con ofertas exclusivas y precios imbatibles.",
+    "keywords": "hipermercado, compras online, supermercado, ofertas, productos frescos, calidad, ahorro, electrodomésticos, alimentos"
+  }
+}

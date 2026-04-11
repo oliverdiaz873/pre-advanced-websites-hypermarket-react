@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom'
 import { memo } from 'react'
 import { Product } from '../../../shared/types/product'
 import { getAssetUrl } from '../../../shared/utils/assetUtils'
-import { cleanPrice, unitLabel } from '../../../shared/utils/priceUtils'
+import { cleanPrice } from '../../../shared/utils/priceUtils'
 import { OfferBadge } from '../../offers/components'
 import AddToCartButton from '../../cart/components/AddToCartButton'
+import { useProductTranslation } from '../hooks/useProductTranslation'
 import './ProductCard.css'
 
 interface ProductCardProps {
@@ -15,6 +16,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, isOffer, oldPrice, discountPercentage }: ProductCardProps) => {
+    const { name, labels } = useProductTranslation(product)
 
     return (
         <article className={`producto product-card ${isOffer ? 'offer-card' : ''} block shrink-0 snap-start`}>
@@ -24,11 +26,11 @@ const ProductCard = ({ product, isOffer, oldPrice, discountPercentage }: Product
             <Link
                 to={`/product/${product.id}`}
                 className="product-card__overlay-link"
-                aria-label={`Ver detalles de ${product.nombre}`}
+                aria-label={labels.viewDetails}
             ></Link>
 
             <div className="producto-img-container">
-                <img src={getAssetUrl(product.imagen)} alt={product.nombre} loading="lazy" />
+                <img src={getAssetUrl(product.imagen)} alt={name} loading="lazy" />
             </div>
 
             {/* Lógica de precio: Si es oferta y tiene precio antiguo, mostramos el bloque de descuento.
@@ -45,11 +47,11 @@ const ProductCard = ({ product, isOffer, oldPrice, discountPercentage }: Product
                     )}
                 </div>
                 <p className="producto-unit-format">
-                    ${product.precio.toLocaleString()} / {unitLabel(product)}
+                    ${product.precio.toLocaleString()} / {labels.unit}
                 </p>
             </div>
 
-            <h3 className="producto-title">{product.nombre}</h3>
+            <h3 className="producto-title">{name}</h3>
 
             <AddToCartButton product={product} />
         </article>

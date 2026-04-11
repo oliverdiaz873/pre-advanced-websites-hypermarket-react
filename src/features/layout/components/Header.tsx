@@ -9,6 +9,8 @@ import MobileSearch from './MobileSearch'
 import logoImg from '../../../assets/images/logo/logo.png'
 import { useCart } from '../../cart/hooks/useCart'
 import { useHeaderSearch } from '../hooks/useHeaderSearch'
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from '../../../shared/i18n/components/LanguageSelector'
 import './Header.css'
 import '../../navigation/components/Navigation.css'
 
@@ -32,6 +34,8 @@ const Header = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const isHomePage = location.pathname === '/'
+
+    const { t } = useTranslation(['header'])
 
     const {
         isSearchActive,
@@ -67,7 +71,7 @@ const Header = () => {
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="menu-btn text-[22px] bg-transparent border-none text-white cursor-pointer transition-colors duration-300 rounded hover:bg-white/15 p-1"
-                        aria-label="Abrir menu"
+                        aria-label={t(isMobileMenuOpen ? 'header:menu_close' : 'header:menu_open')}
                     >
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
                             <use href="#icon-menu" />
@@ -80,11 +84,11 @@ const Header = () => {
                         <img src={logoImg} alt="Logo" className="w-8" />
                         {isHomePage ? (
                             <h1 className="text-sm md:text-base font-bold whitespace-nowrap">
-                                Hipermercado Superior
+                                {t('header:brand')}
                             </h1>
                         ) : (
                             <span className="text-sm md:text-base font-bold whitespace-nowrap">
-                                Hipermercado Superior
+                                {t('header:brand')}
                             </span>
                         )}
                     </Link>
@@ -137,6 +141,10 @@ const Header = () => {
                         onSearchToggle={handleSearchToggle}
                     />
                 )}
+
+                <div className="flex items-center gap-2 ml-2">
+                    <LanguageSelector />
+                </div>
             </div>
 
             {viewportMode === 'mobile' && (

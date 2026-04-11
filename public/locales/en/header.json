@@ -1,0 +1,22 @@
+{
+  "_documentation": {
+    "namespace": "header",
+    "description": "Contenido del encabezado y navegación principal de la aplicación",
+    "usage": "Barra superior, logo, menú principal, búsqueda, zona de usuario",
+    "contains": "Brand, menú, opciones de usuario, carrito, búsqueda, categorías"
+  },
+  "brand": "Superior Hypermarket",
+  "menu_open": "Open menu",
+  "menu_close": "Close menu",
+  "cart_label": "View cart",
+  "search_placeholder": "Search your products...",
+  "search_submit": "Search products",
+  "search_open": "Open search",
+  "nav_aria": "Main menu",
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "offers": "Offers",
+    "contact": "Contact"
+  }
+}

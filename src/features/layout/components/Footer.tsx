@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import './Footer.css'
 
 const Footer = () => {
+    const { t } = useTranslation(['footer'])
+    const currentYear = new Date().getFullYear()
+
     return (
         <footer className="footer-global">
             <div className="footer-content">
                 <small>
-                    &copy; 2026 Hipermercado Superior. Todos los derechos reservados.
+                    &copy; {currentYear} {t('footer:company_name')}. {t('footer:rights_reserved')}
                 </small>
 
                 <div className="social-icons">
@@ -14,7 +18,7 @@ const Footer = () => {
                         href="https://facebook.com/tuweb"
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        aria-label="Visítanos en Facebook"
+                        aria-label={t('footer:social.facebook')}
                         className="social-link"
                     >
                         <svg aria-hidden="true">
@@ -25,7 +29,7 @@ const Footer = () => {
                         href="https://twitter.com/tuweb"
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        aria-label="Visítanos en X (antes Twitter)"
+                        aria-label={t('footer:social.x')}
                         className="social-link"
                     >
                         <svg aria-hidden="true">
@@ -36,7 +40,7 @@ const Footer = () => {
                         href="https://instagram.com/tuweb"
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        aria-label="Visítanos en Instagram"
+                        aria-label={t('footer:social.instagram')}
                         className="social-link"
                     >
                         <svg aria-hidden="true">
@@ -46,12 +50,12 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-links">
-                    <Link to="/legal/privacy" title="Política de Privacidad">
-                        Política de Privacidad
+                    <Link to="/legal/privacy" title={t('footer:links.privacy')}>
+                        {t('footer:links.privacy')}
                     </Link>
                     <span className="separator">|</span>
-                    <Link to="/legal/terms" title="Términos de Uso">
-                        Términos de Uso
+                    <Link to="/legal/terms" title={t('footer:links.terms')}>
+                        {t('footer:links.terms')}
                     </Link>
                 </div>
             </div>

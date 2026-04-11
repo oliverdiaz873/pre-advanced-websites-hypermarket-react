@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { categories } from '../../../data/categories'
 
 interface MobileNavProps {
@@ -8,6 +9,7 @@ interface MobileNavProps {
 }
 
 const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
+    const { t } = useTranslation(['categories', 'header'])
     const [openCategory, setOpenCategory] = useState<string | null>(null)
     const [openSubcategories, setOpenSubcategories] = useState<string[]>([])
 
@@ -32,12 +34,12 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
         <nav
             id="mobile-menu"
             className="fixed top-[49px] left-0 w-full bg-black/95 text-white z-[999] max-h-[calc(100vh-49px)] overflow-y-auto py-5 shadow-xl"
-            aria-label="Menú móvil"
+            aria-label={t('header:nav_aria')}
         >
             <ul className="list-none p-0 m-0">
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <Link to="/" className="block" onClick={handleLinkClick}>
-                        Inicio
+                        {t('header:nav.home')}
                     </Link>
                 </li>
 
@@ -46,7 +48,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                         onClick={() => toggleCategory('categorias')}
                         className="w-full text-left flex justify-between items-center"
                     >
-                        Categorías{' '}
+                        {t('header:nav.categories')}{' '}
                         <span
                             className={`text-[0.7em] opacity-70 transition-transform duration-300 ${openCategory === 'categorias' ? 'rotate-180' : ''
                                 }`}
@@ -63,7 +65,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                                         onClick={() => toggleSubcategory(category.id)}
                                         className="w-full text-left py-3 flex justify-between items-center text-sm"
                                     >
-                                        {category.name}
+                                        {t(`categories:${category.id}`)}
                                         <span
                                             className={`opacity-50 transition-transform duration-300 ${openSubcategories.includes(category.id) ? 'rotate-90' : ''
                                                 }`}
@@ -74,17 +76,20 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
 
                                     {openSubcategories.includes(category.id) && (
                                         <ul className="pl-4 pb-2 text-[13px] list-none p-0">
-                                            {category.subcategories.map((sub) => (
-                                                <li key={sub.name}>
-                                                    <Link
-                                                        to={sub.href}
-                                                        className="block py-2"
-                                                        onClick={handleLinkClick}
-                                                    >
-                                                        {sub.name}
-                                                    </Link>
-                                                </li>
-                                            ))}
+                                            {category.subcategories.map((sub) => {
+                                                const subKey = sub.href.split('#')[1]
+                                                return (
+                                                    <li key={sub.name}>
+                                                        <Link
+                                                            to={sub.href}
+                                                            className="block py-2"
+                                                            onClick={handleLinkClick}
+                                                        >
+                                                            {t(`categories:sub.${subKey}`)}
+                                                        </Link>
+                                                    </li>
+                                                )
+                                            })}
                                         </ul>
                                     )}
                                 </li>
@@ -95,13 +100,13 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
 
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <Link to="/offers" className="block" onClick={handleLinkClick}>
-                        Ofertas
+                        {t('header:nav.offers')}
                     </Link>
                 </li>
 
                 <li className="px-5 py-2.5 border-b border-white/10">
                     <Link to="/contact" className="block" onClick={handleLinkClick}>
-                        Contacto
+                        {t('header:nav.contact')}
                     </Link>
                 </li>
             </ul>
