@@ -20,6 +20,7 @@
     "open": "Open search",
     "cancel": "Cancel search"
   },
+  "seo": {
     "title_query": "Results for \"{{query}}\"",
     "title_empty": "Search Results",
     "desc_query_one": "{{count}} result for \"{{query}}\" at Hipermercado Superior. Find the best products at the best price.",

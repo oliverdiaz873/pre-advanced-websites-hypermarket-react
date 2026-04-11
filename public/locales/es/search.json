@@ -20,6 +20,7 @@
     "open": "Abrir buscador",
     "cancel": "Cancelar búsqueda"
   },
+  "seo": {
     "title_query": "Resultados para \"{{query}}\"",
     "title_empty": "Resultados de Búsqueda",
     "desc_query_one": "{{count}} resultado para \"{{query}}\" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.",
