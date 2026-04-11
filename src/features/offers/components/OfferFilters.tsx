@@ -68,7 +68,7 @@ const OfferFilters = ({
                             className="offer-filters__radio"
                         />
                         <label htmlFor={`category-${category.id}`} className="offer-filters__label">
-                            {t(`categories:${category.id}.name`, { defaultValue: category.name })}
+                            {t(`categories:${category.id}`)}
                         </label>
                     </div>
                 ))}
