@@ -20,8 +20,21 @@
     "remove": "Eliminar"
   },
   "cart": {
+    "add_button": "Agregar",
+    "header_title": "Tu Carrito",
     "decrease_qty": "Disminuir cantidad",
-    "increase_qty": "Aumentar cantidad"
+    "increase_qty": "Aumentar cantidad",
+    "summary": {
+      "title": "Resumen de la Compra",
+      "total_items": "Total de productos:",
+      "total_price": "Total a pagar:",
+      "pay_button": "Pagar Ahora"
+    },
+    "empty": {
+      "title": "Tu Carrito está vacío",
+      "message": "¡Explora nuestros productos y llena tu carrito!",
+      "button": "Volver a la Tienda"
+    }
   },
   "units": {
     "unidad": "unidad",

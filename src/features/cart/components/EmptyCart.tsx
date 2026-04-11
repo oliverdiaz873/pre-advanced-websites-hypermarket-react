@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './EmptyCart.css'
 
@@ -6,8 +7,13 @@ import './EmptyCart.css'
  * 
  * Muestra el estado cuando no hay productos en el carrito
  * con un mensaje informativo y botón para volver a la tienda.
+ * 
+ * INTERNACIONALIZACIÓN:
+ * Soporta ES/EN con traducciones en common:cart.empty
  */
 const EmptyCart = () => {
+    const { t } = useTranslation('common')
+    
     return (
         <section className="empty-cart">
             <div className="empty-cart__content">
@@ -15,11 +21,11 @@ const EmptyCart = () => {
                     <use href="#icon-cart"/>
                 </svg>
                 
-                <h2 className="empty-cart__title">Tu Carrito está vacío</h2>
-                <p className="empty-cart__message">¡Explora nuestros productos y llena tu carrito!</p>
+                <h2 className="empty-cart__title">{t('cart.empty.title')}</h2>
+                <p className="empty-cart__message">{t('cart.empty.message')}</p>
                 
                 <Link to="/" className="empty-cart__button">
-                    Volver a la Tienda
+                    {t('cart.empty.button')}
                 </Link>
             </div>
         </section>

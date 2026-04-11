@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCart } from '../hooks/useCart';
 import { Product } from '../../../shared/types/product';
 import './AddToCartButton.css';
@@ -8,6 +9,7 @@ interface AddToCartButtonProps {
 }
 
 const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product }) => {
+    const { t } = useTranslation('common');
     const { cart, addToCart, updateQuantity } = useCart();
     
     // Buscar si el producto ya está en el carrito para obtener la cantidad
@@ -42,9 +44,9 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product }) => {
             <button
                 onClick={handleInitialAdd}
                 className="btn-agregar"
-                aria-label={`Agregar ${product.nombre} al carrito`}
+                aria-label={`${t('cart.add_button')} ${product.nombre} ${t('common:product.add_to_cart')}`}
             >
-                Agregar
+                {t('cart.add_button')}
             </button>
         );
     }
@@ -54,7 +56,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product }) => {
             <button 
                 onClick={handleDecrement} 
                 className="counter-btn minus"
-                aria-label="Disminuir cantidad"
+                aria-label={t('cart.decrease_qty')}
             >
                 -
             </button>
@@ -62,7 +64,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product }) => {
             <button 
                 onClick={handleIncrement} 
                 className="counter-btn plus"
-                aria-label="Aumentar cantidad"
+                aria-label={t('cart.increase_qty')}
             >
                 +
             </button>
