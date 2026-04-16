@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Toast from '../shared/components/Toast'
 import ContactForm from '../features/contact/components/ContactForm'
@@ -8,6 +8,14 @@ const Contact = () => {
     const { t } = useTranslation('contact')
     const [showToast, setShowToast] = useState(false)
     const [toastMessage, setToastMessage] = useState('')
+
+    // Efecto para aplicar el fondo negro "profundo" solo en esta página
+    useEffect(() => {
+        document.body.classList.add('dark-theme-body')
+        return () => {
+            document.body.classList.remove('dark-theme-body')
+        }
+    }, [])
 
     // Función para mostrar toast (Usando el componente Toast)
     const showSuccessToast = () => {
@@ -46,7 +54,7 @@ const Contact = () => {
             />
 
             <section id="contacto" className="w-full px-4 py-1 md:py-1 lg:py-1 flex justify-center">
-                <main className="contacto-container w-full max-w-[550px] md:max-w-[700px] lg:max-w-[750px] xl:max-w-[800px] mx-auto my-3 md:my-10 lg:my-5 p-5 md:p-8 lg:p-9 xl:p-10 rounded-lg bg-black/80 border border-white/20 text-white">
+                <main className="contacto-container w-full max-w-[550px] md:max-w-[700px] lg:max-w-[750px] xl:max-w-[800px] mx-auto my-3 md:my-10 lg:my-5 p-5 md:p-8 lg:p-9 xl:p-10 rounded-lg bg-[#1a1a1c] border border-white/10 text-white shadow-2xl">
                     <ContactForm onSuccess={showSuccessToast} />
 
                     <section className="contacto-info mt-5 md:mt-5">

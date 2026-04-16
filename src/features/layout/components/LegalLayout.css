@@ -1,13 +1,14 @@
 /* MAIN */
 .politica-container {
     max-width: 900px;
-    margin: 20px auto 60px auto;
-    /* Evita que se tape con el header */
-    background-color: rgba(0, 0, 0, 0.8);
+    margin: 40px auto 60px auto;
+    /* Negro más clarito para contraste con el body profundo */
+    background-color: #1a1a1c;
     padding: 30px;
     border-radius: 20px;
     color: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .politica-container h1,

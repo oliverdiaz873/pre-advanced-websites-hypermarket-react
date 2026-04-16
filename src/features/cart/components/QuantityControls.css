@@ -19,9 +19,9 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: #ffffff;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    color: #111827;
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -33,7 +33,7 @@
 
 /* Efecto hover en botones de cantidad */
 .quantity-controls__btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #e5e7eb;
     transform: scale(1.1);
 }
 
@@ -47,7 +47,7 @@
     width: 2rem;
     text-align: center;
     font-weight: 600;
-    color: #ffffff;
+    color: #111827;
     font-size: 1rem;
     min-width: 2rem;
 }
