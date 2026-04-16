@@ -37,8 +37,11 @@ const validateField = (name: string, value: string, t: TFunction): string => {
             break
         case 'email':
             if (!trimmedValue) return t('contact:validation.email.required')
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue)) return t('contact:validation.email.format')
-            break
+            if (trimmedValue.length > 254) return t('contact:validation.email.format')
+            // Regex de grado profesional: Valida caracteres especiales permitidos, estructura de puntos y asegura un TLD alfabético de 2+ caracteres
+            const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            if (!emailRegex.test(trimmedValue)) return t('contact:validation.email.format')
+            break;
         case 'telefono':
             if (trimmedValue) {
                 const cleanPhone = trimmedValue.replace(/[\s-()]/g, '')
