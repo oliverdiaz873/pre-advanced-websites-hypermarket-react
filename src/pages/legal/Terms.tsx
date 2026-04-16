@@ -3,7 +3,7 @@ import SEOHead from '../../shared/components/SEOHead'
 import { useTranslation } from 'react-i18next'
 
 const Terms = () => {
-    const { t } = useTranslation(['legal'])
+    const { t } = useTranslation(['legal', 'header'])
 
     return (
         <>
@@ -15,13 +15,13 @@ const Terms = () => {
                 keywords={t('legal:terms.seo.keywords')}
                 jsonLd={{
                     '@type': 'WebPage',
-                    name: `${t('legal:terms.title')} - Hipermercado Superior`,
+                    name: `${t('legal:terms.title')} - ${t('header:brand')}`,
                     description: t('legal:terms.seo.json_ld_desc'),
                     url: 'https://www.hipermercadosuperior.com/legal/terms',
                     dateModified: '2026-03-21',
                     publisher: {
                         '@type': 'Organization',
-                        name: 'Hipermercado Superior',
+                        name: t('header:brand'),
                     },
                 }}
             />
@@ -53,7 +53,7 @@ const Terms = () => {
                 <h2>{t('legal:terms.sections.8.title')}</h2>
                 <p>
                     {t('legal:terms.sections.8.content')}{' '}
-                    <strong>soporte@hipermercado.com</strong>.
+                    <strong>{t('legal:terms.sections.8.email')}</strong>.
                 </p>
             </LegalLayout>
         </>

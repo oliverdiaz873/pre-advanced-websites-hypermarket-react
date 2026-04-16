@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import './OfferBadge.css'
 
 interface OfferBadgeProps {
@@ -9,14 +10,17 @@ interface OfferBadgeProps {
  * Incluye un icono de fuego y muestra el porcentaje de descuento.
  */
 const OfferBadge = ({ discountPercentage }: OfferBadgeProps) => {
+    const { t } = useTranslation('offers')
     return (
-        <div className="offer-badge" aria-label={`Producto en oferta ${discountPercentage ? `-${discountPercentage}%` : ''}`}>
+        <div className="offer-badge" aria-label={t('badge.aria_label', { discount: discountPercentage ? `-${discountPercentage}%` : '' })}>
             <svg className="offer-badge__icon icon-fire">
                 <use href="#icon-fire" />
             </svg>
-            <span className="offer-badge__text">
-                {discountPercentage ? `-${discountPercentage}%` : 'OFERTA'}
-            </span>
+            {discountPercentage && (
+                <span className="offer-badge__text">
+                    -{discountPercentage}%
+                </span>
+            )}
         </div>
     )
 }

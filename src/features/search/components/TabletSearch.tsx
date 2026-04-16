@@ -103,7 +103,7 @@ const TabletSearch = ({
                             >
                                 <img
                                     src={getAssetUrl(product.imagen)}
-                                    alt=""
+                                    alt={t(`products:${product.id}.name`, { defaultValue: product.nombre })}
                                     className="tablet-search__thumb"
                                 />
                                 <span className="tablet-search__label">{t(`products:${product.id}.name`, { defaultValue: product.nombre })}</span>

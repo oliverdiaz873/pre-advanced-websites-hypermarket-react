@@ -27,7 +27,8 @@
     "desc_query_other": "{{count}} resultados para \"{{query}}\" en Hipermercado Superior. Encuentra los mejores productos al mejor precio.",
     "desc_empty": "Busca y encuentra rápidamente los productos que necesitas en Hipermercado Superior. Amplio catálogo con las mejores ofertas.",
     "json_ld_name": "Resultados para \"{{query}}\"",
-    "json_ld_items": "Productos encontrados para \"{{query}}\""
+    "json_ld_items": "Productos encontrados para \"{{query}}\"",
+    "keywords": "búsqueda productos, hipermercado, supermercado, ofertas, compras online, catálogo superior"
   },
   "hero": {
     "title_query": "Resultados para: \"{{query}}\"",

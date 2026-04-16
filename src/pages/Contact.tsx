@@ -22,7 +22,7 @@ const Contact = () => {
                 title={t('seo.title')}
                 description={t('seo.description')}
                 url="/contact"
-                keywords="contacto hipermercado, atención al cliente, soporte, teléfono supermercado, correo hipermercado"
+                keywords={t('seo.keywords')}
                 jsonLd={{
                     '@type': 'ContactPage',
                     name: t('seo.json_ld_name'),

@@ -16,7 +16,8 @@
     "title": "Ofertas y Promociones",
     "description": "Descubre las mejores ofertas y promociones en Hipermercado Superior. Ahorra en productos de calidad con descuentos exclusivos en alimentos, bebidas, limpieza y más.",
     "json_ld_name": "Ofertas y Promociones - Hipermercado Superior",
-    "json_ld_description": "Catálogo de ofertas y promociones activas con descuentos exclusivos en productos de calidad."
+    "json_ld_description": "Catálogo de ofertas y promociones activas con descuentos exclusivos en productos de calidad.",
+    "keywords": "ofertas hipermercado, promociones supermercado, descuentos productos, ofertas semanales, ahorro compras, mega ofertas"
   },
   "header": {
     "title": "Ofertas",
@@ -32,5 +33,9 @@
   "empty": {
     "title": "No hay ofertas disponibles",
     "message": "Selecciona otra categoría o intenta más tarde"
+  },
+  "badge": {
+    "aria_label": "Producto en oferta {{discount}}",
+    "fallback": "OFERTA"
   }
 }

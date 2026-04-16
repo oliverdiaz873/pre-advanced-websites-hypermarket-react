@@ -28,6 +28,17 @@ const CartItemsList = ({ cart, updateQuantity, removeFromCart }: CartItemsListPr
         <div className="cart-items-list">
             {cart.map((item) => {
                 const offer = offersData.find((o) => o.id === item.id)
+                
+                // Calcular discountPercentage si es una oferta
+                let discountPercentage: number | undefined
+                if (offer?.oldPrice) {
+                    const numericOldPrice = parseFloat(offer.oldPrice.replace(/[^\d.-]/g, ''))
+                    if (!isNaN(numericOldPrice) && numericOldPrice > 0) {
+                        const discount = ((numericOldPrice - item.precio) / numericOldPrice) * 100
+                        discountPercentage = Math.round(discount)
+                    }
+                }
+                
                 return (
                     <CartItem
                         key={item.id}
@@ -38,6 +49,7 @@ const CartItemsList = ({ cart, updateQuantity, removeFromCart }: CartItemsListPr
                         img={item.img}
                         isOffer={!!offer}
                         oldPrice={offer?.oldPrice}
+                        discountPercentage={discountPercentage}
                         updateQuantity={updateQuantity}
                         removeFromCart={removeFromCart}
                     />

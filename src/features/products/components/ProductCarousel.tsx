@@ -6,6 +6,7 @@
  * mientras que la Section añade el título, fondo y mapeo de datos.
  */
 import { useRef, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import './ProductCarousel.css'
 
 interface ProductCarouselProps {
@@ -14,6 +15,7 @@ interface ProductCarouselProps {
 }
 
 const ProductCarousel = ({ children, idPrefix }: ProductCarouselProps) => {
+    const { t } = useTranslation('home')
     const containerRef = useRef<HTMLDivElement>(null)
     // Estados para controlar la visibilidad de los botones
     const [showPrev, setShowPrev] = useState(false)
@@ -82,7 +84,7 @@ const ProductCarousel = ({ children, idPrefix }: ProductCarouselProps) => {
                             d="M15.75 19.5L8.25 12l7.5-7.5"
                         />
                     </svg>
-                    <span className="sr-only">Anterior</span>
+                    <span className="sr-only">{t('hero.prev')}</span>
                 </button>
             )}
 
@@ -116,7 +118,7 @@ const ProductCarousel = ({ children, idPrefix }: ProductCarouselProps) => {
                             d="M8.25 4.5l7.5 7.5-7.5 7.5"
                         />
                     </svg>
-                    <span className="sr-only">Siguiente</span>
+                    <span className="sr-only">{t('hero.next')}</span>
                 </button>
             )}
         </div>

@@ -9,7 +9,8 @@
     "title": "Contact",
     "description": "Contact us at Hipermercado Superior. We are available by email, phone, or contact form. Customer service Monday to Sunday, 8:00 AM – 10:00 PM.",
     "json_ld_name": "Contact - Hipermercado Superior",
-    "json_ld_description": "Contact page for Hipermercado Superior."
+    "json_ld_description": "Contact page for Hipermercado Superior.",
+    "keywords": "hypermarket contact, customer service, support, supermarket phone, hypermarket email"
   },
   "form": {
     "title": "Contact",

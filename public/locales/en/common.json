@@ -36,6 +36,14 @@
       "title": "Your Cart is Empty",
       "message": "Explore our products and fill your cart!",
       "button": "Back to Store"
+    },
+    "seo": {
+      "title": "My Cart",
+      "description": "Review the products in your Hipermercado Superior shopping cart and complete your order at the best price.",
+      "empty_title": "Empty Cart",
+      "empty_description": "Your Hipermercado Superior shopping cart is empty. Explore our offers and fill your cart!",
+      "jsonld_name": "My Cart - Hipermercado Superior",
+      "jsonld_description": "Hipermercado Superior shopping cart page."
     }
   },
   "units": {

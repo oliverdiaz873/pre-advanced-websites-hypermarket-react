@@ -10,6 +10,7 @@ export interface CartItem {
     cantidad: number
     isOffer?: boolean
     oldPrice?: string
+    discountPercentage?: number
 }
 
 interface CartContextType {
@@ -25,6 +26,23 @@ interface CartContextType {
 export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 const STORAGE_KEY = 'carrito'
+
+/**
+ * Calcula el porcentaje de descuento basado en el precio anterior y actual
+ * @param oldPrice - Precio anterior formateado (ej: "RD$ 56.25")
+ * @param currentPrice - Precio actual numérico
+ * @returns Porcentaje de descuento redondeado
+ */
+const calculateDiscountPercentage = (oldPrice?: string, currentPrice?: number): number | undefined => {
+    if (!oldPrice || !currentPrice) return undefined
+    
+    // Extraer valor numérico del oldPrice
+    const numericOldPrice = parseFloat(oldPrice.replace(/[^\d.-]/g, ''))
+    if (isNaN(numericOldPrice) || numericOldPrice <= 0) return undefined
+    
+    const discount = ((numericOldPrice - currentPrice) / numericOldPrice) * 100
+    return Math.round(discount)
+}
 
 /**
  * CartProvider - Proveedor de estado global del carrito
@@ -63,7 +81,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
                         : item
                 )
             }
-            return [...prevCart, { ...product, cantidad: 1 }]
+            
+            // Calcular discountPercentage si es una oferta
+            const discountPercentage = calculateDiscountPercentage(product.oldPrice, product.precio)
+            return [...prevCart, { ...product, cantidad: 1, discountPercentage }]
         })
     }, [])
 

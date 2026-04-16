@@ -31,6 +31,7 @@ interface CartItemProps {
     unidad?: string
     isOffer?: boolean
     oldPrice?: string
+    discountPercentage?: number
     updateQuantity: (id: string, change: number) => void
     removeFromCart: (id: string) => void
 }
@@ -45,6 +46,7 @@ const CartItem = ({
     unidad,
     isOffer = false,
     oldPrice,
+    discountPercentage,
     updateQuantity,
     removeFromCart
 }: CartItemProps) => {
@@ -62,7 +64,7 @@ const CartItem = ({
                 <div className="cart-item__image-container">
                     {isOffer && (
                         <div className="cart-item__badge-wrapper">
-                            <OfferBadge />
+                            <OfferBadge discountPercentage={discountPercentage} />
                         </div>
                     )}
                     <img
@@ -86,7 +88,7 @@ const CartItem = ({
                         onClick={() => removeFromCart(id)}
                         className="cart-item__remove-icon"
                         aria-label={`${t('common:product.remove')} ${name}`}
-                        title="Eliminar"
+                        title={t('common:product.remove')}
                     >
                         <svg viewBox="0 0 24 24">
                             <use href="#icon-trash" />

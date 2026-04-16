@@ -14,7 +14,7 @@ import SEOHead from '../shared/components/SEOHead'
 const Category = () => {
     const { categoryId } = useParams()
     const location = useLocation()
-    const { t } = useTranslation(['categories', 'common'])
+    const { t } = useTranslation(['categories', 'common', 'header'])
 
     const category = useMemo(
         () => categories.find((c) => c.id === categoryId),
@@ -74,7 +74,7 @@ const Category = () => {
 
     /* ── Datos SEO dinámicos según la categoría ──────────────────── */
     const translatedCategoryName = t(`categories:${category.id}`)
-    const translatedSubcategoryNames = category.subcategories
+    const subcategoryNamesList = category.subcategories
         .map((s) => {
             const slug = subcategorySlugFromHref(s.href)
             return t(`categories:sub.${slug}`)
@@ -82,8 +82,14 @@ const Category = () => {
         .join(', ')
 
     const seoTitle = translatedCategoryName
-    const seoDescription = `Explora nuestra selección de ${translatedCategoryName} en Hipermercado Superior: ${translatedSubcategoryNames}. Los mejores productos al mejor precio.`
-    const seoKeywords = `${translatedCategoryName.toLowerCase()}, ${translatedSubcategoryNames.toLowerCase()}, hipermercado, compras online`
+    const seoDescription = t('categories:seo.description_template', { 
+        category: translatedCategoryName, 
+        subcategories: subcategoryNamesList 
+    })
+    const seoKeywords = t('categories:seo.keywords_template', { 
+        category: translatedCategoryName.toLowerCase(), 
+        subcategories: subcategoryNamesList.toLowerCase() 
+    })
 
     return (
         <>
@@ -95,7 +101,7 @@ const Category = () => {
                 keywords={seoKeywords}
                 jsonLd={{
                     '@type': 'CollectionPage',
-                    name: `${translatedCategoryName} - Hipermercado Superior`,
+                    name: `${translatedCategoryName} - ${t('header:brand')}`,
                     description: seoDescription,
                     url: `https://www.hipermercadosuperior.com/category/${category.id}`,
                     mainEntity: {
@@ -110,7 +116,7 @@ const Category = () => {
                     },
                     provider: {
                         '@type': 'Organization',
-                        name: 'Hipermercado Superior',
+                        name: t('header:brand'),
                     },
                 }}
             />

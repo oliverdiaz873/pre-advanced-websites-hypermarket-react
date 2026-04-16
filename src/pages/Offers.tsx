@@ -19,7 +19,7 @@ const Offers = () => {
                 title={t('seo.title')}
                 description={t('seo.description')}
                 url="/offers"
-                keywords="ofertas hipermercado, promociones supermercado, descuentos productos, ofertas semanales, ahorro compras, mega ofertas"
+                keywords={t('seo.keywords')}
                 jsonLd={{
                     '@type': 'OfferCatalog',
                     name: t('seo.json_ld_name'),

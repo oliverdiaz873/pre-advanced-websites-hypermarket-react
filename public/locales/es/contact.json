@@ -7,7 +7,8 @@
     "title": "Contacto",
     "description": "Contáctanos en Hipermercado Superior. Estamos disponibles por correo, teléfono o formulario de contacto. Atención de lunes a domingo, 8:00 AM – 10:00 PM.",
     "json_ld_name": "Contacto - Hipermercado Superior",
-    "json_ld_description": "Página de contacto de Hipermercado Superior."
+    "json_ld_description": "Página de contacto de Hipermercado Superior.",
+    "keywords": "contacto hipermercado, atención al cliente, soporte, teléfono supermercado, correo hipermercado"
   },
   "form": {
     "title": "Contacto",

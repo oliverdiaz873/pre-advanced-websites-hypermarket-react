@@ -27,7 +27,8 @@
     "desc_query_other": "{{count}} results for \"{{query}}\" at Hipermercado Superior. Find the best products at the best price.",
     "desc_empty": "Search and quickly find the products you need at Hipermercado Superior. Wide catalog with the best offers.",
     "json_ld_name": "Results for \"{{query}}\"",
-    "json_ld_items": "Products found for \"{{query}}\""
+    "json_ld_items": "Products found for \"{{query}}\"",
+    "keywords": "product search, hypermarket, supermarket, offers, online shopping, superior catalog"
   },
   "hero": {
     "title_query": "Results for: \"{{query}}\"",

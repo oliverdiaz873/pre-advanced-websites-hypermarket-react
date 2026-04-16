@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { categories } from '../../../data/categories'
+import LanguageSelector from '../../../shared/i18n/components/LanguageSelector'
 
 interface MobileNavProps {
     isOpen: boolean
@@ -108,6 +109,21 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                     <Link to="/contact" className="block" onClick={handleLinkClick}>
                         {t('header:nav.contact')}
                     </Link>
+                </li>
+
+                <li className="px-5 py-2.5 border-b border-white/10">
+                    <div className="flex items-center justify-between min-h-[44px]">
+                        <div className="flex items-center gap-3">
+                            <svg className="w-5 h-5 text-white shrink-0" fill="currentColor">
+                                <use href="#icon-world" />
+                            </svg>
+                            <span className="text-base text-white">
+                                {t('header:language')}
+                            </span>
+                        </div>
+                        
+                        <LanguageSelector variant="inline" />
+                    </div>
                 </li>
             </ul>
         </nav>

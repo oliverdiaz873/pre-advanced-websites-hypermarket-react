@@ -44,7 +44,7 @@ const Search = () => {
                 title={pageTitle}
                 description={pageDescription}
                 url="/search"
-                keywords="búsqueda productos, hipermercado, supermercado, ofertas, compras online"
+                keywords={t('search:seo.keywords')}
                 noIndex={!hasSearchQuery(trimmedQuery)}
                 jsonLd={hasSearchQuery(trimmedQuery) ? {
                     '@type': 'SearchResultsPage',

@@ -100,7 +100,7 @@ const MobileSearch = ({
                             >
                                 <img
                                     src={getAssetUrl(product.imagen)}
-                                    alt=""
+                                    alt={t(`products:${product.id}.name`, { defaultValue: product.nombre })}
                                     className="mobile-search__thumb"
                                 />
                                 <span className="mobile-search__label">{t(`products:${product.id}.name`, { defaultValue: product.nombre })}</span>

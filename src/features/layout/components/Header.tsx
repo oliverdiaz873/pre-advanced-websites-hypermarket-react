@@ -140,7 +140,9 @@ const Header = () => {
                 )}
 
                 <div className="flex items-center gap-2 ml-2">
-                    <LanguageSelector />
+                    <div className="hidden md:block">
+                        <LanguageSelector />
+                    </div>
                 </div>
             </div>
 

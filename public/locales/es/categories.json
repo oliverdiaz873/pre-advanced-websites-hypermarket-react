@@ -53,5 +53,9 @@
     "plomeria": "Plomería",
     "juguetes_para_ninos": "Juguetes para Niños",
     "juguetes_para_ninas": "Juguetes para Niñas"
+  },
+  "seo": {
+    "description_template": "Explora nuestra selección de {{category}} en Hipermercado Superior: {{subcategories}}. Los mejores productos al mejor precio.",
+    "keywords_template": "{{category}}, {{subcategories}}, hipermercado, compras online"
   }
 }

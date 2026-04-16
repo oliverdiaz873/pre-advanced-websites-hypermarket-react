@@ -15,14 +15,45 @@ const languages = [
  * - UX sofisticada con transiciones sutiles
  * - Diseño responsive y escalable
  */
-const LanguageSelector = () => {
+interface LanguageSelectorProps {
+  /**
+   * Determina el estilo visual del selector:
+   * - 'dropdown': Ideal para el Header (Desktop). Muestra un botón con menú desplegable.
+   * - 'inline': Ideal para el MobileNav. Muestra botones horizontales ES | EN.
+   * @default 'dropdown'
+   */
+  variant?: 'dropdown' | 'inline';
+}
+
+/**
+ * LanguageSelector - Componente de Arquitectura de Nivel Superior
+ * 
+ * Este componente orquesta todo el sistema de cambio de idioma de la interfaz del hipermercado.
+ * Implementa un patrón de diseño flexible que permite su reutilización en diferentes contextos
+ * del layout (Header vs Sidebar) manteniendo una lógica de negocio centralizada.
+ * 
+ * Funcionalidades clave:
+ * - Detección automática del idioma activo (via i18n.resolvedLanguage).
+ * - Cambio instantáneo de locale sin recarga de página.
+ * - Accesibilidad completa (WAI-ARIA) para lectores de pantalla.
+ * - UX optimizada con detector de clics externos para el cierre del menú.
+ * - Soporte para dos variantes visuales: Dropdown (Escritorio) e Inline (Móvil).
+ */
+const LanguageSelector = ({ variant = 'dropdown' }: LanguageSelectorProps) => {
   const { t, i18n } = useTranslation(['common']);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  /**
+   * Idioma actualmente activo, detectado por el motor i18next.
+   * Si no se resuelve ninguno, se toma el primero definido (Español).
+   */
   const currentLanguage = languages.find(lang => lang.code === i18n.resolvedLanguage) || languages[0];
 
-  // Cerrar al hacer click fuera
+  /**
+   * Hook para cerrar el menú desplegable si el usuario hace clic en cualquier 
+   * otra parte de la pantalla (Click-Outside Pattern).
+   */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -33,13 +64,45 @@ const LanguageSelector = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  /**
+   * Orquesta el cambio de idioma global.
+   * @param lng Código ISO del idioma (e.g., 'es', 'en')
+   */
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    if (i18n.language !== lng) {
+      i18n.changeLanguage(lng);
+    }
     setIsOpen(false);
   };
 
+  /**
+   * Renderizado de la Variante Inline (Móvil)
+   * Diseñada para ser incrustada directamente en listas o menús laterales.
+   */
+  if (variant === 'inline') {
+    return (
+      <div className="mobile-lang-list">
+        {languages.map((lang) => (
+          <button
+            key={lang.code}
+            onClick={() => changeLanguage(lang.code)}
+            className={`mobile-lang-btn ${i18n.resolvedLanguage === lang.code ? 'is-active' : ''}`}
+            aria-label={t(`common:switch_to_${lang.code}`)}
+          >
+            {lang.code.toUpperCase()}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  /**
+   * Renderizado de la Variante Dropdown (Desktop)
+   * Tradicional menú flotante con iconos y transiciones.
+   */
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
+      {/* El botón disparador también pertenece a este componente */}
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -48,10 +111,10 @@ const LanguageSelector = () => {
         aria-expanded={isOpen}
         aria-label={t('common:select_language')}
       >
-        <svg className="w-4 h-4 text-orange-400" fill="currentColor">
+        <svg className="w-4 h-4 text-white shrink-0" fill="currentColor">
           <use href="#icon-world" />
         </svg>
-        <span className="hidden sm:inline uppercase">{currentLanguage.code}</span>
+        <span className="uppercase">{currentLanguage.code}</span>
         <svg 
           className={`w-3 h-3 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
@@ -62,10 +125,10 @@ const LanguageSelector = () => {
         </svg>
       </button>
 
-      {/* Dropdown Menu */}
+      {/* Dropdown Menu Overlay */}
       {isOpen && (
         <div 
-          className="absolute right-0 mt-2 w-40 origin-top-right bg-gray-900 border border-white/10 rounded-xl shadow-2xl backdrop-blur-xl z-[1100] overflow-hidden"
+          className="absolute right-0 mt-2 w-40 origin-top-right bg-gray-900 border border-white/10 rounded-xl shadow-2xl backdrop-blur-xl z-[1100] overflow-hidden animate-in fade-in zoom-in duration-200"
           role="menu"
           aria-orientation="vertical"
         >

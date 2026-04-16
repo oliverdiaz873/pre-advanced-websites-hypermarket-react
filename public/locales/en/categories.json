@@ -53,5 +53,9 @@
     "plomeria": "Plumbing",
     "juguetes_para_ninos": "Toys for Boys",
     "juguetes_para_ninas": "Toys for Girls"
+  },
+  "seo": {
+    "description_template": "Explore our selection of {{category}} at Superior Hypermarket: {{subcategories}}. The best products at the best price.",
+    "keywords_template": "{{category}}, {{subcategories}}, hypermarket, online shopping"
   }
 }

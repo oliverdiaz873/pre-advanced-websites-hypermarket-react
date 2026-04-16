@@ -52,3 +52,36 @@
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 3px;
 }
+
+/* Mobile Inline Language Selector */
+.mobile-lang-list {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 99px;
+    border: 1px border rgba(255, 255, 255, 0.1);
+}
+
+.mobile-lang-btn {
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+}
+
+.mobile-lang-btn.is-active {
+    background: #f97316; /* Color naranja de la marca */
+    color: white;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.mobile-lang-btn:not(.is-active):hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}

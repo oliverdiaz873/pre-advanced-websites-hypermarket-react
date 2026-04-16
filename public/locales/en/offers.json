@@ -16,7 +16,8 @@
     "title": "Offers and Promotions",
     "description": "Discover the best offers and promotions at Superior Hypermarket. Save on quality products with exclusive discounts on food, drinks, cleaning supplies, and more.",
     "json_ld_name": "Offers and Promotions - Superior Hypermarket",
-    "json_ld_description": "Catalog of active offers and promotions with exclusive discounts on quality products."
+    "json_ld_description": "Catalog of active offers and promotions with exclusive discounts on quality products.",
+    "keywords": "hypermarket offers, supermarket promotions, product discounts, weekly deals, shopping savings, mega deals"
   },
   "header": {
     "title": "Offers",
@@ -32,5 +33,9 @@
   "empty": {
     "title": "No offers available",
     "message": "Select another category or try again later"
+  },
+  "badge": {
+    "aria_label": "Product on sale {{discount}}",
+    "fallback": "SALE"
   }
 }

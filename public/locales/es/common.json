@@ -34,6 +34,14 @@
       "title": "Tu Carrito está vacío",
       "message": "¡Explora nuestros productos y llena tu carrito!",
       "button": "Volver a la Tienda"
+    },
+    "seo": {
+      "title": "Mi Carrito",
+      "description": "Revisa los productos en tu carrito de compras de Hipermercado Superior y completa tu pedido al mejor precio.",
+      "empty_title": "Carrito Vacío",
+      "empty_description": "Tu carrito de compras en Hipermercado Superior está vacío. ¡Explora nuestras ofertas y llena tu carrito!",
+      "jsonld_name": "Mi Carrito - Hipermercado Superior",
+      "jsonld_description": "Página del carrito de compras de Hipermercado Superior."
     }
   },
   "units": {

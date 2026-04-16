@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useCart } from '../features/cart/hooks/useCart'
 import CartSummary from '../features/cart/components/CartSummary'
 import CartItemsList from '../features/cart/components/CartItemsList'
@@ -7,14 +8,15 @@ import CartLayout from '../features/cart/components/CartLayout'
 import SEOHead from '../shared/components/SEOHead'
 
 const CartPage = () => {
+    const { t } = useTranslation('common')
     const { cart, totalItems, removeFromCart, updateQuantity } = useCart()
 
     if (cart.length === 0) {
         return (
             <>
                 <SEOHead 
-                    title="Carrito Vacío" 
-                    description="Tu carrito de compras en Hipermercado Superior está vacío. ¡Explora nuestras ofertas y llena tu carrito!"
+                    title={t('cart.seo.empty_title')} 
+                    description={t('cart.seo.empty_description')}
                     url="/cart"
                     noIndex={true}
                 />
@@ -26,14 +28,14 @@ const CartPage = () => {
     return (
         <>
             <SEOHead 
-                title="Mi Carrito" 
-                description="Revisa los productos en tu carrito de compras de Hipermercado Superior y completa tu pedido al mejor precio."
+                title={t('cart.seo.title')} 
+                description={t('cart.seo.description')}
                 url="/cart"
                 noIndex={true}
                 jsonLd={{
                     '@type': 'WebPage',
-                    name: 'Mi Carrito - Hipermercado Superior',
-                    description: 'Página del carrito de compras de Hipermercado Superior.',
+                    name: t('cart.seo.jsonld_name'),
+                    description: t('cart.seo.jsonld_description'),
                     url: 'https://www.hipermercadosuperior.com/cart',
                 }}
             />
