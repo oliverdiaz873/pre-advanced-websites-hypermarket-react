@@ -23,6 +23,7 @@ interface CartContextType {
     clearCart: () => void
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 const STORAGE_KEY = 'carrito'

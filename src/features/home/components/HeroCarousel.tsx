@@ -102,7 +102,7 @@ const HeroCarousel = () => {
                         <div key={banner.id} className="banner w-full h-full flex-shrink-0">
                             <img
                                 src={getAssetUrl(isMobile ? banner.mobileImage : banner.desktopImage)}
-                                alt={t(banner.altKey as any)}
+                                alt={t(banner.altKey as string)}
                                 className="w-full h-full object-cover"
                                 onError={(e) => console.error('Error loading banner:', isMobile ? banner.mobileImage : banner.desktopImage, e)}
                             />

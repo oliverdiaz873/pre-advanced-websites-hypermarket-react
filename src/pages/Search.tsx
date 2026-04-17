@@ -1,14 +1,14 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { productos } from '../data/productos'
+import { products } from '../data/products'
 import ProductGrid from '../features/products/components/ProductGrid'
-import SEOHead from '../shared/components/SEOHead'
+import { SEOHead } from '../shared/components'
 import { hasSearchQuery, matchesSearchQuery } from '../shared/utils/searchUtils'
 import './Search.css'
 
 const Search = () => {
-    const { t, i18n } = useTranslation(['search', 'products'])
+    const { t } = useTranslation(['search', 'products'])
     const [searchParams] = useSearchParams()
     const query = searchParams.get('q') ?? ''
     const trimmedQuery = query.trim()
@@ -17,15 +17,16 @@ const Search = () => {
         () => {
             if (!hasSearchQuery(trimmedQuery)) return []
             
-            return productos.filter((product) => {
+            const searchResults = products.filter((product) => {
                 // Buscamos tanto en el nombre original como en el traducido (para fallback o idiomas cruzados)
                 const translatedName = t(`products:${product.id}.name`, { defaultValue: product.nombre })
                 
                 return matchesSearchQuery(product.nombre, trimmedQuery) || 
                        matchesSearchQuery(translatedName, trimmedQuery)
             })
+            return searchResults
         },
-        [trimmedQuery, t, i18n.language]
+        [trimmedQuery, t]
     )
 
     /* ── Título y descripción dinámicos según la búsqueda ──────── */

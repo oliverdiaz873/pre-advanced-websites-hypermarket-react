@@ -30,28 +30,32 @@ const validateField = (name: string, value: string, t: TFunction): string => {
     const trimmedValue = value.trim()
     
     switch (name) {
-        case 'nombre':
+        case 'nombre': {
             if (!trimmedValue) return t('contact:validation.name.required')
             if (trimmedValue.length < 2 || trimmedValue.length > 50) return t('contact:validation.name.length')
             if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmedValue)) return t('contact:validation.name.format')
             return ''
-        case 'email':
+        }
+        case 'email': {
             if (!trimmedValue) return t('contact:validation.email.required')
             if (trimmedValue.length > 254) return t('contact:validation.email.format')
             // Regex de grado profesional: Valida caracteres especiales permitidos, estructura de puntos y asegura un TLD alfabético de 2+ caracteres
-            const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             if (!emailRegex.test(trimmedValue)) return t('contact:validation.email.format')
             return ''
-        case 'telefono':
+        }
+        case 'telefono': {
             if (trimmedValue) {
                 const cleanPhone = trimmedValue.replace(/[\s-()]/g, '')
                 if (!/^[0-9]{8,15}$/.test(cleanPhone)) return t('contact:validation.phone.format')
             }
             return ''
-        case 'mensaje':
+        }
+        case 'mensaje': {
             if (!trimmedValue) return t('contact:validation.message.required')
             if (trimmedValue.length < 10 || trimmedValue.length > 500) return t('contact:validation.message.length')
             return ''
+        }
     }
     return ''
 }
