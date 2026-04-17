@@ -24,38 +24,38 @@ This project belongs to the **`pre-advanced-websites`** category and demonstrate
 
 ## Features
 
-- Fully responsive layout using **Tailwind CSS utility-first design**.
-- **Component-based UI development with React**.
-- **Type-safe code with TypeScript** for improved maintainability.
+- Fully responsive layout using Tailwind CSS utility-first design.
+- Component-based UI development with React.
+- Internationalization (i18n) support for multiple languages (English/Spanish).
+- Type-safe code with TypeScript for improved preventions and maintainability.
 - Reusable UI components for scalable development.
-- Clean separation between:
-  - UI components
-  - Styling
-  - Application logic
+- Clean separation between UI components, styling, and application logic.
 - Mobile-first responsive design using Tailwind breakpoints.
-- JavaScript logic organized within **React components and hooks**.
-- Improved maintainability through modular component architecture.
+- JavaScript logic organized within React components and hooks.
 - Semantic HTML structure for accessibility and SEO.
 
 ---
 
 ## Architecture Approach
 
-This version introduces a **component-driven architecture**, where the UI is built through reusable React components.
+This project implements industry-standard architectural patterns designed for high scalability and maintainability:
 
-The project follows a layered structure:
+### 1. Feature-based Architecture (Clean Features)
+The codebase is organized by domain features rather than file types. This promotes high cohesion and low coupling:
+- **src/features/**: Fully encapsulated modules (Cart, Navigation, Products, etc.) containing their own components, logic, and styles.
+- **src/shared/**: Reusable infrastructure components, types, and utilities that provide a common foundation for all features.
+- **src/pages/**: Orchestration layer where feature components are assembled into full routed views.
 
-- **Layout Layer** – Global page structure and layout components.
-- **Component Layer** – Reusable UI components built with React.
-- **Style Layer** – Tailwind utilities and design tokens.
-- **Logic Layer** – React hooks and TypeScript logic controlling UI behavior.
+### 2. Scalable i18n System (Internationalization)
+The application uses a robust implementation of `react-i18next` with a senior-level configuration:
+- **Namespace Strategy**: Translation files are divided into specific namespaces (header, categories, legal, etc.) to optimize memory and maintainability.
+- **Lazy Loading**: Translation JSON files are loaded on demand via HTTP backend to keep the initial bundle size minimal.
+- **Automatic Detection**: Detects the user's browser language and persists preferences using localStorage.
 
-This approach promotes:
-
-- Scalability
-- Reusability
-- Maintainability
-- Easier transition to modern frameworks like **Next.js** or **Vue**
+### 3. Global Scroll and Navigation Management
+A centralized navigation manager handles global scrolling behaviors:
+- **Level 2 Navigation**: Standard page-to-page resets that ensure the user starts at the top of the new view.
+- **Level 3 Navigation**: Smooth, hash-based scrolling (#section) that positions target elements in the center of the viewport for optimal visibility on mobile devices.
 
 ---
 
