@@ -11,6 +11,11 @@ const dropdownLinkClass =
 const subLinkClass =
     'text-white no-underline text-base px-4 py-1.5 block hover:bg-white/15'
 
+/**
+ * Componente: DesktopNav
+ * Función: Renderiza la navegación principal diseñada para dispositivos de escritorio.
+ * Muestra enlaces directos y un menú desplegable interactivo para las categorías al usar el cursor (hover).
+ */
 const DesktopNav = () => {
     const { t } = useTranslation(['categories', 'header'])
 

@@ -59,14 +59,6 @@ const Category = () => {
             .filter((row) => row.sectionProducts.length > 0)
     }, [category])
 
-    useEffect(() => {
-        if (!hashSlug) return
-        const t = window.setTimeout(() => {
-            const el = document.getElementById(hashSlug)
-            el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 100)
-        return () => window.clearTimeout(t)
-    }, [categoryId, hashSlug, location.key])
 
     if (!categoryId || !category) {
         return <Navigate to="/" replace />

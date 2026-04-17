@@ -9,6 +9,11 @@ interface MobileNavProps {
     onClose?: () => void
 }
 
+/**
+ * Componente: MobileNav
+ * Función: Construye y renderiza el menú hamburguesa optimizado para dispositivos móviles.
+ * Soporta un diseño de menú tipo acordeón con submenús emergentes y selector de idioma integrado.
+ */
 const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
     const { t } = useTranslation(['categories', 'header'])
     const [openCategory, setOpenCategory] = useState<string | null>(null)

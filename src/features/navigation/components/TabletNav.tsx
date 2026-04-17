@@ -13,8 +13,11 @@ const dropdownLinkClass =
 const subLinkClass =
     'text-white no-underline text-base px-4 py-1.5 block hover:bg-white/15'
 
-// Component: navegacion dedicada a tablets. Renderiza el menu principal
-// y delega la apertura/cierre de submenus al hook de interaccion por clic.
+/**
+ * Componente: TabletNav
+ * Función: Renderiza la navegación dedicada a tablets.
+ * Delega la apertura y cierre de submenús al hook de interacción por clic del usuario.
+ */
 const TabletNav = () => {
     const { t } = useTranslation(['categories', 'header'])
     const navRef = useTabletMenu()
