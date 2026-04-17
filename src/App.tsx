@@ -1,10 +1,9 @@
 import { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './features/cart/CartContext'
-import ScrollToTop from './shared/components/ScrollToTop'
+import { ScrollToTop, Icons } from './shared/components'
 import Header from './features/layout/components/Header'
 import Footer from './features/layout/components/Footer'
-import Icons from './shared/components/Icons'
 
 // Lazy load pages para mejor performance
 const Home = lazy(() => import('./pages/Home'))

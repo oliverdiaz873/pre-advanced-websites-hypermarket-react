@@ -1,15 +1,14 @@
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useParams, useLocation, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { categories } from '../data/categories'
-import { productos } from '../data/productos'
+import { products } from '../data/products'
 import {
     sectionSlugToProductCategoria,
     subcategorySlugFromHref,
 } from '../data/categorySectionMap'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
-import Breadcrumb from '../shared/components/Breadcrumb'
-import SEOHead from '../shared/components/SEOHead'
+import { Breadcrumb, SEOHead } from '../shared/components'
 
 const Category = () => {
     const { categoryId } = useParams()
@@ -51,7 +50,7 @@ const Category = () => {
             .map((sub) => {
                 const slug = subcategorySlugFromHref(sub.href)
                 const productCategoria = sectionSlugToProductCategoria(slug)
-                const sectionProducts = productos.filter(
+                const sectionProducts = products.filter(
                     (p) => p.categoria === productCategoria
                 )
                 return { sub, slug, sectionProducts }

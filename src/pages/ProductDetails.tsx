@@ -1,11 +1,10 @@
 import { useParams } from 'react-router-dom'
-import { productos } from '../data/productos'
+import { products } from '../data/products'
 import { productPageData } from '../data/productPageData'
 import { categories } from '../data/categories'
-import Breadcrumb from '../shared/components/Breadcrumb'
+import { Breadcrumb, SEOHead } from '../shared/components'
 import ProductDetailSection from '../features/products/components/ProductDetailSection'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
-import SEOHead from '../shared/components/SEOHead'
 import { useTranslation } from 'react-i18next'
 import { useProductTranslation } from '../features/products/hooks/useProductTranslation'
 
@@ -30,7 +29,7 @@ const ProductDetails = () => {
     const { productId } = useParams<{ productId: string }>()
     const { t } = useTranslation(['categories', 'common', 'header'])
 
-    const product = productos.find((p) => p.id === productId)
+    const product = products.find((p) => p.id === productId)
     const pageData = productId ? productPageData[productId] : undefined
 
     // Hook para traducciones del producto
@@ -79,9 +78,8 @@ const ProductDetails = () => {
         return items
     })()
 
-    // ── Productos similares ──────────────────────────────────────────────────
     const similarProducts = product
-        ? productos.filter((p) => p.categoria === product.categoria && p.id !== product.id).slice(0, 8)
+        ? products.filter((p) => p.categoria === product.categoria && p.id !== product.id).slice(0, 8)
         : []
 
     if (!product) {

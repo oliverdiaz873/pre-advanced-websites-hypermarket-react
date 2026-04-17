@@ -5,7 +5,7 @@ import CartItemsList from '../features/cart/components/CartItemsList'
 import CartHeader from '../features/cart/components/CartHeader'
 import EmptyCart from '../features/cart/components/EmptyCart'
 import CartLayout from '../features/cart/components/CartLayout'
-import SEOHead from '../shared/components/SEOHead'
+import { SEOHead } from '../shared/components'
 
 const CartPage = () => {
     const { t } = useTranslation('common')

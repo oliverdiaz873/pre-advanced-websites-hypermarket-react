@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next'
 import ProductGrid from '../features/products/components/ProductGrid'
 import { OfferFilters, EmptyOffers } from '../features/offers'
 import { useOfferFilters } from '../features/offers/hooks'
-import Drawer from '../shared/components/Drawer/Drawer'
-import SEOHead from '../shared/components/SEOHead'
+import { Drawer, SEOHead } from '../shared/components'
 import './Offers.css'
 
 const Offers = () => {

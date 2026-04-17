@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import Toast from '../shared/components/Toast'
+import { Toast, SEOHead } from '../shared/components'
 import ContactForm from '../features/contact/components/ContactForm'
-import SEOHead from '../shared/components/SEOHead'
 
 const Contact = () => {
     const { t } = useTranslation('contact')

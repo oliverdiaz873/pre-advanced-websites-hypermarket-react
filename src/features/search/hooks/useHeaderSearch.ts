@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { productos } from '../../../data/productos'
+import { products } from '../../../data/products'
 import { hasSearchQuery, normalizarTexto } from '../../../shared/utils/searchUtils'
 
 /**
@@ -59,7 +59,7 @@ export const useHeaderSearch = (
         }
 
         const term = normalizarTexto(searchTerm)
-        const filtered = productos
+        const filtered = products
             .filter((product) => {
                 // Buscar en nombre español
                 const nombreSpanish = normalizarTexto(product.nombre)

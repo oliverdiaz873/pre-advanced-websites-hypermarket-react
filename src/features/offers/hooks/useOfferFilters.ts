@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Product } from '../../../shared/types/product'
-import { productos } from '../../../data/productos'
+import { products } from '../../../data/products'
 import { calculateDiscountPercentage, offersData } from '../../../data/offers'
 import { categories } from '../../../data/categories'
 
@@ -48,7 +48,7 @@ export const useOfferFilters = (): UseOfferFiltersReturn => {
     const offerProducts: OfferProduct[] = useMemo(() => {
         return offersData
             .map((off) => {
-                const product = productos.find((p) => p.id === off.id)
+                const product = products.find((p) => p.id === off.id)
                 return product
                     ? {
                         ...product,

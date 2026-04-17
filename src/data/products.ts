@@ -1,7 +1,7 @@
 import { Product } from '../shared/types/product'
 
 // 184 productos en total - completamente internacionalizados en ES e EN
-export const productos: Product[] = [
+export const products: Product[] = [
 
     //--Alimentos--//
 

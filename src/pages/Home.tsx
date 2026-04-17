@@ -1,9 +1,9 @@
 import HeroCarousel from '../features/home/components/HeroCarousel'
 import ProductCarouselSection from '../features/products/components/ProductCarouselSection'
 import AboutUs from '../features/home/components/AboutUs'
-import SEOHead from '../shared/components/SEOHead'
+import { SEOHead } from '../shared/components'
 import { useTranslation } from 'react-i18next'
-import { productos } from '../data/productos'
+import { products } from '../data/products'
 import { Product } from '../shared/types/product'
 import { calculateDiscountPercentage, offersData } from '../data/offers'
 
@@ -24,11 +24,11 @@ const featuredIds = [
 
 const Home = () => {
     const { t } = useTranslation(['home'])
-    const featuredProducts = productos.filter((p) => featuredIds.includes(p.id))
+    const featuredProducts = products.filter((p) => featuredIds.includes(p.id))
 
     const offerProducts: OfferProduct[] = offersData
         .map((off) => {
-            const product = productos.find((p) => p.id === off.id)
+            const product = products.find((p) => p.id === off.id)
             return product
                 ? {
                     ...product,
