@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import logoWithBg from '../../../assets/images/logo/logo_with_background.jpeg'
+
 import { useTranslation } from 'react-i18next'
 import './AboutUs.css'
 import { useScrollScale } from '../hooks/useScrollScale'
@@ -17,7 +17,7 @@ const AboutUs = () => {
         >
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-16 px-5 py-4 md:px-8">
                 <img
-                    src={logoWithBg}
+                    src="/assets/images/logo/logo_with_background.jpeg"
                     alt={t('home:about_us.logo_alt')}
                     className="w-[250px] md:w-[350px] lg:w-[450px] h-auto rounded-[15px] shrink-0"
                     loading="lazy"

@@ -4,7 +4,7 @@ import DesktopNav from '../../navigation/components/DesktopNav'
 import TabletNav from '../../navigation/components/TabletNav'
 import MobileNav from '../../navigation/components/MobileNav'
 import { DesktopSearch, TabletSearch, MobileSearch, useHeaderSearch } from '../../search'
-import logoImg from '../../../assets/images/logo/logo.png'
+
 import { useCart } from '../../cart/hooks/useCart'
 import { useTranslation } from 'react-i18next'
 import LanguageSelector from '../../../shared/i18n/components/LanguageSelector'
@@ -78,7 +78,7 @@ const Header = () => {
 
                 {showBrand && (
                     <Link to="/" className="brand flex items-center gap-1 text-white no-underline mr-4">
-                        <img src={logoImg} alt="Logo" className="w-8" />
+                        <img src="/assets/images/logo/logo.png" alt="Logo" className="w-8" />
                         {isHomePage ? (
                             <h1 className="text-sm md:text-base font-bold whitespace-nowrap">
                                 {t('header:brand')}
